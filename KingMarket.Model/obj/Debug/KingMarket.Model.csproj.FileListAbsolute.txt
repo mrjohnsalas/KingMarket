@@ -7,3 +7,12 @@ D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Model\bin\Debug\EntityFrame
 D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
 D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll.config
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.pdb
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.xml
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb

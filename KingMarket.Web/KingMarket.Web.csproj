@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClassDocumentTypesController.cs" />
+    <Compile Include="Controllers\DocumentTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -181,6 +182,11 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ClassDocumentTypeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DocumentTypeService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -211,6 +217,7 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.ClassDocumentType.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.DocumentType.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -232,6 +239,13 @@
     <None Include="Service References\ClassDocumentTypeService\configuration91.svcinfo" />
     <None Include="Service References\ClassDocumentTypeService\configuration.svcinfo" />
     <None Include="Service References\ClassDocumentTypeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DocumentTypeService\DocumentTypeService.disco" />
+    <None Include="Service References\DocumentTypeService\configuration91.svcinfo" />
+    <None Include="Service References\DocumentTypeService\configuration.svcinfo" />
+    <None Include="Service References\DocumentTypeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -284,6 +298,21 @@
     <Content Include="Views\ClassDocumentTypes\Create.cshtml" />
     <Content Include="Views\ClassDocumentTypes\Edit.cshtml" />
     <Content Include="Views\ClassDocumentTypes\Delete.cshtml" />
+    <None Include="Service References\DocumentTypeService\DocumentTypeService.wsdl" />
+    <None Include="Service References\DocumentTypeService\DocumentTypeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentTypeService\DocumentTypeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentTypeService\DocumentTypeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\DocumentTypes\Index.cshtml" />
+    <Content Include="Views\DocumentTypes\Details.cshtml" />
+    <Content Include="Views\DocumentTypes\Create.cshtml" />
+    <Content Include="Views\DocumentTypes\Edit.cshtml" />
+    <Content Include="Views\DocumentTypes\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +332,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ClassDocumentTypeService\" />
+    <WCFMetadataStorage Include="Service References\DocumentTypeService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
