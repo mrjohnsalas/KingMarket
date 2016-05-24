@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClassDocumentTypeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClassDocumentTypeService_GetClassDocumentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDocumentTypes" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_GetClassDocumentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDocumentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_GetClassDocumentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDocumentType" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_GetClassDocumentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_CreateClassDocumentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClassDocumentType" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_CreateClassDocumentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClassDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_EditClassDocumentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditClassDocumentType" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_EditClassDocumentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditClassDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_DeleteClassDocumentType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClassDocumentType" />
+  </wsdl:message>
+  <wsdl:message name="IClassDocumentTypeService_DeleteClassDocumentType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClassDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClassDocumentTypeService">
+    <wsdl:operation name="GetClassDocumentTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassDocumentTypeService/GetClassDocumentTypes" message="tns:IClassDocumentTypeService_GetClassDocumentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassDocumentTypeService/GetClassDocumentTypesResponse" message="tns:IClassDocumentTypeService_GetClassDocumentTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClassDocumentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassDocumentTypeService/GetClassDocumentType" message="tns:IClassDocumentTypeService_GetClassDocumentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassDocumentTypeService/GetClassDocumentTypeResponse" message="tns:IClassDocumentTypeService_GetClassDocumentType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateClassDocumentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentType" message="tns:IClassDocumentTypeService_CreateClassDocumentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentTypeResponse" message="tns:IClassDocumentTypeService_CreateClassDocumentType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditClassDocumentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentType" message="tns:IClassDocumentTypeService_EditClassDocumentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentTypeResponse" message="tns:IClassDocumentTypeService_EditClassDocumentType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClassDocumentType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentType" message="tns:IClassDocumentTypeService_DeleteClassDocumentType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentTypeResponse" message="tns:IClassDocumentTypeService_DeleteClassDocumentType_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClassDocumentTypeService" type="tns:IClassDocumentTypeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClassDocumentTypes">
+      <soap:operation soapAction="http://tempuri.org/IClassDocumentTypeService/GetClassDocumentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClassDocumentType">
+      <soap:operation soapAction="http://tempuri.org/IClassDocumentTypeService/GetClassDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateClassDocumentType">
+      <soap:operation soapAction="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditClassDocumentType">
+      <soap:operation soapAction="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClassDocumentType">
+      <soap:operation soapAction="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClassDocumentTypeService">
+    <wsdl:port name="BasicHttpBinding_IClassDocumentTypeService" binding="tns:BasicHttpBinding_IClassDocumentTypeService">
+      <soap:address location="http://localhost:55981/ClassDocumentTypeService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b7db68e0-69e9-4de5-929b-cd6ce38bf735" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55981/ClassDocumentTypeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClassDocumentTypeService.disco" MetadataType="Disco" ID="4a3b85ed-f8ee-4ec6-8e91-a0ebfab6dce8" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?disco" />
+    <MetadataFile FileName="ClassDocumentTypeService.xsd" MetadataType="Schema" ID="6ca766fe-747d-4d6f-b1a5-b2cf7ae6b6c6" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClassDocumentTypeService.wsdl" MetadataType="Wsdl" ID="c1c797f5-eac4-4cb0-b3a8-2d580d3bd558" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?wsdl" />
+    <MetadataFile FileName="ClassDocumentTypeService1.xsd" MetadataType="Schema" ID="e01f22e6-0b6a-4d00-9843-399b21dd39cf" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClassDocumentTypeService2.xsd" MetadataType="Schema" ID="39aadf9a-7d82-4e6d-a846-0474391f96b5" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
