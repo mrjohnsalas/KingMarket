@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
+    <Compile Include="Controllers\UnitMeasuresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -423,6 +424,11 @@
     <None Include="Service References\UnitMeasureService\UnitMeasureService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\UnitMeasures\Index.cshtml" />
+    <Content Include="Views\UnitMeasures\Details.cshtml" />
+    <Content Include="Views\UnitMeasures\Create.cshtml" />
+    <Content Include="Views\UnitMeasures\Edit.cshtml" />
+    <Content Include="Views\UnitMeasures\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
