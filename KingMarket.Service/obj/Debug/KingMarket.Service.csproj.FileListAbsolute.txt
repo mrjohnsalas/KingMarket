@@ -26,3 +26,17 @@ D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
 D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
 D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
 D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
+C:\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll.config
+C:\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll
+C:\KingMarket\KingMarket.Service\bin\KingMarket.Service.pdb
+C:\KingMarket\KingMarket.Service\bin\EntityFramework.dll
+C:\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.dll
+C:\KingMarket\KingMarket.Service\bin\KingMarket.Data.dll
+C:\KingMarket\KingMarket.Service\bin\KingMarket.Model.dll
+C:\KingMarket\KingMarket.Service\bin\KingMarket.Data.pdb
+C:\KingMarket\KingMarket.Service\bin\KingMarket.Model.pdb
+C:\KingMarket\KingMarket.Service\bin\EntityFramework.xml
+C:\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
+C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
+C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
+C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb

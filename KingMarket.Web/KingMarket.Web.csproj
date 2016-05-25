@@ -172,6 +172,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClassDocumentTypesController.cs" />
     <Compile Include="Controllers\DocumentTypesController.cs" />
+    <Compile Include="Controllers\EmployeeTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -187,6 +188,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\DocumentTypeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\EmployeeTypeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductTypeService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -218,6 +229,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.ClassDocumentType.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.DocumentType.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.EmployeeType.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.ProductType.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -246,6 +259,20 @@
     <None Include="Service References\DocumentTypeService\configuration91.svcinfo" />
     <None Include="Service References\DocumentTypeService\configuration.svcinfo" />
     <None Include="Service References\DocumentTypeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EmployeeTypeService\EmployeeTypeService.disco" />
+    <None Include="Service References\EmployeeTypeService\configuration91.svcinfo" />
+    <None Include="Service References\EmployeeTypeService\configuration.svcinfo" />
+    <None Include="Service References\EmployeeTypeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductTypeService\ProductTypeService.disco" />
+    <None Include="Service References\ProductTypeService\configuration91.svcinfo" />
+    <None Include="Service References\ProductTypeService\configuration.svcinfo" />
+    <None Include="Service References\ProductTypeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -313,6 +340,31 @@
     <Content Include="Views\DocumentTypes\Create.cshtml" />
     <Content Include="Views\DocumentTypes\Edit.cshtml" />
     <Content Include="Views\DocumentTypes\Delete.cshtml" />
+    <None Include="Service References\EmployeeTypeService\EmployeeTypeService.wsdl" />
+    <None Include="Service References\EmployeeTypeService\EmployeeTypeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeTypeService\EmployeeTypeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeTypeService\EmployeeTypeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductTypeService\ProductTypeService.wsdl" />
+    <None Include="Service References\ProductTypeService\ProductTypeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductTypeService\ProductTypeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductTypeService\ProductTypeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\EmployeeTypes\Index.cshtml" />
+    <Content Include="Views\EmployeeTypes\Details.cshtml" />
+    <Content Include="Views\EmployeeTypes\Create.cshtml" />
+    <Content Include="Views\EmployeeTypes\Edit.cshtml" />
+    <Content Include="Views\EmployeeTypes\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,6 +385,8 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ClassDocumentTypeService\" />
     <WCFMetadataStorage Include="Service References\DocumentTypeService\" />
+    <WCFMetadataStorage Include="Service References\EmployeeTypeService\" />
+    <WCFMetadataStorage Include="Service References\ProductTypeService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -22,3 +22,15 @@ D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.SqlServer.x
 D:\John\Desktop\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.csprojResolveAssemblyReference.cache
 D:\John\Desktop\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.dll
 D:\John\Desktop\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.pdb
+C:\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Data.dll.config
+C:\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Data.dll
+C:\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Data.pdb
+C:\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.dll
+C:\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Model.dll
+C:\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Model.pdb
+C:\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.xml
+C:\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.csprojResolveAssemblyReference.cache
+C:\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.dll
+C:\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.pdb
