@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SupplierContactService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55981/SupplierContactService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55981/SupplierContactService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55981/SupplierContactService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISupplierContactService_GetSupplierContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierContacts" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_GetSupplierContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_GetSupplierContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierContact" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_GetSupplierContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_CreateSupplierContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSupplierContact" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_CreateSupplierContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSupplierContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_EditSupplierContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditSupplierContact" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_EditSupplierContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditSupplierContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_DeleteSupplierContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierContact" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierContactService_DeleteSupplierContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierContactResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISupplierContactService">
+    <wsdl:operation name="GetSupplierContacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierContactService/GetSupplierContacts" message="tns:ISupplierContactService_GetSupplierContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierContactService/GetSupplierContactsResponse" message="tns:ISupplierContactService_GetSupplierContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierContactService/GetSupplierContact" message="tns:ISupplierContactService_GetSupplierContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierContactService/GetSupplierContactResponse" message="tns:ISupplierContactService_GetSupplierContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSupplierContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierContactService/CreateSupplierContact" message="tns:ISupplierContactService_CreateSupplierContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierContactService/CreateSupplierContactResponse" message="tns:ISupplierContactService_CreateSupplierContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSupplierContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierContactService/EditSupplierContact" message="tns:ISupplierContactService_EditSupplierContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierContactService/EditSupplierContactResponse" message="tns:ISupplierContactService_EditSupplierContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierContactService/DeleteSupplierContact" message="tns:ISupplierContactService_DeleteSupplierContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierContactService/DeleteSupplierContactResponse" message="tns:ISupplierContactService_DeleteSupplierContact_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISupplierContactService" type="tns:ISupplierContactService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSupplierContacts">
+      <soap:operation soapAction="http://tempuri.org/ISupplierContactService/GetSupplierContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierContact">
+      <soap:operation soapAction="http://tempuri.org/ISupplierContactService/GetSupplierContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSupplierContact">
+      <soap:operation soapAction="http://tempuri.org/ISupplierContactService/CreateSupplierContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSupplierContact">
+      <soap:operation soapAction="http://tempuri.org/ISupplierContactService/EditSupplierContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplierContact">
+      <soap:operation soapAction="http://tempuri.org/ISupplierContactService/DeleteSupplierContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SupplierContactService">
+    <wsdl:port name="BasicHttpBinding_ISupplierContactService" binding="tns:BasicHttpBinding_ISupplierContactService">
+      <soap:address location="http://localhost:55981/SupplierContactService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

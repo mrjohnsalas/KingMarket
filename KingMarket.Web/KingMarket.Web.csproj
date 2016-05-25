@@ -190,12 +190,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\CustomerContactService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CustomerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\DocumentTypeService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\EmployeeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\EmployeeTypeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductPhotoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -206,6 +231,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\StatusService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SupplierContactService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SupplierService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -246,6 +281,13 @@
     <Content Include="Properties\DataSources\KingMarket.Model.Models.ProductType.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.Status.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.UnitMeasure.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.Customer.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.CustomerContact.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.Employee.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.Product.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.ProductPhoto.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.Supplier.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.SupplierContact.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -270,6 +312,26 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\CustomerContactService\CustomerContactService.wsdl" />
+    <None Include="Service References\CustomerContactService\CustomerContactService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerContactService\CustomerContactService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerContactService\CustomerContactService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerService\CustomerService.wsdl" />
+    <None Include="Service References\CustomerService\CustomerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerService\CustomerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerService\CustomerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\DocumentTypeService\DocumentTypeService.disco" />
     <None Include="Service References\DocumentTypeService\configuration91.svcinfo" />
     <None Include="Service References\DocumentTypeService\configuration.svcinfo" />
@@ -277,12 +339,42 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\EmployeeService\EmployeeService.wsdl" />
+    <None Include="Service References\EmployeeService\EmployeeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeService\EmployeeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeService\EmployeeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\EmployeeTypeService\EmployeeTypeService.disco" />
     <None Include="Service References\EmployeeTypeService\configuration91.svcinfo" />
     <None Include="Service References\EmployeeTypeService\configuration.svcinfo" />
     <None Include="Service References\EmployeeTypeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductPhotoService\ProductPhotoService.wsdl" />
+    <None Include="Service References\ProductPhotoService\ProductPhotoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductPhotoService\ProductPhotoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductPhotoService\ProductPhotoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\ProductService.wsdl" />
+    <None Include="Service References\ProductService\ProductService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\ProductService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\ProductService2.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ProductTypeService\ProductTypeService.disco" />
     <None Include="Service References\ProductTypeService\configuration91.svcinfo" />
@@ -298,10 +390,79 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SupplierContactService\SupplierContactService.wsdl" />
+    <None Include="Service References\SupplierContactService\SupplierContactService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SupplierContactService\SupplierContactService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SupplierContactService\SupplierContactService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SupplierService\SupplierService.wsdl" />
+    <None Include="Service References\SupplierService\SupplierService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SupplierService\SupplierService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SupplierService\SupplierService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\UnitMeasureService\UnitMeasureService.disco" />
     <None Include="Service References\UnitMeasureService\configuration91.svcinfo" />
     <None Include="Service References\UnitMeasureService\configuration.svcinfo" />
     <None Include="Service References\UnitMeasureService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CustomerService\CustomerService.disco" />
+    <None Include="Service References\CustomerService\configuration91.svcinfo" />
+    <None Include="Service References\CustomerService\configuration.svcinfo" />
+    <None Include="Service References\CustomerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CustomerContactService\CustomerContactService.disco" />
+    <None Include="Service References\CustomerContactService\configuration91.svcinfo" />
+    <None Include="Service References\CustomerContactService\configuration.svcinfo" />
+    <None Include="Service References\CustomerContactService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EmployeeService\EmployeeService.disco" />
+    <None Include="Service References\EmployeeService\configuration91.svcinfo" />
+    <None Include="Service References\EmployeeService\configuration.svcinfo" />
+    <None Include="Service References\EmployeeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductService\ProductService.disco" />
+    <None Include="Service References\ProductService\configuration91.svcinfo" />
+    <None Include="Service References\ProductService\configuration.svcinfo" />
+    <None Include="Service References\ProductService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductPhotoService\ProductPhotoService.disco" />
+    <None Include="Service References\ProductPhotoService\configuration91.svcinfo" />
+    <None Include="Service References\ProductPhotoService\configuration.svcinfo" />
+    <None Include="Service References\ProductPhotoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SupplierService\SupplierService.disco" />
+    <None Include="Service References\SupplierService\configuration91.svcinfo" />
+    <None Include="Service References\SupplierService\configuration.svcinfo" />
+    <None Include="Service References\SupplierService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SupplierContactService\SupplierContactService.disco" />
+    <None Include="Service References\SupplierContactService\configuration91.svcinfo" />
+    <None Include="Service References\SupplierContactService\configuration.svcinfo" />
+    <None Include="Service References\SupplierContactService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -448,10 +609,17 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ClassDocumentTypeService\" />
+    <WCFMetadataStorage Include="Service References\CustomerContactService\" />
+    <WCFMetadataStorage Include="Service References\CustomerService\" />
     <WCFMetadataStorage Include="Service References\DocumentTypeService\" />
+    <WCFMetadataStorage Include="Service References\EmployeeService\" />
     <WCFMetadataStorage Include="Service References\EmployeeTypeService\" />
+    <WCFMetadataStorage Include="Service References\ProductPhotoService\" />
+    <WCFMetadataStorage Include="Service References\ProductService\" />
     <WCFMetadataStorage Include="Service References\ProductTypeService\" />
     <WCFMetadataStorage Include="Service References\StatusService\" />
+    <WCFMetadataStorage Include="Service References\SupplierContactService\" />
+    <WCFMetadataStorage Include="Service References\SupplierService\" />
     <WCFMetadataStorage Include="Service References\UnitMeasureService\" />
   </ItemGroup>
   <PropertyGroup>

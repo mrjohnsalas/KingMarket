@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CustomerContactService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55981/CustomerContactService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55981/CustomerContactService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55981/CustomerContactService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICustomerContactService_GetCustomerContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerContacts" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_GetCustomerContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_GetCustomerContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerContact" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_GetCustomerContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_CreateCustomerContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerContact" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_CreateCustomerContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_EditCustomerContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCustomerContact" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_EditCustomerContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCustomerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_DeleteCustomerContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerContact" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_DeleteCustomerContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerContactResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICustomerContactService">
+    <wsdl:operation name="GetCustomerContacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/GetCustomerContacts" message="tns:ICustomerContactService_GetCustomerContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerContactService/GetCustomerContactsResponse" message="tns:ICustomerContactService_GetCustomerContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/GetCustomerContact" message="tns:ICustomerContactService_GetCustomerContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerContactService/GetCustomerContactResponse" message="tns:ICustomerContactService_GetCustomerContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/CreateCustomerContact" message="tns:ICustomerContactService_CreateCustomerContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerContactService/CreateCustomerContactResponse" message="tns:ICustomerContactService_CreateCustomerContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCustomerContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/EditCustomerContact" message="tns:ICustomerContactService_EditCustomerContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerContactService/EditCustomerContactResponse" message="tns:ICustomerContactService_EditCustomerContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomerContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/DeleteCustomerContact" message="tns:ICustomerContactService_DeleteCustomerContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerContactService/DeleteCustomerContactResponse" message="tns:ICustomerContactService_DeleteCustomerContact_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICustomerContactService" type="tns:ICustomerContactService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustomerContacts">
+      <soap:operation soapAction="http://tempuri.org/ICustomerContactService/GetCustomerContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerContact">
+      <soap:operation soapAction="http://tempuri.org/ICustomerContactService/GetCustomerContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerContact">
+      <soap:operation soapAction="http://tempuri.org/ICustomerContactService/CreateCustomerContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCustomerContact">
+      <soap:operation soapAction="http://tempuri.org/ICustomerContactService/EditCustomerContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomerContact">
+      <soap:operation soapAction="http://tempuri.org/ICustomerContactService/DeleteCustomerContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerContactService">
+    <wsdl:port name="BasicHttpBinding_ICustomerContactService" binding="tns:BasicHttpBinding_ICustomerContactService">
+      <soap:address location="http://localhost:55981/CustomerContactService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

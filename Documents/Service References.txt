@@ -4,3 +4,10 @@ http://localhost:55981/EmployeeTypeService.svc
 http://localhost:55981/ProductTypeService.svc
 http://localhost:55981/StatusService.svc
 http://localhost:55981/UnitMeasureService.svc
+http://localhost:55981/CustomerService.svc
+http://localhost:55981/CustomerContactService.svc
+http://localhost:55981/EmployeeService.svc
+http://localhost:55981/ProductService.svc
+http://localhost:55981/ProductPhotoService.svc
+http://localhost:55981/SupplierService.svc
+http://localhost:55981/SupplierContactService.svc

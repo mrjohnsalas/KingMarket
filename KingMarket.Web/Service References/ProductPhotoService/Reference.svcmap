@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="78f65d8b-1f70-481b-9599-3e5e55432bfb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="KingMarket.Model" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55981/ProductPhotoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProductPhotoService.disco" MetadataType="Disco" ID="a1c2dfc1-ecff-4b7e-8ff6-150dcb798435" SourceId="1" SourceUrl="http://localhost:55981/ProductPhotoService.svc?disco" />
+    <MetadataFile FileName="ProductPhotoService.xsd" MetadataType="Schema" ID="69a361eb-e50d-4e1d-b9f8-aea0c7ecbfd0" SourceId="1" SourceUrl="http://localhost:55981/ProductPhotoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProductPhotoService1.xsd" MetadataType="Schema" ID="130156f2-5cc8-42c8-ae54-fc82e820ba9a" SourceId="1" SourceUrl="http://localhost:55981/ProductPhotoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProductPhotoService2.xsd" MetadataType="Schema" ID="54a20135-efb6-4f87-9f1e-fa4d5f2e72fa" SourceId="1" SourceUrl="http://localhost:55981/ProductPhotoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProductPhotoService.wsdl" MetadataType="Wsdl" ID="345c8509-4875-4411-b008-37f931ba0c99" SourceId="1" SourceUrl="http://localhost:55981/ProductPhotoService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

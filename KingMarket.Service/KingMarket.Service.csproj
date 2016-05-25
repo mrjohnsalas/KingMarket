@@ -69,10 +69,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClassDocumentTypeService.svc" />
+    <Content Include="CustomerContactService.svc" />
+    <Content Include="CustomerService.svc" />
     <Content Include="DocumentTypeService.svc" />
+    <Content Include="EmployeeService.svc" />
     <Content Include="EmployeeTypeService.svc" />
+    <Content Include="ProductPhotoService.svc" />
+    <Content Include="ProductService.svc" />
     <Content Include="ProductTypeService.svc" />
     <Content Include="StatusService.svc" />
+    <Content Include="SupplierContactService.svc" />
+    <Content Include="SupplierService.svc" />
     <Content Include="UnitMeasureService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -80,24 +87,52 @@
     <Compile Include="ClassDocumentTypeService.svc.cs">
       <DependentUpon>ClassDocumentTypeService.svc</DependentUpon>
     </Compile>
+    <Compile Include="CustomerContactService.svc.cs">
+      <DependentUpon>CustomerContactService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerService.svc.cs">
+      <DependentUpon>CustomerService.svc</DependentUpon>
+    </Compile>
     <Compile Include="DocumentTypeService.svc.cs">
       <DependentUpon>DocumentTypeService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeService.svc.cs">
+      <DependentUpon>EmployeeService.svc</DependentUpon>
     </Compile>
     <Compile Include="EmployeeTypeService.svc.cs">
       <DependentUpon>EmployeeTypeService.svc</DependentUpon>
     </Compile>
     <Compile Include="IClassDocumentTypeService.cs" />
+    <Compile Include="ICustomerContactService.cs" />
+    <Compile Include="ICustomerService.cs" />
     <Compile Include="IDocumentTypeService.cs" />
+    <Compile Include="IEmployeeService.cs" />
     <Compile Include="IEmployeeTypeService.cs" />
+    <Compile Include="IProductPhotoService.cs" />
+    <Compile Include="IProductService.cs" />
     <Compile Include="IProductTypeService.cs" />
     <Compile Include="IStatusService.cs" />
+    <Compile Include="ISupplierContactService.cs" />
+    <Compile Include="ISupplierService.cs" />
     <Compile Include="IUnitMeasureService.cs" />
+    <Compile Include="ProductPhotoService.svc.cs">
+      <DependentUpon>ProductPhotoService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ProductService.svc.cs">
+      <DependentUpon>ProductService.svc</DependentUpon>
+    </Compile>
     <Compile Include="ProductTypeService.svc.cs">
       <DependentUpon>ProductTypeService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusService.svc.cs">
       <DependentUpon>StatusService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierContactService.svc.cs">
+      <DependentUpon>SupplierContactService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierService.svc.cs">
+      <DependentUpon>SupplierService.svc</DependentUpon>
     </Compile>
     <Compile Include="UnitMeasureService.svc.cs">
       <DependentUpon>UnitMeasureService.svc</DependentUpon>
