@@ -209,6 +209,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\UnitMeasureService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +244,7 @@
     <Content Include="Properties\DataSources\KingMarket.Model.Models.EmployeeType.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.ProductType.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.Status.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.UnitMeasure.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -288,6 +294,13 @@
     <None Include="Service References\StatusService\configuration91.svcinfo" />
     <None Include="Service References\StatusService\configuration.svcinfo" />
     <None Include="Service References\StatusService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\UnitMeasureService\UnitMeasureService.disco" />
+    <None Include="Service References\UnitMeasureService\configuration91.svcinfo" />
+    <None Include="Service References\UnitMeasureService\configuration.svcinfo" />
+    <None Include="Service References\UnitMeasureService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -400,6 +413,16 @@
     <Content Include="Views\Status\Create.cshtml" />
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Delete.cshtml" />
+    <None Include="Service References\UnitMeasureService\UnitMeasureService.wsdl" />
+    <None Include="Service References\UnitMeasureService\UnitMeasureService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UnitMeasureService\UnitMeasureService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UnitMeasureService\UnitMeasureService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -423,6 +446,7 @@
     <WCFMetadataStorage Include="Service References\EmployeeTypeService\" />
     <WCFMetadataStorage Include="Service References\ProductTypeService\" />
     <WCFMetadataStorage Include="Service References\StatusService\" />
+    <WCFMetadataStorage Include="Service References\UnitMeasureService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

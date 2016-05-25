@@ -12,20 +12,6 @@ D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Service\bin\EntityFramework
 D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
 D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
 D:\John\Desktop\New KingMarket\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll.config
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.pdb
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.dll
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.dll
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.dll
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.dll
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.pdb
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.pdb
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.xml
-D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
-D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
-D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
-D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
 C:\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll.config
 C:\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll
 C:\KingMarket\KingMarket.Service\bin\KingMarket.Service.pdb
@@ -40,3 +26,17 @@ C:\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
 C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
 C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
 C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll.config
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.pdb
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.dll
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.dll
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.dll
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.dll
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.pdb
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.pdb
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.xml
+D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
+D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
+D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
+D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
