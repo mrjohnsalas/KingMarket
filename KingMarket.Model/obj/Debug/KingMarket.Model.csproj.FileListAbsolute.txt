@@ -23,5 +23,6 @@ C:\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.dll
 C:\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.dll
 C:\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.xml
 C:\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.csprojResolveAssemblyReference.cache
 C:\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
 C:\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb
