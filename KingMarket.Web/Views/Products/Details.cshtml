@@ -1,0 +1,132 @@
+﻿@model KingMarket.Model.Models.Product
+@using KingMarket.Model.Models
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitMeasure.ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitMeasure.ShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxStock)
+        </dd>
+
+        @if (Model.ProductPhotos.Any(f => f.FileType == FileType.Photo))
+        {
+            <dt>
+                Photos
+            </dt>
+            <dd>
+                <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        @for (int i = 0; i < Model.ProductPhotos.Count; i++)
+                        {
+                            if (i.Equals(0))
+                            {
+                                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                            }
+                            else
+                            {
+                                <li data-target="#mycarousel" data-slide-to=@i.ToString()></li>
+                            }
+                        }
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        @for (int i = 0; i < Model.ProductPhotos.Count; i++)
+                        {
+                            <div class="item@(i.Equals(0) ? " active" : "")">
+                                @{var photo = @Model.ProductPhotos.ToList()[i];}
+                                <img src="~/ProductPhotos?id=@photo.ProductPhotoId" class="img-responsive center-block" alt="photo" />
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#mycarousel" data-slide="prev"><span class="icon-prev"></span></a>
+                    <a class="right carousel-control" href="#mycarousel" data-slide="next"><span class="icon-next"></span></a>
+                </div>
+            </dd>
+        }
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

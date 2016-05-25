@@ -171,10 +171,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClassDocumentTypesController.cs" />
+    <Compile Include="Controllers\CustomerContactsController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DocumentTypesController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeeTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductPhotosController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UnitMeasuresController.cs" />
@@ -590,9 +595,30 @@
     <Content Include="Views\UnitMeasures\Create.cshtml" />
     <Content Include="Views\UnitMeasures\Edit.cshtml" />
     <Content Include="Views\UnitMeasures\Delete.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\CustomerContacts\Index.cshtml" />
+    <Content Include="Views\CustomerContacts\Details.cshtml" />
+    <Content Include="Views\CustomerContacts\Create.cshtml" />
+    <Content Include="Views\CustomerContacts\Edit.cshtml" />
+    <Content Include="Views\CustomerContacts\Delete.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProductPhotos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

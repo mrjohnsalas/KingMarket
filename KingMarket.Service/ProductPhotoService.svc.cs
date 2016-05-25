@@ -24,10 +24,28 @@ namespace KingMarket.Service
             unitOfWork = new UnitOfWork(db);
         }
 
+        public IEnumerable<ProductPhoto> GetProductPhotosByProductId(int productId)
+        {
+            return repository.GetMany(f => f.ProductId.Equals(productId));
+        }
+
         public ProductPhoto GetProductPhoto(int id)
         {
             var myObject = repository.GetById(id);
             return myObject;
+        }
+
+        public void DeleteProductPhotosByProductId(int productId)
+        {
+            repository.Delete(f => f.ProductId.Equals(productId));
+            unitOfWork.Commit();
+        }
+
+        public void DeleteProductPhoto(int id)
+        {
+            var myObject = repository.GetById(id);
+            repository.Delete(myObject);
+            unitOfWork.Commit();
         }
     }
 }

@@ -15,11 +15,29 @@ namespace KingMarket.Web.ProductPhotoService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductPhotoService.IProductPhotoService")]
     public interface IProductPhotoService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdResponse")]
+        System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto> GetProductPhotosByProductId(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosByProductIdAsync(int productId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhoto", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotoResponse")]
         KingMarket.Model.Models.ProductPhoto GetProductPhoto(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhoto", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotoResponse")]
         System.Threading.Tasks.Task<KingMarket.Model.Models.ProductPhoto> GetProductPhotoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/DeleteProductPhotosByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/DeleteProductPhotosByProductIdResponse")]
+        void DeleteProductPhotosByProductId(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/DeleteProductPhotosByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/DeleteProductPhotosByProductIdResponse")]
+        System.Threading.Tasks.Task DeleteProductPhotosByProductIdAsync(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/DeleteProductPhoto", ReplyAction="http://tempuri.org/IProductPhotoService/DeleteProductPhotoResponse")]
+        void DeleteProductPhoto(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/DeleteProductPhoto", ReplyAction="http://tempuri.org/IProductPhotoService/DeleteProductPhotoResponse")]
+        System.Threading.Tasks.Task DeleteProductPhotoAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +67,36 @@ namespace KingMarket.Web.ProductPhotoService {
                 base(binding, remoteAddress) {
         }
         
+        public System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto> GetProductPhotosByProductId(int productId) {
+            return base.Channel.GetProductPhotosByProductId(productId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosByProductIdAsync(int productId) {
+            return base.Channel.GetProductPhotosByProductIdAsync(productId);
+        }
+        
         public KingMarket.Model.Models.ProductPhoto GetProductPhoto(int id) {
             return base.Channel.GetProductPhoto(id);
         }
         
         public System.Threading.Tasks.Task<KingMarket.Model.Models.ProductPhoto> GetProductPhotoAsync(int id) {
             return base.Channel.GetProductPhotoAsync(id);
+        }
+        
+        public void DeleteProductPhotosByProductId(int productId) {
+            base.Channel.DeleteProductPhotosByProductId(productId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductPhotosByProductIdAsync(int productId) {
+            return base.Channel.DeleteProductPhotosByProductIdAsync(productId);
+        }
+        
+        public void DeleteProductPhoto(int id) {
+            base.Channel.DeleteProductPhoto(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductPhotoAsync(int id) {
+            return base.Channel.DeleteProductPhotoAsync(id);
         }
     }
 }

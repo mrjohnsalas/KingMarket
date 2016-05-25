@@ -13,6 +13,15 @@ namespace KingMarket.Service
     public interface IProductPhotoService
     {
         [OperationContract]
+        IEnumerable<ProductPhoto> GetProductPhotosByProductId(int productId);
+
+        [OperationContract]
         ProductPhoto GetProductPhoto(int id);
+
+        [OperationContract]
+        void DeleteProductPhotosByProductId(int productId);
+
+        [OperationContract]
+        void DeleteProductPhoto(int id);
     }
 }

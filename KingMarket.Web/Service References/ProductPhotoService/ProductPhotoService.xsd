@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:55981/ProductPhotoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfProductPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductPhoto" nillable="true" type="tns:ProductPhoto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductPhoto" nillable="true" type="tns:ArrayOfProductPhoto" />
   <xs:complexType name="ProductPhoto">
     <xs:sequence>
       <xs:element minOccurs="0" name="Content" nillable="true" type="xs:base64Binary" />
@@ -354,12 +360,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfSupplier" nillable="true" type="tns:ArrayOfSupplier" />
-  <xs:complexType name="ArrayOfProductPhoto">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductPhoto" nillable="true" type="tns:ProductPhoto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProductPhoto" nillable="true" type="tns:ArrayOfProductPhoto" />
   <xs:complexType name="ProductType">
     <xs:sequence>
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
