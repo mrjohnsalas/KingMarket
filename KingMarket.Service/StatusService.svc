@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="KingMarket.Service.StatusService" CodeBehind="StatusService.svc.cs" %>

@@ -2,3 +2,4 @@ http://localhost:55981/ClassDocumentTypeService.svc
 http://localhost:55981/DocumentTypeService.svc
 http://localhost:55981/EmployeeTypeService.svc
 http://localhost:55981/ProductTypeService.svc
+http://localhost:55981/StatusService.svc

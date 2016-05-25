@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="StatusService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55981/StatusService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55981/StatusService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55981/StatusService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IStatusService_GetStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatuses" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_GetStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_CreateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStatus" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_CreateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_EditStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditStatus" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_EditStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_DeleteStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStatus" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_DeleteStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IStatusService">
+    <wsdl:operation name="GetStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/GetStatuses" message="tns:IStatusService_GetStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatusService/GetStatusesResponse" message="tns:IStatusService_GetStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/GetStatus" message="tns:IStatusService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatusService/GetStatusResponse" message="tns:IStatusService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/CreateStatus" message="tns:IStatusService_CreateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatusService/CreateStatusResponse" message="tns:IStatusService_CreateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/EditStatus" message="tns:IStatusService_EditStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatusService/EditStatusResponse" message="tns:IStatusService_EditStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/DeleteStatus" message="tns:IStatusService_DeleteStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatusService/DeleteStatusResponse" message="tns:IStatusService_DeleteStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IStatusService" type="tns:IStatusService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetStatuses">
+      <soap:operation soapAction="http://tempuri.org/IStatusService/GetStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://tempuri.org/IStatusService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStatus">
+      <soap:operation soapAction="http://tempuri.org/IStatusService/CreateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditStatus">
+      <soap:operation soapAction="http://tempuri.org/IStatusService/EditStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStatus">
+      <soap:operation soapAction="http://tempuri.org/IStatusService/DeleteStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StatusService">
+    <wsdl:port name="BasicHttpBinding_IStatusService" binding="tns:BasicHttpBinding_IStatusService">
+      <soap:address location="http://localhost:55981/StatusService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -203,6 +203,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\StatusService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +237,7 @@
     <Content Include="Properties\DataSources\KingMarket.Model.Models.DocumentType.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.EmployeeType.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.ProductType.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.Status.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -274,6 +280,13 @@
     <None Include="Service References\ProductTypeService\configuration91.svcinfo" />
     <None Include="Service References\ProductTypeService\configuration.svcinfo" />
     <None Include="Service References\ProductTypeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\StatusService\StatusService.disco" />
+    <None Include="Service References\StatusService\configuration91.svcinfo" />
+    <None Include="Service References\StatusService\configuration.svcinfo" />
+    <None Include="Service References\StatusService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -371,6 +384,16 @@
     <Content Include="Views\ProductTypes\Create.cshtml" />
     <Content Include="Views\ProductTypes\Edit.cshtml" />
     <Content Include="Views\ProductTypes\Delete.cshtml" />
+    <None Include="Service References\StatusService\StatusService.wsdl" />
+    <None Include="Service References\StatusService\StatusService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\StatusService\StatusService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\StatusService\StatusService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -393,6 +416,7 @@
     <WCFMetadataStorage Include="Service References\DocumentTypeService\" />
     <WCFMetadataStorage Include="Service References\EmployeeTypeService\" />
     <WCFMetadataStorage Include="Service References\ProductTypeService\" />
+    <WCFMetadataStorage Include="Service References\StatusService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

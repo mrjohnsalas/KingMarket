@@ -61,6 +61,7 @@
     <Compile Include="Repositories\DocumentTypeRepository.cs" />
     <Compile Include="Repositories\EmployeeTypeRepository.cs" />
     <Compile Include="Repositories\ProductTypeRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
