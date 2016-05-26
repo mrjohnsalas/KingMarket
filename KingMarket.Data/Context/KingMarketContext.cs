@@ -14,6 +14,7 @@ namespace KingMarket.Data.Context
         public KingMarketContext() : base("name=KingMarketContext")
         {
             Configuration.ProxyCreationEnabled = false;
+            Database.SetInitializer(new KingMarketSeedData());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
