@@ -15,6 +15,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetProductPhotosByProductIdNoContent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductPhotosByProductIdNoContentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="GetProductPhotosByProductIdNoContentResult" nillable="true" type="q2:ArrayOfProductPhoto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetProductPhoto">
     <xs:complexType>
       <xs:sequence>
@@ -25,7 +39,7 @@
   <xs:element name="GetProductPhotoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="GetProductPhotoResult" nillable="true" type="q2:ProductPhoto" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="GetProductPhotoResult" nillable="true" type="q3:ProductPhoto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

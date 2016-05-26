@@ -29,6 +29,14 @@ namespace KingMarket.Service
             return repository.GetMany(f => f.ProductId.Equals(productId));
         }
 
+        public IEnumerable<ProductPhoto> GetProductPhotosByProductIdNoContent(int productId)
+        {
+            var photos = repository.GetMany(f => f.ProductId.Equals(productId));
+            foreach (var item in photos)
+                item.Content = null;
+            return photos;
+        }
+
         public ProductPhoto GetProductPhoto(int id)
         {
             var myObject = repository.GetById(id);

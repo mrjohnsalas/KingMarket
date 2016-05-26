@@ -21,6 +21,14 @@ namespace KingMarket.Web.ProductPhotoService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosByProductIdAsync(int productId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContent", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContentRespo" +
+            "nse")]
+        System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto> GetProductPhotosByProductIdNoContent(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContent", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContentRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosByProductIdNoContentAsync(int productId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhoto", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotoResponse")]
         KingMarket.Model.Models.ProductPhoto GetProductPhoto(int id);
         
@@ -73,6 +81,14 @@ namespace KingMarket.Web.ProductPhotoService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosByProductIdAsync(int productId) {
             return base.Channel.GetProductPhotosByProductIdAsync(productId);
+        }
+        
+        public System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto> GetProductPhotosByProductIdNoContent(int productId) {
+            return base.Channel.GetProductPhotosByProductIdNoContent(productId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosByProductIdNoContentAsync(int productId) {
+            return base.Channel.GetProductPhotosByProductIdNoContentAsync(productId);
         }
         
         public KingMarket.Model.Models.ProductPhoto GetProductPhoto(int id) {

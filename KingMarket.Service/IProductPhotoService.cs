@@ -16,6 +16,9 @@ namespace KingMarket.Service
         IEnumerable<ProductPhoto> GetProductPhotosByProductId(int productId);
 
         [OperationContract]
+        IEnumerable<ProductPhoto> GetProductPhotosByProductIdNoContent(int productId);
+
+        [OperationContract]
         ProductPhoto GetProductPhoto(int id);
 
         [OperationContract]

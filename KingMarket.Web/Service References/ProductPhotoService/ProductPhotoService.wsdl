@@ -13,6 +13,12 @@
   <wsdl:message name="IProductPhotoService_GetProductPhotosByProductId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductPhotosByProductIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductPhotoService_GetProductPhotosByProductIdNoContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPhotosByProductIdNoContent" />
+  </wsdl:message>
+  <wsdl:message name="IProductPhotoService_GetProductPhotosByProductIdNoContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPhotosByProductIdNoContentResponse" />
+  </wsdl:message>
   <wsdl:message name="IProductPhotoService_GetProductPhoto_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProductPhoto" />
   </wsdl:message>
@@ -36,6 +42,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductId" message="tns:IProductPhotoService_GetProductPhotosByProductId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdResponse" message="tns:IProductPhotoService_GetProductPhotosByProductId_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetProductPhotosByProductIdNoContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContent" message="tns:IProductPhotoService_GetProductPhotosByProductIdNoContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContentResponse" message="tns:IProductPhotoService_GetProductPhotosByProductIdNoContent_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetProductPhoto">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhoto" message="tns:IProductPhotoService_GetProductPhoto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotoResponse" message="tns:IProductPhotoService_GetProductPhoto_OutputMessage" />
@@ -53,6 +63,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProductPhotosByProductId">
       <soap:operation soapAction="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPhotosByProductIdNoContent">
+      <soap:operation soapAction="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

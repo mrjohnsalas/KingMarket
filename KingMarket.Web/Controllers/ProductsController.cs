@@ -192,7 +192,7 @@ namespace KingMarket.Web.Controllers
             if (product == null)
                 return HttpNotFound();
             var proxyF = new ProductPhotoServiceClient();
-            product.ProductPhotos = proxyF.GetProductPhotosByProductId(product.ProductId);
+            product.ProductPhotos = proxyF.GetProductPhotosByProductIdNoContent(product.ProductId);
             var proxyP = new ProductTypeServiceClient();
             var proxyU = new UnitMeasureServiceClient();
             ViewBag.ProductTypeId = new SelectList(proxyP.GetProductTypes().OrderBy(d => d.Name), "ProductTypeId", "Name", product.ProductTypeId);
