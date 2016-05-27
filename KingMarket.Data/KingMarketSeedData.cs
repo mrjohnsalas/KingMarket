@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using KingMarket.Data.Context;
 using KingMarket.Model.Models;
+using System.IO;
+using System.Web;
+using System.Web.Hosting;
 
 namespace KingMarket.Data
 {
@@ -30,6 +33,34 @@ namespace KingMarket.Data
             GetSupplierContacts().ForEach(o => context.SupplierContacts.Add(o));
             GetProducts().ForEach(o => context.Products.Add(o));
             context.SaveChanges();
+
+            GetProductPhotos().ForEach(o => context.ProductPhotos.Add(o));
+            context.SaveChanges();
+        }
+
+        private static List<ProductPhoto> GetProductPhotos()
+        {
+            var pictureFolderPath = new DirectoryInfo(HostingEnvironment.ApplicationPhysicalPath).Parent.FullName;
+            pictureFolderPath += @"\Documents\Pictures";
+            var productPhotos = new List<ProductPhoto>();
+            var directories = Directory.GetDirectories(pictureFolderPath);
+            foreach (var directory in directories)
+            {
+                var files = Directory.GetFiles(directory);
+                foreach (var file in files)
+                {
+                    var photo = new ProductPhoto
+                    {
+                        FileName = Path.GetFileName(file),
+                        FileType = FileType.Photo,
+                        ContentType = MimeMapping.GetMimeMapping(file),
+                        ProductId = int.Parse(new DirectoryInfo(directory).Name.Substring(0, 2))
+                    };
+                    photo.Content = File.ReadAllBytes(file);
+                    productPhotos.Add(photo);
+                }
+            }
+            return productPhotos;
         }
 
         private static List<ClassDocumentType> GetClassDocumentTypes()

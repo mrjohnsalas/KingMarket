@@ -297,6 +297,7 @@ namespace KingMarket.Web.Controllers
 
         public FileResult Download(int? id)
         {
+            Server.MapPath("~");
             var proxyF = new ProductPhotoServiceClient();
             var productPhoto = proxyF.GetProductPhoto(id.Value);
             return File(productPhoto.Content, System.Net.Mime.MediaTypeNames.Application.Octet, productPhoto.FileName);
