@@ -46,15 +46,18 @@ namespace KingMarket.Data
             var directories = Directory.GetDirectories(pictureFolderPath);
             foreach (var directory in directories)
             {
+                var count = 0;
                 var files = Directory.GetFiles(directory);
                 foreach (var file in files)
                 {
+                    count += 1;
                     var photo = new ProductPhoto
                     {
                         FileName = Path.GetFileName(file),
                         FileType = FileType.Photo,
                         ContentType = MimeMapping.GetMimeMapping(file),
-                        ProductId = int.Parse(new DirectoryInfo(directory).Name.Substring(0, 2))
+                        ProductId = int.Parse(new DirectoryInfo(directory).Name.Substring(0, 2)),
+                        IsDefault = count.Equals(1)
                     };
                     photo.Content = File.ReadAllBytes(file);
                     productPhotos.Add(photo);

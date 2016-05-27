@@ -29,11 +29,25 @@ namespace KingMarket.Web.ProductPhotoService {
             "nse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosByProductIdNoContentAsync(int productId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotosOnlyDefault", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotosOnlyDefaultResponse")]
+        System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto> GetProductPhotosOnlyDefault();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotosOnlyDefault", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotosOnlyDefaultResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosOnlyDefaultAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhoto", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotoResponse")]
         KingMarket.Model.Models.ProductPhoto GetProductPhoto(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhoto", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotoResponse")]
         System.Threading.Tasks.Task<KingMarket.Model.Models.ProductPhoto> GetProductPhotoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotoDefaultByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotoDefaultByProductIdResponse" +
+            "")]
+        KingMarket.Model.Models.ProductPhoto GetProductPhotoDefaultByProductId(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/GetProductPhotoDefaultByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/GetProductPhotoDefaultByProductIdResponse" +
+            "")]
+        System.Threading.Tasks.Task<KingMarket.Model.Models.ProductPhoto> GetProductPhotoDefaultByProductIdAsync(int productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductPhotoService/DeleteProductPhotosByProductId", ReplyAction="http://tempuri.org/IProductPhotoService/DeleteProductPhotosByProductIdResponse")]
         void DeleteProductPhotosByProductId(int productId);
@@ -91,12 +105,28 @@ namespace KingMarket.Web.ProductPhotoService {
             return base.Channel.GetProductPhotosByProductIdNoContentAsync(productId);
         }
         
+        public System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto> GetProductPhotosOnlyDefault() {
+            return base.Channel.GetProductPhotosOnlyDefault();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.ProductPhoto>> GetProductPhotosOnlyDefaultAsync() {
+            return base.Channel.GetProductPhotosOnlyDefaultAsync();
+        }
+        
         public KingMarket.Model.Models.ProductPhoto GetProductPhoto(int id) {
             return base.Channel.GetProductPhoto(id);
         }
         
         public System.Threading.Tasks.Task<KingMarket.Model.Models.ProductPhoto> GetProductPhotoAsync(int id) {
             return base.Channel.GetProductPhotoAsync(id);
+        }
+        
+        public KingMarket.Model.Models.ProductPhoto GetProductPhotoDefaultByProductId(int productId) {
+            return base.Channel.GetProductPhotoDefaultByProductId(productId);
+        }
+        
+        public System.Threading.Tasks.Task<KingMarket.Model.Models.ProductPhoto> GetProductPhotoDefaultByProductIdAsync(int productId) {
+            return base.Channel.GetProductPhotoDefaultByProductIdAsync(productId);
         }
         
         public void DeleteProductPhotosByProductId(int productId) {

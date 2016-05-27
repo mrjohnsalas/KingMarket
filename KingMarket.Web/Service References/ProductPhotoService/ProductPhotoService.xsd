@@ -13,6 +13,7 @@
       <xs:element minOccurs="0" name="ContentType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FileType" type="tns:FileType" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
       <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
       <xs:element minOccurs="0" name="ProductId" type="xs:int" />
       <xs:element minOccurs="0" name="ProductPhotoId" type="xs:int" />

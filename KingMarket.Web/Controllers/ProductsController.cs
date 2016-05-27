@@ -114,7 +114,7 @@ namespace KingMarket.Web.Controllers
                     break;
             }
 
-            int pageSize = 25;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
             return View(products.ToPagedList(pageNumber, pageSize));
         }

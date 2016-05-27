@@ -37,10 +37,20 @@ namespace KingMarket.Service
             return photos;
         }
 
+        public IEnumerable<ProductPhoto> GetProductPhotosOnlyDefault()
+        {
+            return repository.GetMany(f => f.IsDefault);
+        }
+
         public ProductPhoto GetProductPhoto(int id)
         {
             var myObject = repository.GetById(id);
             return myObject;
+        }
+
+        public ProductPhoto GetProductPhotoDefaultByProductId(int id)
+        {
+            return repository.Get(f => f.ProductId.Equals(id) && f.IsDefault);
         }
 
         public void DeleteProductPhotosByProductId(int productId)

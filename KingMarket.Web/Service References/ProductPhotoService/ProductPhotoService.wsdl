@@ -19,11 +19,23 @@
   <wsdl:message name="IProductPhotoService_GetProductPhotosByProductIdNoContent_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductPhotosByProductIdNoContentResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductPhotoService_GetProductPhotosOnlyDefault_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPhotosOnlyDefault" />
+  </wsdl:message>
+  <wsdl:message name="IProductPhotoService_GetProductPhotosOnlyDefault_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPhotosOnlyDefaultResponse" />
+  </wsdl:message>
   <wsdl:message name="IProductPhotoService_GetProductPhoto_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProductPhoto" />
   </wsdl:message>
   <wsdl:message name="IProductPhotoService_GetProductPhoto_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductPhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductPhotoService_GetProductPhotoDefaultByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPhotoDefaultByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IProductPhotoService_GetProductPhotoDefaultByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPhotoDefaultByProductIdResponse" />
   </wsdl:message>
   <wsdl:message name="IProductPhotoService_DeleteProductPhotosByProductId_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProductPhotosByProductId" />
@@ -46,9 +58,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContent" message="tns:IProductPhotoService_GetProductPhotosByProductIdNoContent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosByProductIdNoContentResponse" message="tns:IProductPhotoService_GetProductPhotosByProductIdNoContent_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetProductPhotosOnlyDefault">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosOnlyDefault" message="tns:IProductPhotoService_GetProductPhotosOnlyDefault_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotosOnlyDefaultResponse" message="tns:IProductPhotoService_GetProductPhotosOnlyDefault_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetProductPhoto">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhoto" message="tns:IProductPhotoService_GetProductPhoto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotoResponse" message="tns:IProductPhotoService_GetProductPhoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPhotoDefaultByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotoDefaultByProductId" message="tns:IProductPhotoService_GetProductPhotoDefaultByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductPhotoService/GetProductPhotoDefaultByProductIdResponse" message="tns:IProductPhotoService_GetProductPhotoDefaultByProductId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteProductPhotosByProductId">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductPhotoService/DeleteProductPhotosByProductId" message="tns:IProductPhotoService_DeleteProductPhotosByProductId_InputMessage" />
@@ -79,8 +99,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductPhotosOnlyDefault">
+      <soap:operation soapAction="http://tempuri.org/IProductPhotoService/GetProductPhotosOnlyDefault" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProductPhoto">
       <soap:operation soapAction="http://tempuri.org/IProductPhotoService/GetProductPhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPhotoDefaultByProductId">
+      <soap:operation soapAction="http://tempuri.org/IProductPhotoService/GetProductPhotoDefaultByProductId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

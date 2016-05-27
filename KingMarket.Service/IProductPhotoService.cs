@@ -19,7 +19,13 @@ namespace KingMarket.Service
         IEnumerable<ProductPhoto> GetProductPhotosByProductIdNoContent(int productId);
 
         [OperationContract]
+        IEnumerable<ProductPhoto> GetProductPhotosOnlyDefault();
+
+        [OperationContract]
         ProductPhoto GetProductPhoto(int id);
+
+        [OperationContract]
+        ProductPhoto GetProductPhotoDefaultByProductId(int productId);
 
         [OperationContract]
         void DeleteProductPhotosByProductId(int productId);

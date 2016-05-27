@@ -28,6 +28,9 @@ namespace KingMarket.Model.Models
 
         public FileType FileType { get; set; }
 
+        [Display(Name = "Is Default?")]
+        public bool IsDefault { get; set; }
+
         [Required(ErrorMessage = "You must enter {0}")]
         public int ProductId { get; set; }
 

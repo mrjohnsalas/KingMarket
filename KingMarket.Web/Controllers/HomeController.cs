@@ -1,16 +1,94 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using KingMarket.Model.Models;
+using KingMarket.Web.ProductTypeService;
+using KingMarket.Web.ProductService;
+using KingMarket.Web.UnitMeasureService;
+using KingMarket.Web.ProductPhotoService;
+using PagedList;
 
 namespace KingMarket.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View();
+            var proxy = new ProductServiceClient();
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_Desc" : String.Empty;
+            ViewBag.ProductTypeSortParm = sortOrder == "Product Type" ? "ProductType_Desc" : "Product Type";
+            ViewBag.UnitMeasureSortParm = sortOrder == "Unit Measure" ? "UnitMeasure_Desc" : "Unit Measure";
+            ViewBag.DescriptionSortParm = sortOrder == "Description" ? "Description_Desc" : "Description";
+            ViewBag.UnitPriceSortParm = sortOrder == "Unit Price" ? "UnitPrice_Desc" : "Unit Price";
+
+            if (searchString != null)
+                page = 1;
+            else
+                searchString = currentFilter;
+
+            ViewBag.CurrentFilter = searchString;
+
+            var products = proxy.GetProducts();
+            var proxyP = new ProductTypeServiceClient();
+            var proxyU = new UnitMeasureServiceClient();
+            var proxyF = new ProductPhotoServiceClient();
+            foreach (var item in products)
+            {
+                item.ProductType = proxyP.GetProductType(item.ProductTypeId);
+                item.UnitMeasure = proxyU.GetUnitMeasure(item.UnitMeasureId);
+                var photo = proxyF.GetProductPhotoDefaultByProductId(item.ProductId);
+                item.ProductPhotos = new List<ProductPhoto> { photo };
+            }
+
+            if (!String.IsNullOrEmpty(searchString))
+                products = products.FindAll(s =>
+                    s.Name.Contains(searchString) ||
+                    s.Description.Contains(searchString) ||
+                    s.UnitMeasure.ShortName.Contains(searchString));
+
+            switch (sortOrder)
+            {
+                case "Name_Desc":
+                    products = products.OrderByDescending(p => p.Name).ToList();
+                    break;
+                case "Product Type":
+                    products = products.OrderBy(p => p.ProductType.Name).ToList();
+                    break;
+                case "ProductType_Desc":
+                    products = products.OrderByDescending(p => p.ProductType.Name).ToList();
+                    break;
+                case "Unit Measure":
+                    products = products.OrderBy(p => p.UnitMeasure.ShortName).ToList();
+                    break;
+                case "UnitMeasure_Desc":
+                    products = products.OrderByDescending(p => p.UnitMeasure.ShortName).ToList();
+                    break;
+                case "Description":
+                    products = products.OrderBy(p => p.Description).ToList();
+                    break;
+                case "Description_Desc":
+                    products = products.OrderByDescending(p => p.Description).ToList();
+                    break;
+                case "Unit Price":
+                    products = products.OrderBy(p => p.UnitPrice).ToList();
+                    break;
+                case "UnitPrice_Desc":
+                    products = products.OrderByDescending(p => p.UnitPrice).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(p => p.Name).ToList();
+                    break;
+            }
+
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(products.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult About()

@@ -269,6 +269,10 @@
     <Content Include="Content\img\400X200.gif" />
     <Content Include="Content\img\400X400.gif" />
     <Content Include="Content\img\40X40.gif" />
+    <Content Include="Content\img\shop-pic\shop-pic-01.jpg" />
+    <Content Include="Content\img\shop-pic\shop-pic-02.jpg" />
+    <Content Include="Content\img\shop-pic\shop-pic-03.jpg" />
+    <Content Include="Content\img\shop-pic\shop-pic-04.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
