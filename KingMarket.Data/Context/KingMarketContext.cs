@@ -52,5 +52,7 @@ namespace KingMarket.Data.Context
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<ProductPhoto> ProductPhotos { get; set; }
+
+        public DbSet<CartItem> CartItems { get; set; }
     }
 }

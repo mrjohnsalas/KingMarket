@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartItemsController.cs" />
     <Compile Include="Controllers\ClassDocumentTypesController.cs" />
     <Compile Include="Controllers\CustomerContactsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
@@ -192,6 +193,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\CartItemService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ClassDocumentTypeService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,6 +305,7 @@
     <Content Include="Properties\DataSources\KingMarket.Model.Models.ProductPhoto.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.Supplier.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.SupplierContact.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.CartItem.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -316,6 +323,16 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\CartItemService\CartItemService.wsdl" />
+    <None Include="Service References\CartItemService\CartItemService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CartItemService\CartItemService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CartItemService\CartItemService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ClassDocumentTypeService\ClassDocumentTypeService.disco" />
     <None Include="Service References\ClassDocumentTypeService\configuration91.svcinfo" />
     <None Include="Service References\ClassDocumentTypeService\configuration.svcinfo" />
@@ -477,6 +494,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\CartItemService\CartItemService.disco" />
+    <None Include="Service References\CartItemService\configuration91.svcinfo" />
+    <None Include="Service References\CartItemService\configuration.svcinfo" />
+    <None Include="Service References\CartItemService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -631,6 +655,7 @@
     <Content Include="Views\SupplierContacts\Create.cshtml" />
     <Content Include="Views\SupplierContacts\Edit.cshtml" />
     <Content Include="Views\SupplierContacts\Delete.cshtml" />
+    <Content Include="Views\CartItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -650,6 +675,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CartItemService\" />
     <WCFMetadataStorage Include="Service References\ClassDocumentTypeService\" />
     <WCFMetadataStorage Include="Service References\CustomerContactService\" />
     <WCFMetadataStorage Include="Service References\CustomerService\" />

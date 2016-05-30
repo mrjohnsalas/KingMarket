@@ -1,0 +1,95 @@
+﻿@model PagedList.IPagedList<KingMarket.Model.Models.CartItem>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "CartItems", FormMethod.Get))
+{
+    <p>
+        Find: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Product Type", "Index", new { sortOrder = ViewBag.ProductTypeSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Unit Measure", "Index", new { sortOrder = ViewBag.UnitMeasureSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Unit Price", "Index", new { sortOrder = ViewBag.UnitPriceSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.Label("Quantity")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.UnitMeasure.ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.UnitPrice)
+        </td>
+        <td>
+            @Html.EditorFor(modelItem => item.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(modelItem => item.Quantity, "", new { @class = "text-danger" })
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {id = item.CartItemId}) |
+            <a href="javascript:void(0);" data-id="@item.CartItemId" class="deleteCartItem">Delete</a>
+            @*@Html.ActionLink("Delete", "Delete", new {id = item.CartItemId})*@
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+<nav class="text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+</nav>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('.deleteCartItem').click(function (e) {
+        e.preventDefault();
+        var $ctrl = $(this);
+        if (confirm('Do you really want to delete this product?')) {
+            $.ajax({
+                url: '@Url.Action("DeleteCartItem")',
+                type: 'POST',
+                data: { id: $(this).data('id') }
+            }).done(function (data) {
+                if (data.Result == "Ok") {
+                    $ctrl.closest('tr').remove();
+                    alert("The product was delete successfully.");
+                }
+                else if (data.Result.Message) {
+                    alert(data.Result.Message);
+                }
+            }).fail(function () {
+                alert("There is something wrong. Please try again.");
+            });
+        }
+    });
+    </script>
+}

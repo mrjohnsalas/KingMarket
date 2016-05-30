@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fe0d5b55-8754-4cf0-804c-abd7bb6ac6ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="KingMarket.Model" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55981/CartItemService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CartItemService.disco" MetadataType="Disco" ID="3cbb1dac-ad3c-46f4-afce-ffc4d39a447f" SourceId="1" SourceUrl="http://localhost:55981/CartItemService.svc?disco" />
+    <MetadataFile FileName="CartItemService.wsdl" MetadataType="Wsdl" ID="10f4e357-4e09-4492-9570-bad3e66c2149" SourceId="1" SourceUrl="http://localhost:55981/CartItemService.svc?wsdl" />
+    <MetadataFile FileName="CartItemService.xsd" MetadataType="Schema" ID="d6233510-5220-44c3-8b86-c68c3169a00a" SourceId="1" SourceUrl="http://localhost:55981/CartItemService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CartItemService1.xsd" MetadataType="Schema" ID="eac0198d-0541-433e-aa4c-cd2f65db5b79" SourceId="1" SourceUrl="http://localhost:55981/CartItemService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CartItemService2.xsd" MetadataType="Schema" ID="76b5b6eb-3673-4d81-9d5d-e9cca7151245" SourceId="1" SourceUrl="http://localhost:55981/CartItemService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

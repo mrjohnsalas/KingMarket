@@ -10,6 +10,8 @@ using KingMarket.Web.ProductTypeService;
 using KingMarket.Web.ProductService;
 using KingMarket.Web.UnitMeasureService;
 using KingMarket.Web.ProductPhotoService;
+using KingMarket.Web.CartItemService;
+using Microsoft.AspNet.Identity;
 using PagedList;
 
 namespace KingMarket.Web.Controllers
@@ -103,6 +105,50 @@ namespace KingMarket.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public JsonResult AddCart(int? productId)
+        {
+            if (!productId.HasValue)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json(new { Result = "Error" });
+            }
+            try
+            {
+                var proxyP = new ProductServiceClient();
+                var product = proxyP.GetProduct(productId.Value);
+                if (product == null)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    return Json(new { Result = "Error" });
+                }
+                var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+                var proxyC = new CartItemServiceClient();
+                var cartItem = proxyC.GetCartItemByProductIdAndUserId(productId.Value, userId);
+                if (cartItem == null)
+                {
+                    proxyC.CreateCartItem(new CartItem
+                    {
+                        UserId = userId,
+                        DateCreated = DateTime.Now,
+                        Quantity = 1,
+                        ProductId = productId.Value
+                    });
+                }
+                else
+                {
+                    cartItem.Quantity += 1;
+                    proxyC.EditCartItem(cartItem);
+                }
+                return Json(new { Result = "Ok" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
         }
     }
 }

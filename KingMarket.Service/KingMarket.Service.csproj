@@ -68,6 +68,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CartItemService.svc" />
     <Content Include="ClassDocumentTypeService.svc" />
     <Content Include="CustomerContactService.svc" />
     <Content Include="CustomerService.svc" />
@@ -86,6 +87,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartItemService.svc.cs">
+      <DependentUpon>CartItemService.svc</DependentUpon>
+    </Compile>
     <Compile Include="ClassDocumentTypeService.svc.cs">
       <DependentUpon>ClassDocumentTypeService.svc</DependentUpon>
     </Compile>
@@ -104,6 +108,7 @@
     <Compile Include="EmployeeTypeService.svc.cs">
       <DependentUpon>EmployeeTypeService.svc</DependentUpon>
     </Compile>
+    <Compile Include="ICartItemService.cs" />
     <Compile Include="IClassDocumentTypeService.cs" />
     <Compile Include="ICustomerContactService.cs" />
     <Compile Include="ICustomerService.cs" />

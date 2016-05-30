@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Models\BuyOrder.cs" />
     <Compile Include="Models\BuyOrderDetail.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ClassDocumentType.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerContact.cs" />

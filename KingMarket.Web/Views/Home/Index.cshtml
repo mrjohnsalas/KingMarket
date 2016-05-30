@@ -1,6 +1,7 @@
 ﻿@model PagedList.IPagedList<KingMarket.Model.Models.Product>
 @using KingMarket.Model.Models
 @using PagedList.Mvc;
+@using Microsoft.AspNet.Identity
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
@@ -107,7 +108,7 @@
                         <p>Price: @Html.DisplayFor(modelItem => item.UnitPrice)</p>
                         <p>Stock: @Html.DisplayFor(modelItem => item.Stock)</p>
                         <p>
-                            <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a>
+                            <a href="javascript:void(0);" data-id="@item.ProductId" class="btn btn-primary addCart" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a>
                         </p>
                     </div>
                 </div>
@@ -184,3 +185,28 @@
         </div>
     </div>
 </footer>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $('.addCart').click(function (e) {
+        e.preventDefault();
+        var $ctrl = $(this);
+        if (confirm('Do you really want to add this product?')) {
+            $.ajax({
+                url: '@Url.Action("AddCart")',
+                type: 'POST',
+                data: { productId: $(this).data('id') }
+            }).done(function (data) {
+                if (data.Result == "Ok") {
+                    alert("The product was added successfully.");
+                }
+                else if (data.Result.Message) {
+                    alert(data.Result.Message);
+                }
+            }).fail(function () {
+                alert("There is something wrong. Please try again.");
+            });
+        }
+    });
+    </script>
+}

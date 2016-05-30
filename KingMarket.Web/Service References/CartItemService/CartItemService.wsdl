@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CartItemService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55981/CartItemService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55981/CartItemService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55981/CartItemService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICartItemService_GetCartItemsByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemsByUserId" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_GetCartItemsByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemsByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_GetCartItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItem" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_GetCartItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_GetCartItemByProductIdAndUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemByProductIdAndUserId" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_GetCartItemByProductIdAndUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemByProductIdAndUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_CreateCartItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCartItem" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_CreateCartItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_EditCartItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCartItem" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_EditCartItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_DeleteCartItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCartItem" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_DeleteCartItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCartItemResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICartItemService">
+    <wsdl:operation name="GetCartItemsByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemsByUserId" message="tns:ICartItemService_GetCartItemsByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemsByUserIdResponse" message="tns:ICartItemService_GetCartItemsByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItem" message="tns:ICartItemService_GetCartItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemResponse" message="tns:ICartItemService_GetCartItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartItemByProductIdAndUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserId" message="tns:ICartItemService_GetCartItemByProductIdAndUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserIdResponse" message="tns:ICartItemService_GetCartItemByProductIdAndUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCartItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/CreateCartItem" message="tns:ICartItemService_CreateCartItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/CreateCartItemResponse" message="tns:ICartItemService_CreateCartItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCartItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/EditCartItem" message="tns:ICartItemService_EditCartItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/EditCartItemResponse" message="tns:ICartItemService_EditCartItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCartItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/DeleteCartItem" message="tns:ICartItemService_DeleteCartItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/DeleteCartItemResponse" message="tns:ICartItemService_DeleteCartItem_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICartItemService" type="tns:ICartItemService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCartItemsByUserId">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/GetCartItemsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartItem">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/GetCartItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartItemByProductIdAndUserId">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCartItem">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/CreateCartItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCartItem">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/EditCartItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCartItem">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/DeleteCartItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CartItemService">
+    <wsdl:port name="BasicHttpBinding_ICartItemService" binding="tns:BasicHttpBinding_ICartItemService">
+      <soap:address location="http://localhost:55981/CartItemService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
