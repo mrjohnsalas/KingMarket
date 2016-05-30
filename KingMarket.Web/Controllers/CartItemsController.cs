@@ -121,5 +121,38 @@ namespace KingMarket.Web.Controllers
                 return Json(new { Result = "ERROR", Message = ex.Message });
             }
         }
+
+        // GET: ClassDocumentTypes/Edit/5
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var proxy = new CartItemServiceClient();
+            var cartItem = proxy.GetCartItem(id.Value);
+            if (cartItem == null)
+                return HttpNotFound();
+            var proxyP = new ProductServiceClient();
+            var proxyT = new ProductTypeServiceClient();
+            var proxyU = new UnitMeasureServiceClient();
+            cartItem.Product = proxyP.GetProduct(cartItem.ProductId);
+            cartItem.Product.ProductType = proxyT.GetProductType(cartItem.Product.ProductTypeId);
+            cartItem.Product.UnitMeasure = proxyU.GetUnitMeasure(cartItem.Product.UnitMeasureId);
+            return View(cartItem);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit([Bind(Include = "CartItemId,UserId,DateCreated,ProductId,Quantity")] CartItem cartItem)
+        {
+            if (ModelState.IsValid)
+            {
+                var proxy = new CartItemServiceClient();
+                proxy.EditCartItem(cartItem);
+                return RedirectToAction("Index");
+            }
+            return View(cartItem);
+        }
     }
 }

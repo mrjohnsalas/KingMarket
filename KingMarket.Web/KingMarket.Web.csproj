@@ -656,6 +656,7 @@
     <Content Include="Views\SupplierContacts\Edit.cshtml" />
     <Content Include="Views\SupplierContacts\Delete.cshtml" />
     <Content Include="Views\CartItems\Index.cshtml" />
+    <Content Include="Views\CartItems\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
