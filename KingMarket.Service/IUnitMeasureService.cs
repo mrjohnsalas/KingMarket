@@ -18,9 +18,11 @@ namespace KingMarket.Service
         [OperationContract]
         UnitMeasure GetUnitMeasure(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateUnitMeasure(UnitMeasure myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditUnitMeasure(UnitMeasure myObject);
 

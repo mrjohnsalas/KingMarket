@@ -18,9 +18,11 @@ namespace KingMarket.Service
         [OperationContract]
         Supplier GetSupplier(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateSupplier(Supplier myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditSupplier(Supplier myObject);
 

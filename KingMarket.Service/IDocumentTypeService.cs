@@ -18,9 +18,11 @@ namespace KingMarket.Service
         [OperationContract]
         DocumentType GetDocumentType(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateDocumentType(DocumentType myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditDocumentType(DocumentType myObject);
 

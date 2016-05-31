@@ -21,9 +21,11 @@ namespace KingMarket.Service
         [OperationContract]
         CartItem GetCartItemByProductIdAndUserId(int productId, string userId);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateCartItem(CartItem myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditCartItem(CartItem myObject);
 

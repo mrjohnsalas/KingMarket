@@ -18,9 +18,11 @@ namespace KingMarket.Service
         [OperationContract]
         Employee GetEmployee(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateEmployee(Employee myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditEmployee(Employee myObject);
 

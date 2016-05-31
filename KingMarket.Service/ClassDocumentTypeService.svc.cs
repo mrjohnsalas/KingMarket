@@ -77,8 +77,41 @@ namespace KingMarket.Service
 
         public void EditClassDocumentType(ClassDocumentType myObject)
         {
-            repository.Update(myObject);
-            unitOfWork.Commit();
+            try
+            {
+                repository.Update(myObject);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                SqlException sqlException = null;
+                var tmp = ex;
+                while (sqlException == null && tmp != null)
+                {
+                    if (tmp == null) continue;
+                    sqlException = tmp.InnerException as SqlException;
+                    tmp = tmp.InnerException;
+                }
+                if (sqlException != null)
+                {
+                    if (sqlException.Number.Equals(2601))
+                    {
+                        throw new FaultException<GeneralException>(new GeneralException()
+                        {
+                            Id = sqlException.Number.ToString(),
+                            Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
+                        }, new FaultReason("Error when trying to edit."));
+                    }
+                    else
+                    {
+                        throw new FaultException<GeneralException>(new GeneralException()
+                        {
+                            Id = sqlException.Number.ToString(),
+                            Description = sqlException.Message
+                        }, new FaultReason("Error when trying to edit."));
+                    }
+                }
+            }
         }
 
         public void DeleteClassDocumentType(int id)

@@ -25,11 +25,17 @@
   <wsdl:message name="IDocumentTypeService_CreateDocumentType_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateDocumentTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IDocumentTypeService_CreateDocumentType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="IDocumentTypeService_EditDocumentType_InputMessage">
     <wsdl:part name="parameters" element="tns:EditDocumentType" />
   </wsdl:message>
   <wsdl:message name="IDocumentTypeService_EditDocumentType_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentTypeService_EditDocumentType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IDocumentTypeService_DeleteDocumentType_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteDocumentType" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateDocumentType">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/CreateDocumentType" message="tns:IDocumentTypeService_CreateDocumentType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDocumentTypeService/CreateDocumentTypeResponse" message="tns:IDocumentTypeService_CreateDocumentType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDocumentTypeService/CreateDocumentTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IDocumentTypeService_CreateDocumentType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditDocumentType">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/EditDocumentType" message="tns:IDocumentTypeService_EditDocumentType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDocumentTypeService/EditDocumentTypeResponse" message="tns:IDocumentTypeService_EditDocumentType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDocumentTypeService/EditDocumentTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IDocumentTypeService_EditDocumentType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteDocumentType">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/DeleteDocumentType" message="tns:IDocumentTypeService_DeleteDocumentType_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditDocumentType">
       <soap:operation soapAction="http://tempuri.org/IDocumentTypeService/EditDocumentType" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteDocumentType">
       <soap:operation soapAction="http://tempuri.org/IDocumentTypeService/DeleteDocumentType" style="document" />

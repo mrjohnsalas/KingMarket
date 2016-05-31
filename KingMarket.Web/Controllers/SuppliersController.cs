@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -108,28 +109,36 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "SupplierId,DocumentTypeId,DocumentNumber,BusinessName,Address,Email,Web,Phone")] Supplier supplier)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new SupplierServiceClient();
-                proxy.CreateSupplier(supplier);
-
-                //Create User
-                var db2 = new ApplicationDbContext();
-                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
-                var user = userManager.FindByName(supplier.Email);
-                if (user == null)
+                if (ModelState.IsValid)
                 {
-                    user = new ApplicationUser
+                    var proxy = new SupplierServiceClient();
+                    proxy.CreateSupplier(supplier);
+
+                    //Create User
+                    var db2 = new ApplicationDbContext();
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
+                    var user = userManager.FindByName(supplier.Email);
+                    if (user == null)
                     {
-                        UserName = supplier.Email,
-                        Email = supplier.Email
-                    };
-                    userManager.Create(user, supplier.DocumentNumber);
-                    //AddRole
-                    userManager.AddToRole(user.Id, "Supplier");
+                        user = new ApplicationUser
+                        {
+                            UserName = supplier.Email,
+                            Email = supplier.Email
+                        };
+                        userManager.Create(user, supplier.DocumentNumber);
+                        //AddRole
+                        userManager.AddToRole(user.Id, "Supplier");
+                    }
+                    db2.Dispose();
+                    return RedirectToAction("Index");
                 }
-                db2.Dispose();
-                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyC = new DocumentTypeServiceClient();
             ViewBag.DocumentTypeId = new SelectList(proxyC.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(1) && d.OnlyForEnterprise), "DocumentTypeId", "Name", supplier.DocumentTypeId);
@@ -156,11 +165,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "SupplierId,DocumentTypeId,DocumentNumber,BusinessName,Address,Email,Web,Phone")] Supplier supplier)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new SupplierServiceClient();
-                proxy.EditSupplier(supplier);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new SupplierServiceClient();
+                    proxy.EditSupplier(supplier);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyC = new DocumentTypeServiceClient();
             ViewBag.DocumentTypeId = new SelectList(proxyC.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(1) && d.OnlyForEnterprise), "DocumentTypeId", "Name", supplier.DocumentTypeId);

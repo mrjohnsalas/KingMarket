@@ -25,11 +25,17 @@
   <wsdl:message name="ICustomerContactService_CreateCustomerContact_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateCustomerContactResponse" />
   </wsdl:message>
+  <wsdl:message name="ICustomerContactService_CreateCustomerContact_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="ICustomerContactService_EditCustomerContact_InputMessage">
     <wsdl:part name="parameters" element="tns:EditCustomerContact" />
   </wsdl:message>
   <wsdl:message name="ICustomerContactService_EditCustomerContact_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditCustomerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerContactService_EditCustomerContact_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="ICustomerContactService_DeleteCustomerContact_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCustomerContact" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateCustomerContact">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/CreateCustomerContact" message="tns:ICustomerContactService_CreateCustomerContact_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerContactService/CreateCustomerContactResponse" message="tns:ICustomerContactService_CreateCustomerContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerContactService/CreateCustomerContactGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ICustomerContactService_CreateCustomerContact_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditCustomerContact">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/EditCustomerContact" message="tns:ICustomerContactService_EditCustomerContact_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerContactService/EditCustomerContactResponse" message="tns:ICustomerContactService_EditCustomerContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerContactService/EditCustomerContactGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ICustomerContactService_EditCustomerContact_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteCustomerContact">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerContactService/DeleteCustomerContact" message="tns:ICustomerContactService_DeleteCustomerContact_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditCustomerContact">
       <soap:operation soapAction="http://tempuri.org/ICustomerContactService/EditCustomerContact" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteCustomerContact">
       <soap:operation soapAction="http://tempuri.org/ICustomerContactService/DeleteCustomerContact" style="document" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -150,29 +151,37 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ProductId,Name,Description,UnitPrice,UnitCost,ProductTypeId,Stock,MinStock,MaxStock,UnitMeasureId")] Product product)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var productPhotos = new List<ProductPhoto>();
-                for (int i = 0; i < Request.Files.Count; i++)
+                if (ModelState.IsValid)
                 {
-                    var file = Request.Files[i];
-                    if (file != null && file.ContentLength > 0)
+                    var productPhotos = new List<ProductPhoto>();
+                    for (int i = 0; i < Request.Files.Count; i++)
                     {
-                        var photo = new ProductPhoto
+                        var file = Request.Files[i];
+                        if (file != null && file.ContentLength > 0)
                         {
-                            FileName = Path.GetFileName(file.FileName),
-                            FileType = FileType.Photo,
-                            ContentType = file.ContentType
-                        };
-                        using (var reader = new BinaryReader(file.InputStream))
-                            photo.Content = reader.ReadBytes(file.ContentLength);
-                        productPhotos.Add(photo);
+                            var photo = new ProductPhoto
+                            {
+                                FileName = Path.GetFileName(file.FileName),
+                                FileType = FileType.Photo,
+                                ContentType = file.ContentType
+                            };
+                            using (var reader = new BinaryReader(file.InputStream))
+                                photo.Content = reader.ReadBytes(file.ContentLength);
+                            productPhotos.Add(photo);
+                        }
                     }
+                    product.ProductPhotos = productPhotos;
+                    var proxy = new ProductServiceClient();
+                    proxy.CreateProduct(product);
+                    return RedirectToAction("Index");
                 }
-                product.ProductPhotos = productPhotos;
-                var proxy = new ProductServiceClient();
-                proxy.CreateProduct(product);
-                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyP = new ProductTypeServiceClient();
             var proxyU = new UnitMeasureServiceClient();
@@ -205,32 +214,40 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ProductId,Name,Description,UnitPrice,UnitCost,ProductTypeId,Stock,MinStock,MaxStock,UnitMeasureId")] Product product)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (product.ProductPhotos == null)
-                    product.ProductPhotos = new List<ProductPhoto>();
-
-                for (int i = 0; i < Request.Files.Count; i++)
+                if (ModelState.IsValid)
                 {
-                    var file = Request.Files[i];
-                    if (file != null && file.ContentLength > 0)
+                    if (product.ProductPhotos == null)
+                        product.ProductPhotos = new List<ProductPhoto>();
+
+                    for (int i = 0; i < Request.Files.Count; i++)
                     {
-                        var photo = new ProductPhoto
+                        var file = Request.Files[i];
+                        if (file != null && file.ContentLength > 0)
                         {
-                            FileName = Path.GetFileName(file.FileName),
-                            FileType = FileType.Photo,
-                            ContentType = file.ContentType,
-                            ProductId = product.ProductId
-                        };
-                        using (var reader = new BinaryReader(file.InputStream))
-                            photo.Content = reader.ReadBytes(file.ContentLength);
-                        product.ProductPhotos.Add(photo);
-                        //db.Entry(photo).State = EntityState.Added;
+                            var photo = new ProductPhoto
+                            {
+                                FileName = Path.GetFileName(file.FileName),
+                                FileType = FileType.Photo,
+                                ContentType = file.ContentType,
+                                ProductId = product.ProductId
+                            };
+                            using (var reader = new BinaryReader(file.InputStream))
+                                photo.Content = reader.ReadBytes(file.ContentLength);
+                            product.ProductPhotos.Add(photo);
+                            //db.Entry(photo).State = EntityState.Added;
+                        }
                     }
+                    var proxy = new ProductServiceClient();
+                    proxy.EditProduct(product);
+                    return RedirectToAction("Index");
                 }
-                var proxy = new ProductServiceClient();
-                proxy.EditProduct(product);
-                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyP = new ProductTypeServiceClient();
             var proxyU = new UnitMeasureServiceClient();

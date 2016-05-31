@@ -25,11 +25,17 @@
   <wsdl:message name="IUnitMeasureService_CreateUnitMeasure_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateUnitMeasureResponse" />
   </wsdl:message>
+  <wsdl:message name="IUnitMeasureService_CreateUnitMeasure_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="IUnitMeasureService_EditUnitMeasure_InputMessage">
     <wsdl:part name="parameters" element="tns:EditUnitMeasure" />
   </wsdl:message>
   <wsdl:message name="IUnitMeasureService_EditUnitMeasure_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditUnitMeasureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUnitMeasureService_EditUnitMeasure_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IUnitMeasureService_DeleteUnitMeasure_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUnitMeasure" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateUnitMeasure">
       <wsdl:input wsaw:Action="http://tempuri.org/IUnitMeasureService/CreateUnitMeasure" message="tns:IUnitMeasureService_CreateUnitMeasure_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUnitMeasureService/CreateUnitMeasureResponse" message="tns:IUnitMeasureService_CreateUnitMeasure_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUnitMeasureService/CreateUnitMeasureGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IUnitMeasureService_CreateUnitMeasure_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditUnitMeasure">
       <wsdl:input wsaw:Action="http://tempuri.org/IUnitMeasureService/EditUnitMeasure" message="tns:IUnitMeasureService_EditUnitMeasure_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUnitMeasureService/EditUnitMeasureResponse" message="tns:IUnitMeasureService_EditUnitMeasure_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUnitMeasureService/EditUnitMeasureGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IUnitMeasureService_EditUnitMeasure_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUnitMeasure">
       <wsdl:input wsaw:Action="http://tempuri.org/IUnitMeasureService/DeleteUnitMeasure" message="tns:IUnitMeasureService_DeleteUnitMeasure_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditUnitMeasure">
       <soap:operation soapAction="http://tempuri.org/IUnitMeasureService/EditUnitMeasure" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteUnitMeasure">
       <soap:operation soapAction="http://tempuri.org/IUnitMeasureService/DeleteUnitMeasure" style="document" />

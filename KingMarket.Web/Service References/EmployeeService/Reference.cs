@@ -28,12 +28,14 @@ namespace KingMarket.Web.EmployeeService {
         System.Threading.Tasks.Task<KingMarket.Model.Models.Employee> GetEmployeeAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IEmployeeService/CreateEmployeeGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void CreateEmployee(KingMarket.Model.Models.Employee myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
         System.Threading.Tasks.Task CreateEmployeeAsync(KingMarket.Model.Models.Employee myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/EditEmployee", ReplyAction="http://tempuri.org/IEmployeeService/EditEmployeeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IEmployeeService/EditEmployeeGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void EditEmployee(KingMarket.Model.Models.Employee myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/EditEmployee", ReplyAction="http://tempuri.org/IEmployeeService/EditEmployeeResponse")]

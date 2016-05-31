@@ -25,11 +25,17 @@
   <wsdl:message name="IEmployeeTypeService_CreateEmployeeType_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateEmployeeTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IEmployeeTypeService_CreateEmployeeType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="IEmployeeTypeService_EditEmployeeType_InputMessage">
     <wsdl:part name="parameters" element="tns:EditEmployeeType" />
   </wsdl:message>
   <wsdl:message name="IEmployeeTypeService_EditEmployeeType_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditEmployeeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeTypeService_EditEmployeeType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IEmployeeTypeService_DeleteEmployeeType_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteEmployeeType" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateEmployeeType">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeTypeService/CreateEmployeeType" message="tns:IEmployeeTypeService_CreateEmployeeType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeTypeService/CreateEmployeeTypeResponse" message="tns:IEmployeeTypeService_CreateEmployeeType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmployeeTypeService/CreateEmployeeTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IEmployeeTypeService_CreateEmployeeType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditEmployeeType">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeTypeService/EditEmployeeType" message="tns:IEmployeeTypeService_EditEmployeeType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeTypeService/EditEmployeeTypeResponse" message="tns:IEmployeeTypeService_EditEmployeeType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmployeeTypeService/EditEmployeeTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IEmployeeTypeService_EditEmployeeType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployeeType">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeType" message="tns:IEmployeeTypeService_DeleteEmployeeType_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditEmployeeType">
       <soap:operation soapAction="http://tempuri.org/IEmployeeTypeService/EditEmployeeType" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployeeType">
       <soap:operation soapAction="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeType" style="document" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -93,13 +94,20 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "DocumentTypeId,Name,OnlyForEnterprise,ClassDocumentTypeId")] DocumentType documentType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new DocumentTypeServiceClient();
-                proxy.CreateDocumentType(documentType);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new DocumentTypeServiceClient();
+                    proxy.CreateDocumentType(documentType);
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
             var proxyC = new ClassDocumentTypeServiceClient();
             ViewBag.ClassDocumentTypeId = new SelectList(proxyC.GetClassDocumentTypes().OrderBy(d => d.Name), "ClassDocumentTypeId", "Name", documentType.ClassDocumentTypeId);
             return View(documentType);
@@ -125,11 +133,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "DocumentTypeId,Name,OnlyForEnterprise,ClassDocumentTypeId")] DocumentType documentType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new DocumentTypeServiceClient();
-                proxy.EditDocumentType(documentType);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new DocumentTypeServiceClient();
+                    proxy.EditDocumentType(documentType);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyC = new ClassDocumentTypeServiceClient();
             ViewBag.ClassDocumentTypeId = new SelectList(proxyC.GetClassDocumentTypes().OrderBy(d => d.Name), "ClassDocumentTypeId", "Name", documentType.ClassDocumentTypeId);

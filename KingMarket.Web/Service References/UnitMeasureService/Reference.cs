@@ -28,12 +28,14 @@ namespace KingMarket.Web.UnitMeasureService {
         System.Threading.Tasks.Task<KingMarket.Model.Models.UnitMeasure> GetUnitMeasureAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUnitMeasureService/CreateUnitMeasure", ReplyAction="http://tempuri.org/IUnitMeasureService/CreateUnitMeasureResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IUnitMeasureService/CreateUnitMeasureGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void CreateUnitMeasure(KingMarket.Model.Models.UnitMeasure myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUnitMeasureService/CreateUnitMeasure", ReplyAction="http://tempuri.org/IUnitMeasureService/CreateUnitMeasureResponse")]
         System.Threading.Tasks.Task CreateUnitMeasureAsync(KingMarket.Model.Models.UnitMeasure myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUnitMeasureService/EditUnitMeasure", ReplyAction="http://tempuri.org/IUnitMeasureService/EditUnitMeasureResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IUnitMeasureService/EditUnitMeasureGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void EditUnitMeasure(KingMarket.Model.Models.UnitMeasure myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUnitMeasureService/EditUnitMeasure", ReplyAction="http://tempuri.org/IUnitMeasureService/EditUnitMeasureResponse")]

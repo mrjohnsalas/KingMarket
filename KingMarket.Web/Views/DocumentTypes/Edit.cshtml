@@ -4,6 +4,14 @@
     ViewBag.Title = "Edit";
 }
 
+@if (!String.IsNullOrEmpty(ViewBag.ErrorCode) && !String.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorCode<br />
+        @ViewBag.ErrorMessage
+    </div>
+}
+
 <h2>Edit</h2>
 
 

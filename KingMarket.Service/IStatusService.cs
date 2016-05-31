@@ -18,9 +18,11 @@ namespace KingMarket.Service
         [OperationContract]
         Status GetStatus(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateStatus(Status myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditStatus(Status myObject);
 

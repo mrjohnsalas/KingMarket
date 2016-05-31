@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -146,11 +147,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "CartItemId,UserId,DateCreated,ProductId,Quantity")] CartItem cartItem)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new CartItemServiceClient();
-                proxy.EditCartItem(cartItem);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new CartItemServiceClient();
+                    proxy.EditCartItem(cartItem);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             return View(cartItem);
         }

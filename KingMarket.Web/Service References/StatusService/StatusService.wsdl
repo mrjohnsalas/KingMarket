@@ -25,11 +25,17 @@
   <wsdl:message name="IStatusService_CreateStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="IStatusService_CreateStatus_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="IStatusService_EditStatus_InputMessage">
     <wsdl:part name="parameters" element="tns:EditStatus" />
   </wsdl:message>
   <wsdl:message name="IStatusService_EditStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatusService_EditStatus_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IStatusService_DeleteStatus_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteStatus" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/CreateStatus" message="tns:IStatusService_CreateStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStatusService/CreateStatusResponse" message="tns:IStatusService_CreateStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IStatusService/CreateStatusGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IStatusService_CreateStatus_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/EditStatus" message="tns:IStatusService_EditStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStatusService/EditStatusResponse" message="tns:IStatusService_EditStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IStatusService/EditStatusGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IStatusService_EditStatus_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IStatusService/DeleteStatus" message="tns:IStatusService_DeleteStatus_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditStatus">
       <soap:operation soapAction="http://tempuri.org/IStatusService/EditStatus" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteStatus">
       <soap:operation soapAction="http://tempuri.org/IStatusService/DeleteStatus" style="document" />

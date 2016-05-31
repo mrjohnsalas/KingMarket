@@ -31,11 +31,17 @@
   <wsdl:message name="ICartItemService_CreateCartItem_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateCartItemResponse" />
   </wsdl:message>
+  <wsdl:message name="ICartItemService_CreateCartItem_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="ICartItemService_EditCartItem_InputMessage">
     <wsdl:part name="parameters" element="tns:EditCartItem" />
   </wsdl:message>
   <wsdl:message name="ICartItemService_EditCartItem_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartItemService_EditCartItem_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="ICartItemService_DeleteCartItem_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCartItem" />
@@ -59,10 +65,12 @@
     <wsdl:operation name="CreateCartItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/CreateCartItem" message="tns:ICartItemService_CreateCartItem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/CreateCartItemResponse" message="tns:ICartItemService_CreateCartItem_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICartItemService/CreateCartItemGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ICartItemService_CreateCartItem_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditCartItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/EditCartItem" message="tns:ICartItemService_EditCartItem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/EditCartItemResponse" message="tns:ICartItemService_EditCartItem_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICartItemService/EditCartItemGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ICartItemService_EditCartItem_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteCartItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/DeleteCartItem" message="tns:ICartItemService_DeleteCartItem_InputMessage" />
@@ -106,6 +114,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditCartItem">
       <soap:operation soapAction="http://tempuri.org/ICartItemService/EditCartItem" style="document" />
@@ -115,6 +126,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteCartItem">
       <soap:operation soapAction="http://tempuri.org/ICartItemService/DeleteCartItem" style="document" />

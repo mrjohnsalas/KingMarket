@@ -18,9 +18,11 @@ namespace KingMarket.Service
         [OperationContract]
         CustomerContact GetCustomerContact(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateCustomerContact(CustomerContact myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditCustomerContact(CustomerContact myObject);
 

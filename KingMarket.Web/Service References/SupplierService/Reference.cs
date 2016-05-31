@@ -28,12 +28,14 @@ namespace KingMarket.Web.SupplierService {
         System.Threading.Tasks.Task<KingMarket.Model.Models.Supplier> GetSupplierAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/CreateSupplier", ReplyAction="http://tempuri.org/ISupplierService/CreateSupplierResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/ISupplierService/CreateSupplierGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void CreateSupplier(KingMarket.Model.Models.Supplier myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/CreateSupplier", ReplyAction="http://tempuri.org/ISupplierService/CreateSupplierResponse")]
         System.Threading.Tasks.Task CreateSupplierAsync(KingMarket.Model.Models.Supplier myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/EditSupplier", ReplyAction="http://tempuri.org/ISupplierService/EditSupplierResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/ISupplierService/EditSupplierGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void EditSupplier(KingMarket.Model.Models.Supplier myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/EditSupplier", ReplyAction="http://tempuri.org/ISupplierService/EditSupplierResponse")]

@@ -25,11 +25,17 @@
   <wsdl:message name="IProductTypeService_CreateProductType_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateProductTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductTypeService_CreateProductType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="IProductTypeService_EditProductType_InputMessage">
     <wsdl:part name="parameters" element="tns:EditProductType" />
   </wsdl:message>
   <wsdl:message name="IProductTypeService_EditProductType_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditProductTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductTypeService_EditProductType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IProductTypeService_DeleteProductType_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProductType" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateProductType">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductTypeService/CreateProductType" message="tns:IProductTypeService_CreateProductType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductTypeService/CreateProductTypeResponse" message="tns:IProductTypeService_CreateProductType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IProductTypeService/CreateProductTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IProductTypeService_CreateProductType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditProductType">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductTypeService/EditProductType" message="tns:IProductTypeService_EditProductType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductTypeService/EditProductTypeResponse" message="tns:IProductTypeService_EditProductType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IProductTypeService/EditProductTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IProductTypeService_EditProductType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteProductType">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductTypeService/DeleteProductType" message="tns:IProductTypeService_DeleteProductType_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditProductType">
       <soap:operation soapAction="http://tempuri.org/IProductTypeService/EditProductType" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteProductType">
       <soap:operation soapAction="http://tempuri.org/IProductTypeService/DeleteProductType" style="document" />

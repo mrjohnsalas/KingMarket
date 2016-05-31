@@ -25,11 +25,17 @@
   <wsdl:message name="ISupplierService_CreateSupplier_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateSupplierResponse" />
   </wsdl:message>
+  <wsdl:message name="ISupplierService_CreateSupplier_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="ISupplierService_EditSupplier_InputMessage">
     <wsdl:part name="parameters" element="tns:EditSupplier" />
   </wsdl:message>
   <wsdl:message name="ISupplierService_EditSupplier_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_EditSupplier_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="ISupplierService_DeleteSupplier_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteSupplier" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateSupplier">
       <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/CreateSupplier" message="tns:ISupplierService_CreateSupplier_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/CreateSupplierResponse" message="tns:ISupplierService_CreateSupplier_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISupplierService/CreateSupplierGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ISupplierService_CreateSupplier_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditSupplier">
       <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/EditSupplier" message="tns:ISupplierService_EditSupplier_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/EditSupplierResponse" message="tns:ISupplierService_EditSupplier_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISupplierService/EditSupplierGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ISupplierService_EditSupplier_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteSupplier">
       <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplier" message="tns:ISupplierService_DeleteSupplier_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditSupplier">
       <soap:operation soapAction="http://tempuri.org/ISupplierService/EditSupplier" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteSupplier">
       <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplier" style="document" />

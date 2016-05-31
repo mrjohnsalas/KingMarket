@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -146,33 +147,40 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "EmployeeId,DocumentTypeId,EmployeeTypeId,DocumentNumber,FirstName,LastName,SecondLastName,Email,Phone")] Employee employee)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new EmployeeServiceClient();
-                proxy.CreateEmployee(employee);
-
-                //Create User
-                var db2 = new ApplicationDbContext();
-                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
-                var user = userManager.FindByName(employee.Email);
-                if (user == null)
+                if (ModelState.IsValid)
                 {
-                    user = new ApplicationUser
-                    {
-                        UserName = employee.Email,
-                        Email = employee.Email
-                    };
-                    userManager.Create(user, employee.DocumentNumber);
-                    //AddRole
-                    if (employee.EmployeeTypeId.Equals(1))
-                        userManager.AddToRole(user.Id, "Buyer");
-                    else
-                        userManager.AddToRole(user.Id, "Grocer");
-                }
-                db2.Dispose();
-                return RedirectToAction("Index");
-            }
+                    var proxy = new EmployeeServiceClient();
+                    proxy.CreateEmployee(employee);
 
+                    //Create User
+                    var db2 = new ApplicationDbContext();
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
+                    var user = userManager.FindByName(employee.Email);
+                    if (user == null)
+                    {
+                        user = new ApplicationUser
+                        {
+                            UserName = employee.Email,
+                            Email = employee.Email
+                        };
+                        userManager.Create(user, employee.DocumentNumber);
+                        //AddRole
+                        if (employee.EmployeeTypeId.Equals(1))
+                            userManager.AddToRole(user.Id, "Buyer");
+                        else
+                            userManager.AddToRole(user.Id, "Grocer");
+                    }
+                    db2.Dispose();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
             var proxyD = new DocumentTypeServiceClient();
             var proxyE = new EmployeeTypeServiceClient();
             ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(1) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", employee.DocumentTypeId);
@@ -202,34 +210,42 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "EmployeeId,DocumentTypeId,EmployeeTypeId,DocumentNumber,FirstName,LastName,SecondLastName,Email,Phone")] Employee employee)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new EmployeeServiceClient();
-                proxy.EditEmployee(employee);
-
-                //Update Role
-                var db2 = new ApplicationDbContext();
-                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
-                var user = userManager.FindByName(employee.Email);
-                if (user != null)
+                if (ModelState.IsValid)
                 {
-                    if (employee.EmployeeTypeId.Equals(1))
+                    var proxy = new EmployeeServiceClient();
+                    proxy.EditEmployee(employee);
+
+                    //Update Role
+                    var db2 = new ApplicationDbContext();
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
+                    var user = userManager.FindByName(employee.Email);
+                    if (user != null)
                     {
-                        if (userManager.IsInRole(user.Id, "Grocer"))
-                            userManager.RemoveFromRole(user.Id, "Grocer");
-                        if (!userManager.IsInRole(user.Id, "Buyer"))
-                            userManager.AddToRole(user.Id, "Buyer");
+                        if (employee.EmployeeTypeId.Equals(1))
+                        {
+                            if (userManager.IsInRole(user.Id, "Grocer"))
+                                userManager.RemoveFromRole(user.Id, "Grocer");
+                            if (!userManager.IsInRole(user.Id, "Buyer"))
+                                userManager.AddToRole(user.Id, "Buyer");
+                        }
+                        else
+                        {
+                            if (userManager.IsInRole(user.Id, "Buyer"))
+                                userManager.RemoveFromRole(user.Id, "Buyer");
+                            if (!userManager.IsInRole(user.Id, "Grocer"))
+                                userManager.AddToRole(user.Id, "Grocer");
+                        }
                     }
-                    else
-                    {
-                        if (userManager.IsInRole(user.Id, "Buyer"))
-                            userManager.RemoveFromRole(user.Id, "Buyer");
-                        if (!userManager.IsInRole(user.Id, "Grocer"))
-                            userManager.AddToRole(user.Id, "Grocer");
-                    }
+                    db2.Dispose();
+                    return RedirectToAction("Index");
                 }
-                db2.Dispose();
-                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyD = new DocumentTypeServiceClient();
             var proxyE = new EmployeeTypeServiceClient();

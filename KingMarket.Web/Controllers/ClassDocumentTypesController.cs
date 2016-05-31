@@ -103,11 +103,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ClassDocumentTypeId,Name")] ClassDocumentType classDocumentType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new ClassDocumentTypeServiceClient();
-                proxy.EditClassDocumentType(classDocumentType);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new ClassDocumentTypeServiceClient();
+                    proxy.EditClassDocumentType(classDocumentType);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             return View(classDocumentType);
         }

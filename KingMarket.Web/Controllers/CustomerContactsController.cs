@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -143,13 +144,20 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "CustomerContactId,CustomerId,DocumentTypeId,DocumentNumber,FirstName,LastName,SecondLastName,Email,Phone")] CustomerContact customerContact)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new CustomerContactServiceClient();
-                proxy.CreateCustomerContact(customerContact);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new CustomerContactServiceClient();
+                    proxy.CreateCustomerContact(customerContact);
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
             var proxyC = new CustomerServiceClient();
             var proxyD = new DocumentTypeServiceClient();
             ViewBag.CustomerId = new SelectList(proxyC.GetCustomers().OrderBy(d => String.IsNullOrEmpty(d.BusinessName) ? d.FirstName : d.BusinessName), "CustomerId", "FullName", customerContact.CustomerId);
@@ -179,11 +187,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "CustomerContactId,CustomerId,DocumentTypeId,DocumentNumber,FirstName,LastName,SecondLastName,Email,Phone")] CustomerContact customerContact)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new CustomerContactServiceClient();
-                proxy.EditCustomerContact(customerContact);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new CustomerContactServiceClient();
+                    proxy.EditCustomerContact(customerContact);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyC = new CustomerServiceClient();
             var proxyD = new DocumentTypeServiceClient();

@@ -3,6 +3,15 @@
 @{
     ViewBag.Title = "Create";
 }
+
+@if (!String.IsNullOrEmpty(ViewBag.ErrorCode) && !String.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorCode<br />
+        @ViewBag.ErrorMessage
+    </div>
+}
+
 <h2>Create</h2>
 
 @using (Html.BeginForm("Create", "Products", null, FormMethod.Post, new { enctype = "multipart/form-data" }))

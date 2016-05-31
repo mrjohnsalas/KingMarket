@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -67,13 +68,20 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ProductTypeId,Name")] ProductType productType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new ProductTypeServiceClient();
-                proxy.CreateProductType(productType);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new ProductTypeServiceClient();
+                    proxy.CreateProductType(productType);
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
             return View(productType);
         }
 
@@ -95,11 +103,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ProductTypeId,Name")] ProductType productType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new ProductTypeServiceClient();
-                proxy.EditProductType(productType);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new ProductTypeServiceClient();
+                    proxy.EditProductType(productType);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             return View(productType);
         }

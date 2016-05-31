@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -133,30 +134,37 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "CustomerId,DocumentTypeId,DocumentNumber,BusinessName,FirstName,LastName,SecondLastName,Address,Email,Web,Phone")] Customer customer)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new CustomerServiceClient();
-                proxy.CreateCustomer(customer);
-
-                //Create User
-                var db2 = new ApplicationDbContext();
-                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
-                var user = userManager.FindByName(customer.Email);
-                if (user == null)
+                if (ModelState.IsValid)
                 {
-                    user = new ApplicationUser
-                    {
-                        UserName = customer.Email,
-                        Email = customer.Email
-                    };
-                    userManager.Create(user, customer.DocumentNumber);
-                    //AddRole
-                    userManager.AddToRole(user.Id, "Customer");
-                }
-                db2.Dispose();
-                return RedirectToAction("Index");
-            }
+                    var proxy = new CustomerServiceClient();
+                    proxy.CreateCustomer(customer);
 
+                    //Create User
+                    var db2 = new ApplicationDbContext();
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
+                    var user = userManager.FindByName(customer.Email);
+                    if (user == null)
+                    {
+                        user = new ApplicationUser
+                        {
+                            UserName = customer.Email,
+                            Email = customer.Email
+                        };
+                        userManager.Create(user, customer.DocumentNumber);
+                        //AddRole
+                        userManager.AddToRole(user.Id, "Customer");
+                    }
+                    db2.Dispose();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
             var proxyC = new DocumentTypeServiceClient();
             ViewBag.DocumentTypeId = new SelectList(proxyC.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(1)), "DocumentTypeId", "Name", customer.DocumentTypeId);
             return View(customer);
@@ -182,11 +190,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "CustomerId,DocumentTypeId,DocumentNumber,BusinessName,FirstName,LastName,SecondLastName,Address,Email,Web,Phone")] Customer customer)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new CustomerServiceClient();
-                proxy.EditCustomer(customer);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new CustomerServiceClient();
+                    proxy.EditCustomer(customer);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyC = new DocumentTypeServiceClient();
             ViewBag.DocumentTypeId = new SelectList(proxyC.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(1)), "DocumentTypeId", "Name", customer.DocumentTypeId);

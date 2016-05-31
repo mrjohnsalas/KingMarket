@@ -18,9 +18,11 @@ namespace KingMarket.Service
         [OperationContract]
         Product GetProduct(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateProduct(Product myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditProduct(Product myObject);
 

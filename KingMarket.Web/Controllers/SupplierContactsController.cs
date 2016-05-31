@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -143,11 +144,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "SupplierContactId,SupplierId,DocumentTypeId,DocumentNumber,FirstName,LastName,SecondLastName,Email,Phone")] SupplierContact supplierContact)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new SupplierContactServiceClient();
-                proxy.CreateSupplierContact(supplierContact);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new SupplierContactServiceClient();
+                    proxy.CreateSupplierContact(supplierContact);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyS = new SupplierServiceClient();
             var proxyD = new DocumentTypeServiceClient();
@@ -178,11 +187,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "SupplierContactId,SupplierId,DocumentTypeId,DocumentNumber,FirstName,LastName,SecondLastName,Email,Phone")] SupplierContact supplierContact)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new SupplierContactServiceClient();
-                proxy.EditSupplierContact(supplierContact);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new SupplierContactServiceClient();
+                    proxy.EditSupplierContact(supplierContact);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             var proxyS = new SupplierServiceClient();
             var proxyD = new DocumentTypeServiceClient();

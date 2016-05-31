@@ -25,11 +25,17 @@
   <wsdl:message name="IProductService_CreateProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductService_CreateProduct_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
+  </wsdl:message>
   <wsdl:message name="IProductService_EditProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:EditProduct" />
   </wsdl:message>
   <wsdl:message name="IProductService_EditProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_EditProduct_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IProductService_DeleteProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProduct" />
@@ -49,10 +55,12 @@
     <wsdl:operation name="CreateProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/CreateProduct" message="tns:IProductService_CreateProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/CreateProductResponse" message="tns:IProductService_CreateProduct_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IProductService/CreateProductGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IProductService_CreateProduct_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/EditProduct" message="tns:IProductService_EditProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/EditProductResponse" message="tns:IProductService_EditProduct_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IProductService/EditProductGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IProductService_EditProduct_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/DeleteProduct" message="tns:IProductService_DeleteProduct_InputMessage" />
@@ -87,6 +95,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="EditProduct">
       <soap:operation soapAction="http://tempuri.org/IProductService/EditProduct" style="document" />
@@ -96,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="DeleteProduct">
       <soap:operation soapAction="http://tempuri.org/IProductService/DeleteProduct" style="document" />
