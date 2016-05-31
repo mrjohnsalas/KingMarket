@@ -96,21 +96,22 @@
 
         <div class="form-group">
             <div class="col-md-10">
-                <ul class="attachment">
                     @foreach (var photo in Model.ProductPhotos)
                     {
-                        <li>
-                            <a class="title" href="/Products/Download/?id=@photo.ProductPhotoId">@photo.FileName</a>
-                            <a href="javascript:void(0);" data-id="@photo.ProductPhotoId" class="deleteItem">X</a>
-                        </li>
+                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <img class="img-responsive" src="~/ProductPhotos?id=@photo.ProductPhotoId" alt="@photo.FileName">
+                                <a href="javascript:void(0);" data-id="@photo.ProductPhotoId" class="deleteItem" title="delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                <a href="/Products/Download/?id=@photo.ProductPhotoId"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
                     }
-                </ul>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
         </div>
     </div>
