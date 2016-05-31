@@ -108,6 +108,7 @@
     <Compile Include="EmployeeTypeService.svc.cs">
       <DependentUpon>EmployeeTypeService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\GeneralException.cs" />
     <Compile Include="ICartItemService.cs" />
     <Compile Include="IClassDocumentTypeService.cs" />
     <Compile Include="ICustomerContactService.cs" />

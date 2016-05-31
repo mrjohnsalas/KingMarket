@@ -26,20 +26,6 @@ C:\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
 C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
 C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
 C:\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll.config
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.pdb
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.dll
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.dll
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.dll
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.dll
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.pdb
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.pdb
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.xml
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
 D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll.config
 D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll
 D:\John\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.pdb
@@ -54,3 +40,17 @@ D:\John\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
 D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
 D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
 D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll.config
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Service.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb

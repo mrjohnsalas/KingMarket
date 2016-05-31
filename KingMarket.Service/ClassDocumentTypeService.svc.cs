@@ -7,6 +7,7 @@ using System.Text;
 using KingMarket.Data.Infrastructure;
 using KingMarket.Data.Repositories;
 using KingMarket.Model.Models;
+using KingMarket.Service.Exceptions;
 
 namespace KingMarket.Service
 {
@@ -37,6 +38,11 @@ namespace KingMarket.Service
 
         public void CreateClassDocumentType(ClassDocumentType myObject)
         {
+            throw new FaultException<GeneralException>(new GeneralException()
+            {
+                Id = 1,
+                Description = "Error"
+            }, new FaultReason("Error al intentar creacion"));
             repository.Add(myObject);
             unitOfWork.Commit();
         }

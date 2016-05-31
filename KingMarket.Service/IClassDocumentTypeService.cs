@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using KingMarket.Model.Models;
+using KingMarket.Service.Exceptions;
 
 namespace KingMarket.Service
 {
@@ -18,9 +19,11 @@ namespace KingMarket.Service
         [OperationContract]
         ClassDocumentType GetClassDocumentType(int id);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateClassDocumentType(ClassDocumentType myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void EditClassDocumentType(ClassDocumentType myObject);
 

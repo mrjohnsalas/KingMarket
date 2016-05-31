@@ -26,11 +26,12 @@
     <MetadataSource Address="http://localhost:55981/ClassDocumentTypeService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ClassDocumentTypeService.disco" MetadataType="Disco" ID="4a3b85ed-f8ee-4ec6-8e91-a0ebfab6dce8" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?disco" />
-    <MetadataFile FileName="ClassDocumentTypeService.xsd" MetadataType="Schema" ID="6ca766fe-747d-4d6f-b1a5-b2cf7ae6b6c6" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClassDocumentTypeService2.xsd" MetadataType="Schema" ID="39aadf9a-7d82-4e6d-a846-0474391f96b5" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd2" />
     <MetadataFile FileName="ClassDocumentTypeService.wsdl" MetadataType="Wsdl" ID="c1c797f5-eac4-4cb0-b3a8-2d580d3bd558" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?wsdl" />
     <MetadataFile FileName="ClassDocumentTypeService1.xsd" MetadataType="Schema" ID="e01f22e6-0b6a-4d00-9843-399b21dd39cf" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ClassDocumentTypeService2.xsd" MetadataType="Schema" ID="39aadf9a-7d82-4e6d-a846-0474391f96b5" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ClassDocumentTypeService.disco" MetadataType="Disco" ID="4a3b85ed-f8ee-4ec6-8e91-a0ebfab6dce8" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?disco" />
+    <MetadataFile FileName="ClassDocumentTypeService3.xsd" MetadataType="Schema" ID="df5677f4-3e48-44ad-b67b-889e1a3860c8" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ClassDocumentTypeService.xsd" MetadataType="Schema" ID="6ca766fe-747d-4d6f-b1a5-b2cf7ae6b6c6" SourceId="1" SourceUrl="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

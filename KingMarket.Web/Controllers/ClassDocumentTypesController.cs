@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
@@ -67,13 +68,19 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ClassDocumentTypeId,Name")] ClassDocumentType classDocumentType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var proxy = new ClassDocumentTypeServiceClient();
-                proxy.CreateClassDocumentType(classDocumentType);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var proxy = new ClassDocumentTypeServiceClient();
+                    proxy.CreateClassDocumentType(classDocumentType);
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.Error = ex.Reason.ToString();
+            }
             return View(classDocumentType);
         }
 

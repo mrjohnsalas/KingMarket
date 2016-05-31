@@ -4,6 +4,13 @@
     ViewBag.Title = "Create";
 }
 
+@if (!String.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
 <h2>Create</h2>
 
 

@@ -9,7 +9,70 @@
 //------------------------------------------------------------------------------
 
 namespace KingMarket.Web.ClassDocumentTypeService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Service.Exceptions")]
+    [System.SerializableAttribute()]
+    public partial class GeneralException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ClassDocumentTypeService.IClassDocumentTypeService")]
@@ -28,12 +91,16 @@ namespace KingMarket.Web.ClassDocumentTypeService {
         System.Threading.Tasks.Task<KingMarket.Model.Models.ClassDocumentType> GetClassDocumentTypeAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentType", ReplyAction="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentTypeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Web.ClassDocumentTypeService.GeneralException), Action="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentTypeGeneralExcept" +
+            "ionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Service.Exceptions")]
         void CreateClassDocumentType(KingMarket.Model.Models.ClassDocumentType myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentType", ReplyAction="http://tempuri.org/IClassDocumentTypeService/CreateClassDocumentTypeResponse")]
         System.Threading.Tasks.Task CreateClassDocumentTypeAsync(KingMarket.Model.Models.ClassDocumentType myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentType", ReplyAction="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentTypeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Web.ClassDocumentTypeService.GeneralException), Action="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentTypeGeneralExceptio" +
+            "nFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Service.Exceptions")]
         void EditClassDocumentType(KingMarket.Model.Models.ClassDocumentType myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentType", ReplyAction="http://tempuri.org/IClassDocumentTypeService/EditClassDocumentTypeResponse")]
