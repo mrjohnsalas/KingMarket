@@ -334,9 +334,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ClassDocumentTypeService\ClassDocumentTypeService.disco" />
-    <None Include="Service References\ClassDocumentTypeService\ClassDocumentTypeService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ClassDocumentTypeService\configuration91.svcinfo" />
     <None Include="Service References\ClassDocumentTypeService\configuration.svcinfo" />
     <None Include="Service References\ClassDocumentTypeService\Reference.svcmap">

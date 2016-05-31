@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" />
-      <xsd:import schemaLocation="http://localhost:55981/ClassDocumentTypeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Service.Exceptions" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IClassDocumentTypeService_GetClassDocumentTypes_InputMessage">
@@ -27,7 +26,7 @@
     <wsdl:part name="parameters" element="tns:CreateClassDocumentTypeResponse" />
   </wsdl:message>
   <wsdl:message name="IClassDocumentTypeService_CreateClassDocumentType_GeneralExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Service.Exceptions" name="detail" element="q1:GeneralException" />
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q1:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IClassDocumentTypeService_EditClassDocumentType_InputMessage">
     <wsdl:part name="parameters" element="tns:EditClassDocumentType" />
@@ -36,7 +35,7 @@
     <wsdl:part name="parameters" element="tns:EditClassDocumentTypeResponse" />
   </wsdl:message>
   <wsdl:message name="IClassDocumentTypeService_EditClassDocumentType_GeneralExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Service.Exceptions" name="detail" element="q2:GeneralException" />
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q2:GeneralException" />
   </wsdl:message>
   <wsdl:message name="IClassDocumentTypeService_DeleteClassDocumentType_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteClassDocumentType" />

@@ -4,10 +4,11 @@
     ViewBag.Title = "Create";
 }
 
-@if (!String.IsNullOrEmpty(ViewBag.Error))
+@if (!String.IsNullOrEmpty(ViewBag.ErrorCode) && !String.IsNullOrEmpty(ViewBag.ErrorMessage))
 {
     <div class="alert alert-danger" role="alert">
-        @ViewBag.Error
+        @ViewBag.ErrorCode<br />
+        @ViewBag.ErrorMessage
     </div>
 }
 

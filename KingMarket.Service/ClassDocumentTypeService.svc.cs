@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -7,7 +8,6 @@ using System.Text;
 using KingMarket.Data.Infrastructure;
 using KingMarket.Data.Repositories;
 using KingMarket.Model.Models;
-using KingMarket.Service.Exceptions;
 
 namespace KingMarket.Service
 {
@@ -38,13 +38,41 @@ namespace KingMarket.Service
 
         public void CreateClassDocumentType(ClassDocumentType myObject)
         {
-            throw new FaultException<GeneralException>(new GeneralException()
+            try
             {
-                Id = 1,
-                Description = "Error"
-            }, new FaultReason("Error al intentar creacion"));
-            repository.Add(myObject);
-            unitOfWork.Commit();
+                repository.Add(myObject);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                SqlException sqlException = null;
+                var tmp = ex;
+                while (sqlException == null && tmp != null)
+                {
+                    if (tmp == null) continue;
+                    sqlException = tmp.InnerException as SqlException;
+                    tmp = tmp.InnerException;
+                }
+                if (sqlException != null)
+                {
+                    if (sqlException.Number.Equals(2601))
+                    {
+                        throw new FaultException<GeneralException>(new GeneralException()
+                        {
+                            Id = sqlException.Number.ToString(),
+                            Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
+                        }, new FaultReason("Error when trying to create.")); 
+                    }
+                    else
+                    {
+                        throw new FaultException<GeneralException>(new GeneralException()
+                        {
+                            Id = sqlException.Number.ToString(),
+                            Description = sqlException.Message
+                        }, new FaultReason("Error when trying to create."));   
+                    }
+                }
+            }
         }
 
         public void EditClassDocumentType(ClassDocumentType myObject)

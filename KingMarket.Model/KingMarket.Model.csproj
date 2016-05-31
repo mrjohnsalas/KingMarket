@@ -59,6 +59,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeType.cs" />
     <Compile Include="Models\FileType.cs" />
+    <Compile Include="Models\GeneralException.cs" />
     <Compile Include="Models\IncomingGood.cs" />
     <Compile Include="Models\IncomingGoodDetail.cs" />
     <Compile Include="Models\Product.cs" />

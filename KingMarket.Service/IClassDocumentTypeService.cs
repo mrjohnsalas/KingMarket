@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using KingMarket.Model.Models;
-using KingMarket.Service.Exceptions;
 
 namespace KingMarket.Service
 {

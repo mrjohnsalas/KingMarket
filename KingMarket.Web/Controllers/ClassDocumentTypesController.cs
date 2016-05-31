@@ -79,7 +79,8 @@ namespace KingMarket.Web.Controllers
             }
             catch (FaultException<GeneralException> ex)
             {
-                ViewBag.Error = ex.Reason.ToString();
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             return View(classDocumentType);
         }
