@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using KingMarket.Data.Infrastructure;
 using KingMarket.Data.Repositories;
@@ -30,9 +32,9 @@ namespace KingMarket.Service
             return repository.GetAll();
         }
 
-        public CustomerContact GetCustomerContact(int id)
+        public CustomerContact GetCustomerContact(string id)
         {
-            var myObject = repository.GetById(id);
+            var myObject = repository.GetById(int.Parse(id));
             return myObject;
         }
 
@@ -57,19 +59,29 @@ namespace KingMarket.Service
                 {
                     if (sqlException.Number.Equals(2601))
                     {
-                        throw new FaultException<GeneralException>(new GeneralException()
+                        throw new WebFaultException<GeneralException>(new GeneralException()
                         {
                             Id = sqlException.Number.ToString(),
                             Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
-                        }, new FaultReason("Error when trying to create."));
+                        }, HttpStatusCode.Conflict);
+                        //throw new FaultException<GeneralException>(new GeneralException()
+                        //{
+                        //    Id = sqlException.Number.ToString(),
+                        //    Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
+                        //}, new FaultReason("Error when trying to create."));
                     }
                     else
                     {
-                        throw new FaultException<GeneralException>(new GeneralException()
+                        throw new WebFaultException<GeneralException>(new GeneralException()
                         {
                             Id = sqlException.Number.ToString(),
                             Description = sqlException.Message
-                        }, new FaultReason("Error when trying to create."));
+                        }, HttpStatusCode.Conflict);
+                        //throw new FaultException<GeneralException>(new GeneralException()
+                        //{
+                        //    Id = sqlException.Number.ToString(),
+                        //    Description = sqlException.Message
+                        //}, new FaultReason("Error when trying to create."));
                     }
                 }
             }
@@ -96,27 +108,37 @@ namespace KingMarket.Service
                 {
                     if (sqlException.Number.Equals(2601))
                     {
-                        throw new FaultException<GeneralException>(new GeneralException()
+                        throw new WebFaultException<GeneralException>(new GeneralException()
                         {
                             Id = sqlException.Number.ToString(),
                             Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
-                        }, new FaultReason("Error when trying to edit."));
+                        }, HttpStatusCode.NotModified);
+                        //throw new FaultException<GeneralException>(new GeneralException()
+                        //{
+                        //    Id = sqlException.Number.ToString(),
+                        //    Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
+                        //}, new FaultReason("Error when trying to edit."));
                     }
                     else
                     {
-                        throw new FaultException<GeneralException>(new GeneralException()
+                        throw new WebFaultException<GeneralException>(new GeneralException()
                         {
                             Id = sqlException.Number.ToString(),
                             Description = sqlException.Message
-                        }, new FaultReason("Error when trying to edit."));
+                        }, HttpStatusCode.NotModified);
+                        //throw new FaultException<GeneralException>(new GeneralException()
+                        //{
+                        //    Id = sqlException.Number.ToString(),
+                        //    Description = sqlException.Message
+                        //}, new FaultReason("Error when trying to edit."));
                     }
                 }
             }
         }
 
-        public void DeleteCustomerContact(int id)
+        public void DeleteCustomerContact(string id)
         {
-            var myObject = repository.GetById(id);
+            var myObject = repository.GetById(int.Parse(id));
             repository.Delete(myObject);
             unitOfWork.Commit();
         }

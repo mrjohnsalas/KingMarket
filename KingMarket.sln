@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingMarket.Web", "KingMarke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingMarket.Test", "KingMarket.Test\KingMarket.Test.csproj", "{82D19A4F-9C42-4945-AE49-1019A0DD6B5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingMarket.Utility", "KingMarket.Utility\KingMarket.Utility.csproj", "{2FC50CA2-5769-443D-8AE3-C8ADB4B19557}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{82D19A4F-9C42-4945-AE49-1019A0DD6B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82D19A4F-9C42-4945-AE49-1019A0DD6B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82D19A4F-9C42-4945-AE49-1019A0DD6B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FC50CA2-5769-443D-8AE3-C8ADB4B19557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC50CA2-5769-443D-8AE3-C8ADB4B19557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC50CA2-5769-443D-8AE3-C8ADB4B19557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC50CA2-5769-443D-8AE3-C8ADB4B19557}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

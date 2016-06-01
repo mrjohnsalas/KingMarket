@@ -1,0 +1,5 @@
+D:\John\Desktop\KingMarket\KingMarket.Utility\bin\Debug\KingMarket.Utility.dll
+D:\John\Desktop\KingMarket\KingMarket.Utility\bin\Debug\KingMarket.Utility.pdb
+D:\John\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.csprojResolveAssemblyReference.cache
+D:\John\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.dll
+D:\John\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.pdb
