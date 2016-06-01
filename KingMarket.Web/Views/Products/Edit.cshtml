@@ -132,7 +132,7 @@
                     data: { id: $(this).data('id') }
                 }).done(function (data) {
                     if (data.Result == "Ok") {
-                        $ctrl.closest('li').remove();
+                        $ctrl.closest('div').remove();
                     }
                     else if (data.Result.Message) {
                         alert(data.Result.Message);

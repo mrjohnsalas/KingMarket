@@ -1,0 +1,10 @@
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Test.dll.config
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Test.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Test.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Model.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\bin\Debug\EntityFramework.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Model.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\bin\Debug\EntityFramework.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\obj\Debug\KingMarket.Test.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\obj\Debug\KingMarket.Test.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Test\obj\Debug\KingMarket.Test.pdb

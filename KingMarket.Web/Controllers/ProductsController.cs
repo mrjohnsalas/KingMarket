@@ -167,6 +167,7 @@ namespace KingMarket.Web.Controllers
                                 FileType = FileType.Photo,
                                 ContentType = file.ContentType
                             };
+                            photo.IsDefault = (i.Equals(0)); 
                             using (var reader = new BinaryReader(file.InputStream))
                                 photo.Content = reader.ReadBytes(file.ContentLength);
                             productPhotos.Add(photo);
@@ -233,10 +234,11 @@ namespace KingMarket.Web.Controllers
                                 ContentType = file.ContentType,
                                 ProductId = product.ProductId
                             };
+                            if (product.ProductPhotos.Count.Equals(0) && i.Equals(0))
+                                photo.IsDefault = true;
                             using (var reader = new BinaryReader(file.InputStream))
                                 photo.Content = reader.ReadBytes(file.ContentLength);
                             product.ProductPhotos.Add(photo);
-                            //db.Entry(photo).State = EntityState.Added;
                         }
                     }
                     var proxy = new ProductServiceClient();

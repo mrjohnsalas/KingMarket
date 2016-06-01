@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="86d7099e-a808-431c-b3d2-54d3dc39e3d9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="KingMarket.Model" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55981/SupplierService.svc&#xA;" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SupplierService.xsd" MetadataType="Schema" ID="b6ce66e5-1ee0-4d50-9b1e-c1ec84396a79" SourceId="1" SourceUrl="http://localhost:55981/SupplierService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SupplierService1.xsd" MetadataType="Schema" ID="fbd712ec-9cb0-4c6c-89a4-58dc14ef1d64" SourceId="1" SourceUrl="http://localhost:55981/SupplierService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SupplierService2.xsd" MetadataType="Schema" ID="74de478c-a039-437b-b73c-c677a8d886d4" SourceId="1" SourceUrl="http://localhost:55981/SupplierService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SupplierService.wsdl" MetadataType="Wsdl" ID="84e91b02-436c-435d-b6d0-8714f741faea" SourceId="1" SourceUrl="http://localhost:55981/SupplierService.svc?wsdl" />
+    <MetadataFile FileName="SupplierService.disco" MetadataType="Disco" ID="be498982-e399-42eb-8b17-9ce63739cf16" SourceId="1" SourceUrl="http://localhost:55981/SupplierService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
