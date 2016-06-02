@@ -141,8 +141,20 @@ namespace KingMarket.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new StatusServiceClient();
-            proxy.DeleteStatus(id);
-            return RedirectToAction("Index");
+            try
+            {
+                proxy.DeleteStatus(id);
+                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
+            var status = proxy.GetStatus(id);
+            if (status == null)
+                return HttpNotFound();
+            return View(status);
         }
     }
 }

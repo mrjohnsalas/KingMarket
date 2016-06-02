@@ -26,6 +26,7 @@ namespace KingMarket.Service
         [OperationContract]
         void EditEmployeeType(EmployeeType myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void DeleteEmployeeType(int id);
     }

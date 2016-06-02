@@ -42,6 +42,7 @@ namespace KingMarket.Web.ProductTypeService {
         System.Threading.Tasks.Task EditProductTypeAsync(KingMarket.Model.Models.ProductType myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductTypeService/DeleteProductType", ReplyAction="http://tempuri.org/IProductTypeService/DeleteProductTypeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IProductTypeService/DeleteProductTypeGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void DeleteProductType(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductTypeService/DeleteProductType", ReplyAction="http://tempuri.org/IProductTypeService/DeleteProductTypeResponse")]

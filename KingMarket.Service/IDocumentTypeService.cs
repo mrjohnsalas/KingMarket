@@ -26,6 +26,7 @@ namespace KingMarket.Service
         [OperationContract]
         void EditDocumentType(DocumentType myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void DeleteDocumentType(int id);
     }

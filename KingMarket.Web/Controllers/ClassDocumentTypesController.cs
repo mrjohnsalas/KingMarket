@@ -140,8 +140,20 @@ namespace KingMarket.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new ClassDocumentTypeServiceClient();
-            proxy.DeleteClassDocumentType(id);
-            return RedirectToAction("Index");
+            try
+            {
+                proxy.DeleteClassDocumentType(id);
+                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
+            var classDocumentType = proxy.GetClassDocumentType(id);
+            if (classDocumentType == null)
+                return HttpNotFound();
+            return View(classDocumentType);
         }
     }
 }

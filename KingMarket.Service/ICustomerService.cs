@@ -26,6 +26,7 @@ namespace KingMarket.Service
         [OperationContract]
         void EditCustomer(Customer myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void DeleteCustomer(int id);
     }

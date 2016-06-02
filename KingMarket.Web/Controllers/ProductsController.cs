@@ -278,13 +278,22 @@ namespace KingMarket.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new ProductServiceClient();
+            try
+            {
+                var proxyF = new ProductPhotoServiceClient();
+                proxyF.DeleteProductPhotosByProductId(id);
+                proxy.DeleteProduct(id);
+                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
             var product = proxy.GetProduct(id);
             if (product == null)
                 return HttpNotFound();
-            var proxyF = new ProductPhotoServiceClient();
-            proxyF.DeleteProductPhotosByProductId(product.ProductId);
-            proxy.DeleteProduct(id);
-            return RedirectToAction("Index");
+            return View(product);
         }
 
         [HttpPost]

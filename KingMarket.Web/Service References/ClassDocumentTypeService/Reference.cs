@@ -44,6 +44,8 @@ namespace KingMarket.Web.ClassDocumentTypeService {
         System.Threading.Tasks.Task EditClassDocumentTypeAsync(KingMarket.Model.Models.ClassDocumentType myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentType", ReplyAction="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentTypeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentTypeGeneralExcept" +
+            "ionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void DeleteClassDocumentType(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentType", ReplyAction="http://tempuri.org/IClassDocumentTypeService/DeleteClassDocumentTypeResponse")]

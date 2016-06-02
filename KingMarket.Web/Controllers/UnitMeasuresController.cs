@@ -155,8 +155,20 @@ namespace KingMarket.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new UnitMeasureServiceClient();
-            proxy.DeleteUnitMeasure(id);
-            return RedirectToAction("Index");
+            try
+            {
+                proxy.DeleteUnitMeasure(id);
+                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
+            var unitMeasure = proxy.GetUnitMeasure(id);
+            if (unitMeasure == null)
+                return HttpNotFound();
+            return View(unitMeasure);
         }
     }
 }

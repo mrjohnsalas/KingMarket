@@ -43,6 +43,9 @@
   <wsdl:message name="IProductTypeService_DeleteProductType_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProductTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductTypeService_DeleteProductType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q3:GeneralException" />
+  </wsdl:message>
   <wsdl:portType name="IProductTypeService">
     <wsdl:operation name="GetProductTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductTypeService/GetProductTypes" message="tns:IProductTypeService_GetProductTypes_InputMessage" />
@@ -65,6 +68,7 @@
     <wsdl:operation name="DeleteProductType">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductTypeService/DeleteProductType" message="tns:IProductTypeService_DeleteProductType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductTypeService/DeleteProductTypeResponse" message="tns:IProductTypeService_DeleteProductType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IProductTypeService/DeleteProductTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IProductTypeService_DeleteProductType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductTypeService" type="tns:IProductTypeService">
@@ -119,6 +123,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ProductTypeService">

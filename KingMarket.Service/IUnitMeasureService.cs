@@ -26,6 +26,7 @@ namespace KingMarket.Service
         [OperationContract]
         void EditUnitMeasure(UnitMeasure myObject);
 
+        [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void DeleteUnitMeasure(int id);
     }

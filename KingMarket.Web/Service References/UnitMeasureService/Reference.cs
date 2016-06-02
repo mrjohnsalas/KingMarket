@@ -42,6 +42,7 @@ namespace KingMarket.Web.UnitMeasureService {
         System.Threading.Tasks.Task EditUnitMeasureAsync(KingMarket.Model.Models.UnitMeasure myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUnitMeasureService/DeleteUnitMeasure", ReplyAction="http://tempuri.org/IUnitMeasureService/DeleteUnitMeasureResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IUnitMeasureService/DeleteUnitMeasureGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void DeleteUnitMeasure(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUnitMeasureService/DeleteUnitMeasure", ReplyAction="http://tempuri.org/IUnitMeasureService/DeleteUnitMeasureResponse")]

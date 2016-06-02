@@ -43,6 +43,9 @@
   <wsdl:message name="ISupplierService_DeleteSupplier_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteSupplierResponse" />
   </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplier_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q3:GeneralException" />
+  </wsdl:message>
   <wsdl:portType name="ISupplierService">
     <wsdl:operation name="GetSuppliers">
       <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliers" message="tns:ISupplierService_GetSuppliers_InputMessage" />
@@ -65,6 +68,7 @@
     <wsdl:operation name="DeleteSupplier">
       <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplier" message="tns:ISupplierService_DeleteSupplier_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierResponse" message="tns:ISupplierService_DeleteSupplier_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ISupplierService_DeleteSupplier_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISupplierService" type="tns:ISupplierService">
@@ -119,6 +123,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="SupplierService">

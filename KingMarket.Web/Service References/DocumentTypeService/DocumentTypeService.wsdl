@@ -43,6 +43,9 @@
   <wsdl:message name="IDocumentTypeService_DeleteDocumentType_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteDocumentTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IDocumentTypeService_DeleteDocumentType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q3:GeneralException" />
+  </wsdl:message>
   <wsdl:portType name="IDocumentTypeService">
     <wsdl:operation name="GetDocumentTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/GetDocumentTypes" message="tns:IDocumentTypeService_GetDocumentTypes_InputMessage" />
@@ -65,6 +68,7 @@
     <wsdl:operation name="DeleteDocumentType">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/DeleteDocumentType" message="tns:IDocumentTypeService_DeleteDocumentType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDocumentTypeService/DeleteDocumentTypeResponse" message="tns:IDocumentTypeService_DeleteDocumentType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDocumentTypeService/DeleteDocumentTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IDocumentTypeService_DeleteDocumentType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDocumentTypeService" type="tns:IDocumentTypeService">
@@ -119,6 +123,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="DocumentTypeService">

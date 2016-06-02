@@ -15,7 +15,7 @@ namespace KingMarket.Web
     {
         protected void Application_Start()
         {
-            ApplicationDbContext db = new ApplicationDbContext();
+            var db = new ApplicationDbContext();
             CreateRoles(db);
             CreateSuperUser(db);
             AddPermisionsToSuperUser(db);

@@ -116,9 +116,42 @@ namespace KingMarket.Service
 
         public void DeleteProductType(int id)
         {
-            var myObject = repository.GetById(id);
-            repository.Delete(myObject);
-            unitOfWork.Commit();
+            try
+            {
+                var myObject = repository.GetById(id);
+                repository.Delete(myObject);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                SqlException sqlException = null;
+                var tmp = ex;
+                while (sqlException == null && tmp != null)
+                {
+                    if (tmp == null) continue;
+                    sqlException = tmp.InnerException as SqlException;
+                    tmp = tmp.InnerException;
+                }
+                if (sqlException != null)
+                {
+                    if (sqlException.Number.Equals(547))
+                    {
+                        throw new FaultException<GeneralException>(new GeneralException()
+                        {
+                            Id = sqlException.Number.ToString(),
+                            Description = "Can not be deleted, there are records referenced."
+                        }, new FaultReason("Error when trying to delete."));
+                    }
+                    else
+                    {
+                        throw new FaultException<GeneralException>(new GeneralException()
+                        {
+                            Id = sqlException.Number.ToString(),
+                            Description = sqlException.Message
+                        }, new FaultReason("Error when trying to delete."));
+                    }
+                }
+            }
         }
     }
 }

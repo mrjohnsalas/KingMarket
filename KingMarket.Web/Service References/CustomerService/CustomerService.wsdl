@@ -43,6 +43,9 @@
   <wsdl:message name="ICustomerService_DeleteCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="ICustomerService_DeleteCustomer_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q3:GeneralException" />
+  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="GetCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomers" message="tns:ICustomerService_GetCustomers_InputMessage" />
@@ -65,6 +68,7 @@
     <wsdl:operation name="DeleteCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/DeleteCustomer" message="tns:ICustomerService_DeleteCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/DeleteCustomerResponse" message="tns:ICustomerService_DeleteCustomer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerService/DeleteCustomerGeneralExceptionFault" name="GeneralExceptionFault" message="tns:ICustomerService_DeleteCustomer_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICustomerService" type="tns:ICustomerService">
@@ -119,6 +123,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CustomerService">

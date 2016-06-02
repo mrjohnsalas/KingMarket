@@ -230,15 +230,27 @@ namespace KingMarket.Web.Controllers
         {
             var proxy = new CustomerServiceClient();
             var customer = proxy.GetCustomer(id);
-            proxy.DeleteCustomer(id);
+            if (customer == null)
+                return HttpNotFound();
+            try
+            {
+                proxy.DeleteCustomer(id);
 
-            var db2 = new ApplicationDbContext();
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
-            var user = userManager.FindByName(customer.Email);
-            userManager.Delete(user);
-            db2.Dispose();
+                var db2 = new ApplicationDbContext();
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db2));
+                var user = userManager.FindByName(customer.Email);
+                if(user != null)
+                    userManager.Delete(user);
+                db2.Dispose();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
+            return View(customer);
         }
     }
 }

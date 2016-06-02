@@ -42,6 +42,7 @@ namespace KingMarket.Web.StatusService {
         System.Threading.Tasks.Task EditStatusAsync(KingMarket.Model.Models.Status myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStatusService/DeleteStatus", ReplyAction="http://tempuri.org/IStatusService/DeleteStatusResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IStatusService/DeleteStatusGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void DeleteStatus(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStatusService/DeleteStatus", ReplyAction="http://tempuri.org/IStatusService/DeleteStatusResponse")]

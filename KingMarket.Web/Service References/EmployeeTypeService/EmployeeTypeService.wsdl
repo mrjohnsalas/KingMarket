@@ -43,6 +43,9 @@
   <wsdl:message name="IEmployeeTypeService_DeleteEmployeeType_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteEmployeeTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IEmployeeTypeService_DeleteEmployeeType_GeneralExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" name="detail" element="q3:GeneralException" />
+  </wsdl:message>
   <wsdl:portType name="IEmployeeTypeService">
     <wsdl:operation name="GetEmployeeTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeTypeService/GetEmployeeTypes" message="tns:IEmployeeTypeService_GetEmployeeTypes_InputMessage" />
@@ -65,6 +68,7 @@
     <wsdl:operation name="DeleteEmployeeType">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeType" message="tns:IEmployeeTypeService_DeleteEmployeeType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeTypeResponse" message="tns:IEmployeeTypeService_DeleteEmployeeType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeTypeGeneralExceptionFault" name="GeneralExceptionFault" message="tns:IEmployeeTypeService_DeleteEmployeeType_GeneralExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IEmployeeTypeService" type="tns:IEmployeeTypeService">
@@ -119,6 +123,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="GeneralExceptionFault">
+        <soap:fault use="literal" name="GeneralExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="EmployeeTypeService">

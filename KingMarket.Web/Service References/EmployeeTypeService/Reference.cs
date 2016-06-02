@@ -42,6 +42,7 @@ namespace KingMarket.Web.EmployeeTypeService {
         System.Threading.Tasks.Task EditEmployeeTypeAsync(KingMarket.Model.Models.EmployeeType myObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeType", ReplyAction="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeTypeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeTypeGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void DeleteEmployeeType(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeType", ReplyAction="http://tempuri.org/IEmployeeTypeService/DeleteEmployeeTypeResponse")]
