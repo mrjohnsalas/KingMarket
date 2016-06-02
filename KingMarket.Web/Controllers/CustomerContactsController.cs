@@ -6,8 +6,8 @@ using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
+using KingMarket.Utility;
 using KingMarket.Web.CustomerService;
-using KingMarket.Web.CustomerContactService;
 using KingMarket.Web.DocumentTypeService;
 using PagedList;
 
@@ -19,8 +19,6 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var proxy = new CustomerContactServiceClient();
-
             ViewBag.CurrentSort = sortOrder;
             ViewBag.BusinessNameSortParm = String.IsNullOrEmpty(sortOrder) ? "BusinessName_Desc" : String.Empty;
             ViewBag.DocumentTypeSortParm = sortOrder == "Document Type" ? "DocumentType_Desc" : "Document Type";
@@ -38,7 +36,8 @@ namespace KingMarket.Web.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var customerContacts = proxy.GetCustomerContacts();
+            //var customerContacts = proxy.GetCustomerContacts();
+            var customerContacts = Utilities.GetEntities<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts");
             var proxyC = new CustomerServiceClient();
             var proxyD = new DocumentTypeServiceClient();
             foreach (var item in customerContacts)
@@ -121,8 +120,9 @@ namespace KingMarket.Web.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var proxy = new CustomerContactServiceClient();
-            var customerContact = proxy.GetCustomerContact(id.Value);
+            //var proxy = new CustomerContactServiceClient();
+            //var customerContact = proxy.GetCustomerContact(id.Value);
+            var customerContact = Utilities.GetEntity<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", id.Value.ToString());
             if (customerContact == null)
                 return HttpNotFound();
             return View(customerContact);
@@ -148,15 +148,17 @@ namespace KingMarket.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var proxy = new CustomerContactServiceClient();
-                    proxy.CreateCustomerContact(customerContact);
+                    //var proxy = new CustomerContactServiceClient();
+                    //proxy.CreateCustomerContact(customerContact);
+                    Utilities.CreateEntity(customerContact, "http://localhost:55981/CustomerContactService.svc/CustomerContacts");
                     return RedirectToAction("Index");
                 }
             }
-            catch (FaultException<GeneralException> ex)
+            catch (WebException ex)
             {
-                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
-                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+                var exx = Utilities.Deserialize<GeneralException>(ex);
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", exx.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", exx.Description);
             }
             var proxyC = new CustomerServiceClient();
             var proxyD = new DocumentTypeServiceClient();
@@ -171,8 +173,9 @@ namespace KingMarket.Web.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var proxy = new CustomerContactServiceClient();
-            var customerContact = proxy.GetCustomerContact(id.Value);
+            //var proxy = new CustomerContactServiceClient();
+            //var customerContact = proxy.GetCustomerContact(id.Value);
+            var customerContact = Utilities.GetEntity<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", id.Value.ToString());
             if (customerContact == null)
                 return HttpNotFound();
             var proxyC = new CustomerServiceClient();
@@ -191,15 +194,17 @@ namespace KingMarket.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var proxy = new CustomerContactServiceClient();
-                    proxy.EditCustomerContact(customerContact);
+                    //var proxy = new CustomerContactServiceClient();
+                    //proxy.EditCustomerContact(customerContact);
+                    Utilities.EditEntity(customerContact, "http://localhost:55981/CustomerContactService.svc/CustomerContacts");
                     return RedirectToAction("Index");
                 }
             }
-            catch (FaultException<GeneralException> ex)
+            catch (WebException ex)
             {
-                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
-                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+                var exx = Utilities.Deserialize<GeneralException>(ex);
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", exx.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", exx.Description);
             }
             var proxyC = new CustomerServiceClient();
             var proxyD = new DocumentTypeServiceClient();
@@ -214,8 +219,9 @@ namespace KingMarket.Web.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var proxy = new CustomerContactServiceClient();
-            var customerContact = proxy.GetCustomerContact(id.Value);
+            //var proxy = new CustomerContactServiceClient();
+            //var customerContact = proxy.GetCustomerContact(id.Value);
+            var customerContact = Utilities.GetEntity<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", id.Value.ToString());
             if (customerContact == null)
                 return HttpNotFound();
             return View(customerContact);
@@ -227,8 +233,9 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var proxy = new CustomerContactServiceClient();
-            proxy.DeleteCustomerContact(id);
+            //var proxy = new CustomerContactServiceClient();
+            //proxy.DeleteCustomerContact(id);
+            Utilities.DeleteEntity("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", id.ToString());
             return RedirectToAction("Index");
         }
     }

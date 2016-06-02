@@ -15,7 +15,17 @@ namespace KingMarket.Test
     [TestClass]
     public class CustomerContactTest
     {
-        static string customerContactIdForTest = "18";
+        //DESPUES DE GENERAR EL 1ER TEST VERIFICAR EL CODIGO CREADO
+        //Y COLOCARLO EN ESTA VARIABLE
+        static string customerContactIdForTest = "13";
+
+        [TestMethod]
+        public void GetCustomerContacts()
+        {
+            var customerContactsGet = Utilities.GetEntities<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts");
+            if(customerContactsGet != null)
+                Assert.AreEqual(12, customerContactsGet.Count);
+        }
 
         [TestMethod]
         public void CreateCustomerContact()
@@ -80,7 +90,7 @@ namespace KingMarket.Test
         {
             var customerContact = new CustomerContact()
             {
-                CustomerContactId = 18,
+                CustomerContactId = int.Parse(customerContactIdForTest),
                 CustomerId = 1,
                 DocumentNumber = "11111122",
                 DocumentTypeId = 1,
@@ -91,7 +101,7 @@ namespace KingMarket.Test
                 Phone = "111111122"
             };
 
-            //CREATE 
+            //EDIT 
             Utilities.EditEntity(customerContact, "http://localhost:55981/CustomerContactService.svc/CustomerContacts");
 
             //GET
@@ -123,15 +133,27 @@ namespace KingMarket.Test
                 };
 
                 //EDIT 
-                Utilities.CreateOrEditEntity(customerContact, "http://localhost:55981/CustomerContactService.svc/CustomerContacts", "PUT");
+                Utilities.EditEntity(customerContact, "http://localhost:55981/CustomerContactService.svc/CustomerContacts");
             }
             catch (WebException ex)
             {
                 var exx = Utilities.Deserialize<GeneralException>(ex);
-                Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: 11111111", exx.Description);
+                Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: 78451241", exx.Description);
                 //Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: fbullon@atlas.com.pe", exx.Description);
                 //Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: 111111111", exx.Description);
             }
+        }
+
+        [TestMethod]
+        public void DeleteCustomerContact()
+        {
+            //DELETE
+            Utilities.DeleteEntity("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", customerContactIdForTest);
+
+            //GET
+            var customerContactGet = Utilities.GetEntity<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", customerContactIdForTest);
+
+            Assert.AreEqual(null, customerContactGet);
         }
     }
 }

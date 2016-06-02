@@ -203,11 +203,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\CustomerContactService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\CustomerService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -340,16 +335,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\CustomerContactService\CustomerContactService.wsdl" />
-    <None Include="Service References\CustomerContactService\CustomerContactService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CustomerContactService\CustomerContactService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CustomerContactService\CustomerContactService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\CustomerService\CustomerService.wsdl" />
     <None Include="Service References\CustomerService\CustomerService.xsd">
       <SubType>Designer</SubType>
@@ -449,13 +434,6 @@
     <None Include="Service References\CustomerService\configuration91.svcinfo" />
     <None Include="Service References\CustomerService\configuration.svcinfo" />
     <None Include="Service References\CustomerService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\CustomerContactService\CustomerContactService.disco" />
-    <None Include="Service References\CustomerContactService\configuration91.svcinfo" />
-    <None Include="Service References\CustomerContactService\configuration.svcinfo" />
-    <None Include="Service References\CustomerContactService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -671,6 +649,10 @@
       <Project>{58db515e-b01f-4769-b240-e39f47283912}</Project>
       <Name>KingMarket.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KingMarket.Utility\KingMarket.Utility.csproj">
+      <Project>{2fc50ca2-5769-443d-8ae3-c8adb4b19557}</Project>
+      <Name>KingMarket.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -678,7 +660,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CartItemService\" />
     <WCFMetadataStorage Include="Service References\ClassDocumentTypeService\" />
-    <WCFMetadataStorage Include="Service References\CustomerContactService\" />
     <WCFMetadataStorage Include="Service References\CustomerService\" />
     <WCFMetadataStorage Include="Service References\DocumentTypeService\" />
     <WCFMetadataStorage Include="Service References\EmployeeService\" />

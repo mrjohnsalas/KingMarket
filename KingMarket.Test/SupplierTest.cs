@@ -73,8 +73,8 @@ namespace KingMarket.Test
             }
             catch (FaultException<GeneralException> ex)
             {
-                //Assert.AreEqual("Error when trying to create.", ex.Reason.ToString());
-                Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: 20777777777", String.Format("Cannot insert duplicate value. The duplicate key value is: {0}", supplier.DocumentNumber));
+                Assert.AreEqual("Error when trying to create.", ex.Reason.ToString());
+                //Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: 20777777777", String.Format("Cannot insert duplicate value. The duplicate key value is: {0}", supplier.DocumentNumber));
                 //Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: PROVEEDOR DE PRUEBA", String.Format("Cannot insert duplicate value. The duplicate key value is: {0}", supplier.BusinessName));
                 //Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: www.proveedordeprueba.com", String.Format("Cannot insert duplicate value. The duplicate key value is: {0}", supplier.Email));
                 //Assert.AreEqual("Cannot insert duplicate value. The duplicate key value is: 017777777", String.Format("Cannot insert duplicate value. The duplicate key value is: {0}", supplier.Phone));

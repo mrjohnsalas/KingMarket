@@ -112,7 +112,7 @@ namespace KingMarket.Service
                         {
                             Id = sqlException.Number.ToString(),
                             Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
-                        }, HttpStatusCode.NotModified);
+                        }, HttpStatusCode.Conflict);
                         //throw new FaultException<GeneralException>(new GeneralException()
                         //{
                         //    Id = sqlException.Number.ToString(),
@@ -125,7 +125,7 @@ namespace KingMarket.Service
                         {
                             Id = sqlException.Number.ToString(),
                             Description = sqlException.Message
-                        }, HttpStatusCode.NotModified);
+                        }, HttpStatusCode.Conflict);
                         //throw new FaultException<GeneralException>(new GeneralException()
                         //{
                         //    Id = sqlException.Number.ToString(),
