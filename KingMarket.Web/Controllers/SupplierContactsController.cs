@@ -125,6 +125,10 @@ namespace KingMarket.Web.Controllers
             var supplierContact = proxy.GetSupplierContact(id.Value);
             if (supplierContact == null)
                 return HttpNotFound();
+            var proxyS = new SupplierServiceClient();
+            var proxyD = new DocumentTypeServiceClient();
+            supplierContact.Supplier = proxyS.GetSupplier(supplierContact.SupplierId);
+            supplierContact.DocumentType = proxyD.GetDocumentType(supplierContact.DocumentTypeId);
             return View(supplierContact);
         }
 
@@ -218,6 +222,10 @@ namespace KingMarket.Web.Controllers
             var supplierContact = proxy.GetSupplierContact(id.Value);
             if (supplierContact == null)
                 return HttpNotFound();
+            var proxyS = new SupplierServiceClient();
+            var proxyD = new DocumentTypeServiceClient();
+            supplierContact.Supplier = proxyS.GetSupplier(supplierContact.SupplierId);
+            supplierContact.DocumentType = proxyD.GetDocumentType(supplierContact.DocumentTypeId);
             return View(supplierContact);
         }
 

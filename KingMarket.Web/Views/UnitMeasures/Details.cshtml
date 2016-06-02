@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>UnitMeasure</h4>
+    <h4>Unit Measure</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,6 +29,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UnitMeasureId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", new { id = Model.UnitMeasureId })" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
 </p>

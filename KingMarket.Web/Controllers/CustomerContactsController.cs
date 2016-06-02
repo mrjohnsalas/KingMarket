@@ -120,11 +120,13 @@ namespace KingMarket.Web.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //var proxy = new CustomerContactServiceClient();
-            //var customerContact = proxy.GetCustomerContact(id.Value);
             var customerContact = Utilities.GetEntity<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", id.Value.ToString());
             if (customerContact == null)
                 return HttpNotFound();
+            var proxyC = new CustomerServiceClient();
+            var proxyD = new DocumentTypeServiceClient();
+            customerContact.Customer = proxyC.GetCustomer(customerContact.CustomerId);
+            customerContact.DocumentType = proxyD.GetDocumentType(customerContact.DocumentTypeId);
             return View(customerContact);
         }
 
@@ -219,11 +221,13 @@ namespace KingMarket.Web.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //var proxy = new CustomerContactServiceClient();
-            //var customerContact = proxy.GetCustomerContact(id.Value);
             var customerContact = Utilities.GetEntity<CustomerContact>("http://localhost:55981/CustomerContactService.svc/CustomerContacts/", id.Value.ToString());
             if (customerContact == null)
                 return HttpNotFound();
+            var proxyC = new CustomerServiceClient();
+            var proxyD = new DocumentTypeServiceClient();
+            customerContact.Customer = proxyC.GetCustomer(customerContact.CustomerId);
+            customerContact.DocumentType = proxyD.GetDocumentType(customerContact.DocumentTypeId);
             return View(customerContact);
         }
 

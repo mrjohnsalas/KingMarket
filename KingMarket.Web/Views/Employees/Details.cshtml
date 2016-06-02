@@ -77,6 +77,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", new { id = Model.EmployeeId })" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
 </p>

@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 20px;
 }
 
@@ -36,4 +36,35 @@ textarea {
 .js-row-content {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.table thead th {
+    background-color: #3F5367;
+    color: white;
+    vertical-align: middle;
+    border-bottom: 0px;
+}
+.table thead th a {
+    color: white;
+}
+.table thead th label {
+    margin-bottom: 0px;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #EAF5F2;
+}
+hr.empty {
+    margin:0 0 3% 0;
+    border:0;
+}
+.pull-right {
+    float: right;
+    margin-top: 17px;
+}
+.form-inline-padding-right {
+    padding-right: 0px;
+}
+
+.form-inline-padding-right 
+input {
+    max-width: none;
 }

@@ -7,23 +7,23 @@
 <h2>Details</h2>
 
 <div>
-    <h4>SupplierContact</h4>
+    <h4>Supplier Contact</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.BusinessName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.BusinessName)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.DocumentType.Name)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.DocumentType.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.DocumentNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.DocumentNumber)
         </dd>
 
         <dt>
@@ -77,6 +77,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SupplierContactId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", new { id = Model.SupplierContactId })" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
 </p>
