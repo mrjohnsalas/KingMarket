@@ -15,9 +15,16 @@ D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Test.dll
 D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Test.pdb
 D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Model.dll
 D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Utility.dll
+D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\Microsoft.Owin.dll
 D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\EntityFramework.dll
+D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\Owin.dll
 D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Model.pdb
 D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\KingMarket.Utility.pdb
+D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\Microsoft.Owin.xml
 D:\John\Desktop\KingMarket\KingMarket.Test\bin\Debug\EntityFramework.xml
 D:\John\Desktop\KingMarket\KingMarket.Test\obj\Debug\KingMarket.Test.csprojResolveAssemblyReference.cache
 D:\John\Desktop\KingMarket\KingMarket.Test\obj\Debug\KingMarket.Test.dll

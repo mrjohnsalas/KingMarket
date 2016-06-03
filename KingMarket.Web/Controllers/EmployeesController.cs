@@ -10,7 +10,6 @@ using KingMarket.Model.Models;
 using KingMarket.Web.DocumentTypeService;
 using KingMarket.Web.EmployeeTypeService;
 using KingMarket.Web.EmployeeService;
-using KingMarket.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using PagedList;

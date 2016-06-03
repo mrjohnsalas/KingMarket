@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using KingMarket.Web.Models;
+using KingMarket.Model.Models;
 
 namespace KingMarket.Web.Controllers
 {

@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using KingMarket.Model.Models;
 using KingMarket.Web.DocumentTypeService;
 using KingMarket.Web.SupplierService;
-using KingMarket.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using PagedList;

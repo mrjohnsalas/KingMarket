@@ -9,6 +9,8 @@ using KingMarket.Model.Models;
 using System.IO;
 using System.Web;
 using System.Web.Hosting;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace KingMarket.Data
 {
@@ -36,6 +38,8 @@ namespace KingMarket.Data
 
             GetProductPhotos().ForEach(o => context.ProductPhotos.Add(o));
             context.SaveChanges();
+
+            CreateUsers();
         }
 
         private static List<ProductPhoto> GetProductPhotos()
@@ -642,6 +646,67 @@ namespace KingMarket.Data
                 new Product { Name = "Macbook Pro", Description = "Laptop marca Apple", UnitPrice = 4200.00M, UnitCost = 4000.00M, ProductTypeId = 3, Stock = 0.00M, MinStock = 3.00M, MaxStock = 60.00M, UnitMeasureId = 1},
                 new Product { Name = "Samsung Gear S2", Description = "Reloj marca Samsung", UnitPrice = 1200.00M, UnitCost = 1000.00M, ProductTypeId = 4, Stock = 0.00M, MinStock = 6.00M, MaxStock = 50.00M, UnitMeasureId = 1}
             };
+        }
+
+        private static void CreateUsers()
+        {
+            var db = new ApplicationDbContext();
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            //CREATE USERS TO EMPLOYEES
+            foreach (var employee in GetEmployees())
+            {
+                var user = userManager.FindByName(employee.Email);
+                if (user != null) continue;
+                user = new ApplicationUser
+                {
+                    UserName = employee.Email,
+                    Email = employee.Email
+                };
+                userManager.Create(user, employee.DocumentNumber);
+                //ADD TO ROLE
+                if (employee.EmployeeTypeId.Equals(1))
+                {
+                    if (!userManager.IsInRole(user.Id, "Grocer"))
+                        userManager.AddToRole(user.Id, "Grocer");
+                }
+                else
+                {
+                    if (!userManager.IsInRole(user.Id, "Buyer"))
+                        userManager.AddToRole(user.Id, "Buyer");
+                }
+            }
+            //CREATE USERS TO CUSTOMERS
+            foreach (var customer in GetCustomers())
+            {
+                var user = userManager.FindByName(customer.Email);
+                if (user != null) continue;
+                user = new ApplicationUser
+                {
+                    UserName = customer.Email,
+                    Email = customer.Email
+                };
+                userManager.Create(user, customer.DocumentNumber);
+                //ADD TO ROLE
+                if (!userManager.IsInRole(user.Id, "Customer"))
+                    userManager.AddToRole(user.Id, "Customer");
+            }
+            //CREATE USERS TO SUPPLIERS
+            foreach (var supplier in GetSuppliers())
+            {
+                var user = userManager.FindByName(supplier.Email);
+                if (user != null) continue;
+                user = new ApplicationUser
+                {
+                    UserName = supplier.Email,
+                    Email = supplier.Email
+                };
+                userManager.Create(user, supplier.DocumentNumber);
+                //ADD TO ROLE
+                if (!userManager.IsInRole(user.Id, "Supplier"))
+                    userManager.AddToRole(user.Id, "Supplier");
+            }
+
+            db.Dispose();
         }
     }
 }

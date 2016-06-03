@@ -52,9 +52,16 @@ D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Data.pdb
 D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.dll
 D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.SqlServer.dll
 D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Model.dll
+D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\Microsoft.Owin.dll
+D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\Owin.dll
 D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\KingMarket.Model.pdb
 D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.xml
 D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\John\Desktop\KingMarket\KingMarket.Data\bin\Debug\Microsoft.Owin.xml
 D:\John\Desktop\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.csprojResolveAssemblyReference.cache
 D:\John\Desktop\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.dll
 D:\John\Desktop\KingMarket\KingMarket.Data\obj\Debug\KingMarket.Data.pdb

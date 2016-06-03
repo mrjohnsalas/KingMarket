@@ -5,7 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using KingMarket.Web.Models;
+using KingMarket.Model.Models;
 
 namespace KingMarket.Web
 {
