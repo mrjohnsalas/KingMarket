@@ -121,4 +121,33 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function selectDni() {
+            $("#BusinessName").parent().parent().addClass("hidden");
+            $("#FirstName, #LastName, #SecondLastName").parent().parent().removeClass("hidden");
+        }
+
+        function selectRuc() {
+            $("#FirstName, #LastName, #SecondLastName").parent().parent().addClass("hidden");
+            $("#BusinessName").parent().parent().removeClass("hidden");
+        }
+
+        $(document).ready(function() {
+            var documentTypeId = parseInt($("#DocumentTypeId").val());
+            if (documentTypeId == 1) {
+                selectDni();
+            } else if (documentTypeId == 2) {
+                selectRuc();
+            }
+
+            $("#DocumentTypeId").change(function() {
+                var documentTypeId = parseInt($("#DocumentTypeId").val());
+                if (documentTypeId == 1) {
+                    selectDni();
+                } else if (documentTypeId == 2) {
+                    selectRuc();
+                }
+            });
+        });
+    </script>
 }
