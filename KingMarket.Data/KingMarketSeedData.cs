@@ -76,7 +76,10 @@ namespace KingMarket.Data
             {
                 new ClassDocumentType{ Name = "Identificacion"},
                 new ClassDocumentType{ Name = "Pago"},
-                new ClassDocumentType{ Name = "Traslado"}
+                new ClassDocumentType{ Name = "Traslado"},
+                new ClassDocumentType{ Name = "Compra"},
+                new ClassDocumentType{ Name = "Venta"},
+                new ClassDocumentType{ Name = "Ingreso Mercaderia"}
             };
         }
 
@@ -89,6 +92,9 @@ namespace KingMarket.Data
                 new DocumentType{ Name = "Factura", OnlyForEnterprise = true, ClassDocumentTypeId = 2},
                 new DocumentType{ Name = "Boleta", OnlyForEnterprise = false, ClassDocumentTypeId = 2},
                 new DocumentType{ Name = "Guia", OnlyForEnterprise = false, ClassDocumentTypeId = 3},
+                new DocumentType{ Name = "Orden de Compra", OnlyForEnterprise = false, ClassDocumentTypeId = 4},
+                new DocumentType{ Name = "Orden de Venta", OnlyForEnterprise = false, ClassDocumentTypeId = 5},
+                new DocumentType{ Name = "Ingreso de Mercaderia", OnlyForEnterprise = false, ClassDocumentTypeId = 6}
             };
         }
 

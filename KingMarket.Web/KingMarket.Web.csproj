@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuyOrdersController.cs" />
     <Compile Include="Controllers\CartItemsController.cs" />
     <Compile Include="Controllers\ClassDocumentTypesController.cs" />
     <Compile Include="Controllers\CustomerContactsController.cs" />
@@ -632,6 +633,8 @@
     <Content Include="Views\SupplierContacts\Delete.cshtml" />
     <Content Include="Views\CartItems\Index.cshtml" />
     <Content Include="Views\CartItems\Edit.cshtml" />
+    <Content Include="Views\BuyOrders\Create.cshtml" />
+    <Content Include="Views\BuyOrders\AddProductOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

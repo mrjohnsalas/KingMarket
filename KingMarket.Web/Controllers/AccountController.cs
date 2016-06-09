@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using KingMarket.Model.Models;
+using KingMarket.Model.ViewModels;
 
 namespace KingMarket.Web.Controllers
 {
