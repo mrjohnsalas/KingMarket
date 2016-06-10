@@ -7,7 +7,9 @@ using System.Web.Mvc;
 using KingMarket.Model.Models;
 using KingMarket.Web.DocumentTypeService;
 using KingMarket.Web.ProductService;
+using KingMarket.Web.ProductTypeService;
 using KingMarket.Web.SupplierService;
+using KingMarket.Web.UnitMeasureService;
 
 namespace KingMarket.Web.Controllers
 {
@@ -37,9 +39,7 @@ namespace KingMarket.Web.Controllers
             var proxyD = new DocumentTypeServiceClient();
             ViewBag.SupplierId = new SelectList(proxyS.GetSuppliers().OrderBy(d => d.BusinessName), "SupplierId", "BusinessName");
             ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name");
-            ViewBag.DateOrder = DateTime.Now;
             return View(buyOrder);
-            //return View();
         }
 
         [HttpPost]
@@ -49,6 +49,18 @@ namespace KingMarket.Web.Controllers
         {
             var proxyS = new SupplierServiceClient();
             var proxyD = new DocumentTypeServiceClient();
+            if (ModelState.IsValid)
+            {
+                if (buyOrder.BuyOrderDetails == null || buyOrder.BuyOrderDetails.Count.Equals(0))
+                {
+                    buyOrder.BuyOrderDetails = new List<BuyOrderDetail>();
+                    ViewBag.SupplierId = new SelectList(proxyS.GetSuppliers().OrderBy(d => d.BusinessName), "SupplierId", "BusinessName", buyOrder.SupplierId);
+                    ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", buyOrder.DocumentTypeId);
+                    ViewBag.ErrorCode = "Error Code: UI";
+                    ViewBag.ErrorMessage = "Error Message: You need to add products to the list.";
+                    return View(buyOrder);   
+                }
+            }
             ViewBag.SupplierId = new SelectList(proxyS.GetSuppliers().OrderBy(d => d.BusinessName), "SupplierId", "BusinessName", buyOrder.SupplierId);
             ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", buyOrder.DocumentTypeId);
             return View(buyOrder);
@@ -69,7 +81,21 @@ namespace KingMarket.Web.Controllers
             var proxyP = new ProductServiceClient();
             try
             {
-                if (productOrder.ProductId > 0 && productOrder.Quantity > 0)
+                if (productOrder.Quantity <= 0)
+                {
+                    ViewBag.ProductId = new SelectList(proxyP.GetProducts().OrderBy(d => d.Name), "ProductId", "Name", productOrder.ProductId);
+                    ViewBag.ErrorCode = "Error Code: UI";
+                    ViewBag.ErrorMessage = "Error Message: The quantity must be greater than 0.";
+                    return View(productOrder);
+                }
+                var buyOrder = Session["BuyOrder"] as BuyOrder;
+                if (buyOrder == null)
+                {
+                    ViewBag.ProductId = new SelectList(proxyP.GetProducts().OrderBy(d => d.Name), "ProductId", "Name", productOrder.ProductId);
+                    return View(productOrder);
+                }
+                var buyOrderDetail = buyOrder.BuyOrderDetails.FirstOrDefault(p => p.ProductId.Equals(productOrder.ProductId));
+                if (buyOrderDetail == null)
                 {
                     var product = proxyP.GetProduct(productOrder.ProductId);
                     if (product == null)
@@ -77,12 +103,10 @@ namespace KingMarket.Web.Controllers
                         ViewBag.ProductId = new SelectList(proxyP.GetProducts().OrderBy(d => d.Name), "ProductId", "Name", productOrder.ProductId);
                         return View(productOrder);
                     }
-                    var buyOrder = Session["BuyOrder"] as BuyOrder;
-                    if (buyOrder == null)
-                    {
-                        ViewBag.ProductId = new SelectList(proxyP.GetProducts().OrderBy(d => d.Name), "ProductId", "Name", productOrder.ProductId);
-                        return View(productOrder);
-                    }
+                    var proxyT = new ProductTypeServiceClient();
+                    var proxyU = new UnitMeasureServiceClient();
+                    product.ProductType = proxyT.GetProductType(product.ProductTypeId);
+                    product.UnitMeasure = proxyU.GetUnitMeasure(product.UnitMeasureId);
                     buyOrder.BuyOrderDetails.Add(new BuyOrderDetail
                     {
                         ProductId = product.ProductId,
@@ -97,6 +121,8 @@ namespace KingMarket.Web.Controllers
                     ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", buyOrder.DocumentTypeId);
                     return View("Create", buyOrder);
                 }
+                else
+                    buyOrderDetail.Quantity += productOrder.Quantity;
             }
             catch (FaultException<GeneralException> ex)
             {

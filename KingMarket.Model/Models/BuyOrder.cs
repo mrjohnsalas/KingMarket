@@ -26,11 +26,6 @@ namespace KingMarket.Model.Models
         [Required(ErrorMessage = "You must enter {0}")]
         public int DocumentTypeId { get; set; }
 
-        //[Display(Name = "Document Number")]
-        //[Required(ErrorMessage = "You must enter {0}")]
-        //[StringLength(30, ErrorMessage = "The field {0} must be between {2} and {1} characters", MinimumLength = 8)]
-        //public string DocumentNumber { get; set; }
-
         [DisplayFormat(DataFormatString = "{0:P2}", ApplyFormatInEditMode = false)]
         public decimal Tax { get; set; }
 
