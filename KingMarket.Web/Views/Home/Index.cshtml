@@ -112,9 +112,12 @@
                         <p>@Html.DisplayFor(modelItem => item.Description)</p>
                         <p>Price: @Html.DisplayFor(modelItem => item.UnitPrice)</p>
                         <p>Stock: @Html.DisplayFor(modelItem => item.Stock)</p>
-                        <p>
-                            <a href="javascript:void(0);" data-id="@item.ProductId" class="btn btn-primary addCart" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a>
-                        </p>
+                        @if (Request.IsAuthenticated && User.IsInRole("Customer"))
+                        {
+                            <p>
+                                <a href="javascript:void(0);" data-id="@item.ProductId" class="btn btn-primary addCart" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a>
+                            </p>
+                        }
                     </div>
                 </div>
             </div>

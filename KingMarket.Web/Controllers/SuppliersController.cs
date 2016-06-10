@@ -19,7 +19,7 @@ namespace KingMarket.Web.Controllers
     public class SuppliersController : Controller
     {
         // GET: Suppliers
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var proxy = new SupplierServiceClient();
@@ -82,7 +82,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Suppliers/Details/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -95,7 +95,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Suppliers/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Create()
         {
             var proxyC = new DocumentTypeServiceClient();
@@ -105,7 +105,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Create([Bind(Include = "SupplierId,DocumentTypeId,DocumentNumber,BusinessName,Address,Email,Web,Phone")] Supplier supplier)
         {
             try
@@ -145,7 +145,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Suppliers/Edit/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -161,7 +161,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Edit([Bind(Include = "SupplierId,DocumentTypeId,DocumentNumber,BusinessName,Address,Email,Web,Phone")] Supplier supplier)
         {
             try
@@ -184,7 +184,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Suppliers/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -199,7 +199,7 @@ namespace KingMarket.Web.Controllers
         // POST: Suppliers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new SupplierServiceClient();

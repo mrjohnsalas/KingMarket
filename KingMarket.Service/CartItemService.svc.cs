@@ -25,9 +25,9 @@ namespace KingMarket.Service
             unitOfWork = new UnitOfWork(db);
         }
 
-        public IEnumerable<CartItem> GetCartItemsByUserId(string userId)
+        public IEnumerable<CartItem> GetCartItemsByCustomerId(int customerId)
         {
-            return repository.GetMany(c => c.UserId.Equals(userId));
+            return repository.GetMany(c => c.CustomerId.Equals(customerId));
         }
 
         public CartItem GetCartItem(int id)
@@ -36,9 +36,9 @@ namespace KingMarket.Service
             return myObject;
         }
 
-        public CartItem GetCartItemByProductIdAndUserId(int productId, string userId)
+        public CartItem GetCartItemByProductIdAndCustomerId(int productId, int customerId)
         {
-            var myObject = repository.Get(c => c.ProductId.Equals(productId) && c.UserId.Equals(userId));
+            var myObject = repository.Get(c => c.ProductId.Equals(productId) && c.CustomerId.Equals(customerId));
             return myObject;
         }
 

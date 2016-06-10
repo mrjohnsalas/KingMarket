@@ -14,15 +14,20 @@ namespace KingMarket.Model.Models
         [Display(Name = "Buy Order")]
         public int BuyOrderId { get; set; }
 
+        [Required(ErrorMessage = "You must enter {0}")]
+        public string UserId { get; set; }
+
         [Display(Name = "Date Order")]
         [Required(ErrorMessage = "You must enter {0}")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOrder { get; set; }
 
+        [Display(Name = "Supplier")]
         [Required(ErrorMessage = "You must enter {0}")]
         public int SupplierId { get; set; }
 
+        [Display(Name = "Document Type")]
         [Required(ErrorMessage = "You must enter {0}")]
         public int DocumentTypeId { get; set; }
 

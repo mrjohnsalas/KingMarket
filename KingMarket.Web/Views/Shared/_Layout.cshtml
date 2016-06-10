@@ -25,24 +25,52 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Class Document Types", "Index", "ClassDocumentTypes")</li>
-                            <li>@Html.ActionLink("Document Types", "Index", "DocumentTypes")</li>
-                            <li>@Html.ActionLink("Status", "Index", "Status")</li>
-                            <li>@Html.ActionLink("Employee Types", "Index", "EmployeeTypes")</li>
-                            <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
-                            <li>@Html.ActionLink("Product Types", "Index", "ProductTypes")</li>
-                            <li>@Html.ActionLink("Unit Measures", "Index", "UnitMeasures")</li>
-                            <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                            <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
-                            <li>@Html.ActionLink("Supplier Contacts", "Index", "SupplierContacts")</li>
-                            <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                            <li>@Html.ActionLink("Customer Contacts", "Index", "CustomerContacts")</li>
-                            <li>@Html.ActionLink("Buy Orders", "Create", "BuyOrders")</li>
-                        </ul>
-                    </li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Operations <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>@Html.ActionLink("Class Document Types", "Index", "ClassDocumentTypes")</li>
+                                    <li>@Html.ActionLink("Document Types", "Index", "DocumentTypes")</li>
+                                    <li>@Html.ActionLink("Status", "Index", "Status")</li>
+                                    <li>@Html.ActionLink("Employee Types", "Index", "EmployeeTypes")</li>
+                                    <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                                    <li>@Html.ActionLink("Product Types", "Index", "ProductTypes")</li>
+                                    <li>@Html.ActionLink("Unit Measures", "Index", "UnitMeasures")</li>
+                                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                                    <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
+                                    <li>@Html.ActionLink("Supplier Contacts", "Index", "SupplierContacts")</li>
+                                    <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+                                    <li>@Html.ActionLink("Customer Contacts", "Index", "CustomerContacts")</li>
+                                }
+                                @if (User.IsInRole("Customer"))
+                                {
+                                    <li>@Html.ActionLink("My Sale Orders", "Index", "SaleOrders")</li>
+                                }
+                                @if (User.IsInRole("Supplier"))
+                                {
+                                    <li>@Html.ActionLink("My Buy Orders", "Index", "BuyOrders")</li>
+                                } 
+                                @if (User.IsInRole("Buyer"))
+                                {
+                                    <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
+                                    <li>@Html.ActionLink("Supplier Contacts", "Index", "SupplierContacts")</li>
+                                    <li>@Html.ActionLink("New Buy Order", "Create", "BuyOrders")</li>
+                                    <li>@Html.ActionLink("My Buy Orders", "Index", "BuyOrders")</li>
+                                }
+                                @if (User.IsInRole("Grocer"))
+                                {
+                                    <li>@Html.ActionLink("Product Types", "Index", "ProductTypes")</li>
+                                    <li>@Html.ActionLink("Unit Measures", "Index", "UnitMeasures")</li>
+                                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                                    <li>@Html.ActionLink("New Incoming Good", "Create", "IncomingGoods")</li>
+                                    <li>@Html.ActionLink("My Incoming Goods", "Index", "IncomingGoods")</li>
+                                }
+                            </ul>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

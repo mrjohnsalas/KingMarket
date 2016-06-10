@@ -128,7 +128,8 @@ namespace KingMarket.Data
                 new Status{ Name = "Activo"},
                 new Status{ Name = "Anulado"},
                 new Status{ Name = "Cerrado"},
-                new Status{ Name = "Inactivo"}
+                new Status{ Name = "Inactivo"},
+                new Status{ Name = "Creado"}
             };
         }
 
@@ -148,7 +149,7 @@ namespace KingMarket.Data
                 new Employee
                 {
                     DocumentTypeId = 1, 
-                    EmployeeTypeId = 2, 
+                    EmployeeTypeId = 1, 
                     DocumentNumber = "47471425", 
                     FirstName = "Juan", 
                     LastName = "Travezano", 
@@ -159,7 +160,7 @@ namespace KingMarket.Data
                 new Employee
                 {
                     DocumentTypeId = 1, 
-                    EmployeeTypeId = 2, 
+                    EmployeeTypeId = 1, 
                     DocumentNumber = "85784812", 
                     FirstName = "Erick", 
                     LastName = "Apuy", 
@@ -170,7 +171,7 @@ namespace KingMarket.Data
                 new Employee
                 {
                     DocumentTypeId = 1, 
-                    EmployeeTypeId = 2, 
+                    EmployeeTypeId = 1, 
                     DocumentNumber = "85789630", 
                     FirstName = "Dante", 
                     LastName = "Ruiz", 
@@ -181,7 +182,7 @@ namespace KingMarket.Data
                 new Employee
                 {
                     DocumentTypeId = 1, 
-                    EmployeeTypeId = 1, 
+                    EmployeeTypeId = 2, 
                     DocumentNumber = "96969688", 
                     FirstName = "Romy", 
                     LastName = "Chipana", 
@@ -192,7 +193,7 @@ namespace KingMarket.Data
                 new Employee
                 {
                     DocumentTypeId = 1, 
-                    EmployeeTypeId = 1, 
+                    EmployeeTypeId = 2, 
                     DocumentNumber = "12010122", 
                     FirstName = "Jacqueline", 
                     LastName = "Villavicencio", 
@@ -203,7 +204,7 @@ namespace KingMarket.Data
                 new Employee
                 {
                     DocumentTypeId = 1, 
-                    EmployeeTypeId = 1, 
+                    EmployeeTypeId = 2, 
                     DocumentNumber = "85745122", 
                     FirstName = "Julio", 
                     LastName = "Rayme", 

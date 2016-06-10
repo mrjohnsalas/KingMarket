@@ -7,11 +7,11 @@
       <xsd:import schemaLocation="http://localhost:55981/CartItemService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ICartItemService_GetCartItemsByUserId_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCartItemsByUserId" />
+  <wsdl:message name="ICartItemService_GetCartItemsByCustomerId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemsByCustomerId" />
   </wsdl:message>
-  <wsdl:message name="ICartItemService_GetCartItemsByUserId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCartItemsByUserIdResponse" />
+  <wsdl:message name="ICartItemService_GetCartItemsByCustomerId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemsByCustomerIdResponse" />
   </wsdl:message>
   <wsdl:message name="ICartItemService_GetCartItem_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCartItem" />
@@ -19,11 +19,11 @@
   <wsdl:message name="ICartItemService_GetCartItem_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCartItemResponse" />
   </wsdl:message>
-  <wsdl:message name="ICartItemService_GetCartItemByProductIdAndUserId_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCartItemByProductIdAndUserId" />
+  <wsdl:message name="ICartItemService_GetCartItemByProductIdAndCustomerId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemByProductIdAndCustomerId" />
   </wsdl:message>
-  <wsdl:message name="ICartItemService_GetCartItemByProductIdAndUserId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCartItemByProductIdAndUserIdResponse" />
+  <wsdl:message name="ICartItemService_GetCartItemByProductIdAndCustomerId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemByProductIdAndCustomerIdResponse" />
   </wsdl:message>
   <wsdl:message name="ICartItemService_CreateCartItem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateCartItem" />
@@ -50,17 +50,17 @@
     <wsdl:part name="parameters" element="tns:DeleteCartItemResponse" />
   </wsdl:message>
   <wsdl:portType name="ICartItemService">
-    <wsdl:operation name="GetCartItemsByUserId">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemsByUserId" message="tns:ICartItemService_GetCartItemsByUserId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemsByUserIdResponse" message="tns:ICartItemService_GetCartItemsByUserId_OutputMessage" />
+    <wsdl:operation name="GetCartItemsByCustomerId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemsByCustomerId" message="tns:ICartItemService_GetCartItemsByCustomerId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemsByCustomerIdResponse" message="tns:ICartItemService_GetCartItemsByCustomerId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCartItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItem" message="tns:ICartItemService_GetCartItem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemResponse" message="tns:ICartItemService_GetCartItem_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetCartItemByProductIdAndUserId">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserId" message="tns:ICartItemService_GetCartItemByProductIdAndUserId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserIdResponse" message="tns:ICartItemService_GetCartItemByProductIdAndUserId_OutputMessage" />
+    <wsdl:operation name="GetCartItemByProductIdAndCustomerId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndCustomerId" message="tns:ICartItemService_GetCartItemByProductIdAndCustomerId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndCustomerIdResponse" message="tns:ICartItemService_GetCartItemByProductIdAndCustomerId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateCartItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICartItemService/CreateCartItem" message="tns:ICartItemService_CreateCartItem_InputMessage" />
@@ -79,8 +79,8 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICartItemService" type="tns:ICartItemService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetCartItemsByUserId">
-      <soap:operation soapAction="http://tempuri.org/ICartItemService/GetCartItemsByUserId" style="document" />
+    <wsdl:operation name="GetCartItemsByCustomerId">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/GetCartItemsByCustomerId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -97,8 +97,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCartItemByProductIdAndUserId">
-      <soap:operation soapAction="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserId" style="document" />
+    <wsdl:operation name="GetCartItemByProductIdAndCustomerId">
+      <soap:operation soapAction="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndCustomerId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

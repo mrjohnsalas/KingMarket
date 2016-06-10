@@ -27,6 +27,12 @@ namespace KingMarket.Web.CustomerService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
         System.Threading.Tasks.Task<KingMarket.Model.Models.Customer> GetCustomerAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomerByEmail", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerByEmailResponse")]
+        KingMarket.Model.Models.Customer GetCustomerByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomerByEmail", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerByEmailResponse")]
+        System.Threading.Tasks.Task<KingMarket.Model.Models.Customer> GetCustomerByEmailAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/CreateCustomer", ReplyAction="http://tempuri.org/ICustomerService/CreateCustomerResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/ICustomerService/CreateCustomerGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void CreateCustomer(KingMarket.Model.Models.Customer myObject);
@@ -90,6 +96,14 @@ namespace KingMarket.Web.CustomerService {
         
         public System.Threading.Tasks.Task<KingMarket.Model.Models.Customer> GetCustomerAsync(int id) {
             return base.Channel.GetCustomerAsync(id);
+        }
+        
+        public KingMarket.Model.Models.Customer GetCustomerByEmail(string email) {
+            return base.Channel.GetCustomerByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<KingMarket.Model.Models.Customer> GetCustomerByEmailAsync(string email) {
+            return base.Channel.GetCustomerByEmailAsync(email);
         }
         
         public void CreateCustomer(KingMarket.Model.Models.Customer myObject) {

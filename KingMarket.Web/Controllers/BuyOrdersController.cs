@@ -5,30 +5,31 @@ using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
+using KingMarket.Web.BuyOrderService;
 using KingMarket.Web.DocumentTypeService;
 using KingMarket.Web.ProductService;
 using KingMarket.Web.ProductTypeService;
 using KingMarket.Web.SupplierService;
 using KingMarket.Web.UnitMeasureService;
+using Microsoft.AspNet.Identity;
 
 namespace KingMarket.Web.Controllers
 {
     public class BuyOrdersController : Controller
     {
         // GET: BuyOrders
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Customers/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Create()
         {
             var buyOrder = new BuyOrder
             {
-                DateOrder = DateTime.Now,
                 Supplier = new Supplier(),
                 DocumentType = new DocumentType(),
                 Status = new Status(),
@@ -44,9 +45,10 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult Create(BuyOrder buyOrder)
         {
+            buyOrder = Session["BuyOrder"] as BuyOrder;
             var proxyS = new SupplierServiceClient();
             var proxyD = new DocumentTypeServiceClient();
             if (ModelState.IsValid)
@@ -60,12 +62,19 @@ namespace KingMarket.Web.Controllers
                     ViewBag.ErrorMessage = "Error Message: You need to add products to the list.";
                     return View(buyOrder);   
                 }
+                var proxyB = new BuyOrderServiceClient();
+                proxyB.CreateBuyOrder(buyOrder);
+                ViewBag.OkMessage = String.Format("Sucess Message: Buy order: {0} has been successfully created.", buyOrder.BuyOrderId);
+                ViewBag.SupplierId = new SelectList(proxyS.GetSuppliers().OrderBy(d => d.BusinessName), "SupplierId", "BusinessName", buyOrder.SupplierId);
+                ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", buyOrder.DocumentTypeId);
+                return View();
             }
             ViewBag.SupplierId = new SelectList(proxyS.GetSuppliers().OrderBy(d => d.BusinessName), "SupplierId", "BusinessName", buyOrder.SupplierId);
             ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", buyOrder.DocumentTypeId);
             return View(buyOrder);
         }
 
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult AddProductOrder()
         {
             var proxyP = new ProductServiceClient();
@@ -75,7 +84,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Buyer")]
         public ActionResult AddProductOrder(ProductOrder productOrder)
         {
             var proxyP = new ProductServiceClient();
@@ -115,14 +124,14 @@ namespace KingMarket.Web.Controllers
                         Quantity = productOrder.Quantity,
                         Product = product
                     });
-                    var proxyS = new SupplierServiceClient();
-                    var proxyD = new DocumentTypeServiceClient();
-                    ViewBag.SupplierId = new SelectList(proxyS.GetSuppliers().OrderBy(d => d.BusinessName), "SupplierId", "BusinessName", buyOrder.SupplierId);
-                    ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", buyOrder.DocumentTypeId);
-                    return View("Create", buyOrder);
                 }
                 else
                     buyOrderDetail.Quantity += productOrder.Quantity;
+                var proxyS = new SupplierServiceClient();
+                var proxyD = new DocumentTypeServiceClient();
+                ViewBag.SupplierId = new SelectList(proxyS.GetSuppliers().OrderBy(d => d.BusinessName), "SupplierId", "BusinessName", buyOrder.SupplierId);
+                ViewBag.DocumentTypeId = new SelectList(proxyD.GetDocumentTypes().OrderBy(d => d.Name).ToList().FindAll(d => d.ClassDocumentTypeId.Equals(4) && !d.OnlyForEnterprise), "DocumentTypeId", "Name", buyOrder.DocumentTypeId);
+                return View("Create", buyOrder);
             }
             catch (FaultException<GeneralException> ex)
             {

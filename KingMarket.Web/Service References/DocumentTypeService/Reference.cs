@@ -27,6 +27,12 @@ namespace KingMarket.Web.DocumentTypeService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentTypeService/GetDocumentType", ReplyAction="http://tempuri.org/IDocumentTypeService/GetDocumentTypeResponse")]
         System.Threading.Tasks.Task<KingMarket.Model.Models.DocumentType> GetDocumentTypeAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentTypeService/GetDocumentTypeForPay", ReplyAction="http://tempuri.org/IDocumentTypeService/GetDocumentTypeForPayResponse")]
+        KingMarket.Model.Models.DocumentType GetDocumentTypeForPay(int documentTypeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentTypeService/GetDocumentTypeForPay", ReplyAction="http://tempuri.org/IDocumentTypeService/GetDocumentTypeForPayResponse")]
+        System.Threading.Tasks.Task<KingMarket.Model.Models.DocumentType> GetDocumentTypeForPayAsync(int documentTypeId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDocumentTypeService/CreateDocumentType", ReplyAction="http://tempuri.org/IDocumentTypeService/CreateDocumentTypeResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IDocumentTypeService/CreateDocumentTypeGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void CreateDocumentType(KingMarket.Model.Models.DocumentType myObject);
@@ -90,6 +96,14 @@ namespace KingMarket.Web.DocumentTypeService {
         
         public System.Threading.Tasks.Task<KingMarket.Model.Models.DocumentType> GetDocumentTypeAsync(int id) {
             return base.Channel.GetDocumentTypeAsync(id);
+        }
+        
+        public KingMarket.Model.Models.DocumentType GetDocumentTypeForPay(int documentTypeId) {
+            return base.Channel.GetDocumentTypeForPay(documentTypeId);
+        }
+        
+        public System.Threading.Tasks.Task<KingMarket.Model.Models.DocumentType> GetDocumentTypeForPayAsync(int documentTypeId) {
+            return base.Channel.GetDocumentTypeForPayAsync(documentTypeId);
         }
         
         public void CreateDocumentType(KingMarket.Model.Models.DocumentType myObject) {

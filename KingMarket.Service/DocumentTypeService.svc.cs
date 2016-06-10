@@ -36,6 +36,13 @@ namespace KingMarket.Service
             return myObject;
         }
 
+        public DocumentType GetDocumentTypeForPay(int documentTypeId)
+        {
+            var myObject = repository.GetById(documentTypeId);
+            var myObjectForPay = repository.Get(d => d.ClassDocumentTypeId.Equals(2) && d.OnlyForEnterprise == myObject.OnlyForEnterprise);
+            return myObjectForPay;
+        }
+
         public void CreateDocumentType(DocumentType myObject)
         {
             try

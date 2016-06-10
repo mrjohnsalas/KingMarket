@@ -6,6 +6,21 @@
     ViewBag.Title = "Index";
 }
 
+@if (!String.IsNullOrEmpty(ViewBag.ErrorCode) && !String.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorCode<br />
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+@if (!String.IsNullOrEmpty(ViewBag.OkMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.OkMessage
+    </div>
+}
+
 <div class="row">
     <div class="col-xs-12 col-sm-5 col-md-5">
         <h3>Cart Items</h3>
@@ -16,13 +31,28 @@
             {
                 <div class="form-group">
                     <div class="input-group">
-                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Search", @type = "search" })
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new {@class = "form-control", @placeholder = "Search", @type = "search"})
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>
                     </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 form-inline-padding-right">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Index", "CartItems", FormMethod.Post, htmlAttributes: new { @class = "form-inline pull-right" }))
+            {
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit" value="Create">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>  Buy products
+                    </button>
                 </div>
             }
         </div>
@@ -85,7 +115,7 @@
 </div>
 <br />
 <nav class="text-center">
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    @Html.PagedListPager(Model, page => Url.Action("Index", new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
 </nav>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

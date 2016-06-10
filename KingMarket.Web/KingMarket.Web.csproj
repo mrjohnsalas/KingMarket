@@ -191,6 +191,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\BuyOrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\CartItemService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,6 +237,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\ProductTypeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SaleOrderService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -299,6 +309,8 @@
     <Content Include="Properties\DataSources\KingMarket.Model.Models.Supplier.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.SupplierContact.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.CartItem.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.SaleOrder.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.BuyOrder.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -316,6 +328,16 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\BuyOrderService\BuyOrderService.wsdl" />
+    <None Include="Service References\BuyOrderService\BuyOrderService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BuyOrderService\BuyOrderService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BuyOrderService\BuyOrderService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\CartItemService\CartItemService.wsdl" />
     <None Include="Service References\CartItemService\CartItemService.xsd">
       <SubType>Designer</SubType>
@@ -393,6 +415,16 @@
     <None Include="Service References\ProductTypeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SaleOrderService\SaleOrderService.wsdl" />
+    <None Include="Service References\SaleOrderService\SaleOrderService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SaleOrderService\SaleOrderService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SaleOrderService\SaleOrderService2.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\StatusService\StatusService.disco" />
     <None Include="Service References\StatusService\configuration91.svcinfo" />
@@ -474,6 +506,20 @@
     <None Include="Service References\CartItemService\configuration91.svcinfo" />
     <None Include="Service References\CartItemService\configuration.svcinfo" />
     <None Include="Service References\CartItemService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SaleOrderService\SaleOrderService.disco" />
+    <None Include="Service References\SaleOrderService\configuration91.svcinfo" />
+    <None Include="Service References\SaleOrderService\configuration.svcinfo" />
+    <None Include="Service References\SaleOrderService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BuyOrderService\BuyOrderService.disco" />
+    <None Include="Service References\BuyOrderService\configuration91.svcinfo" />
+    <None Include="Service References\BuyOrderService\configuration.svcinfo" />
+    <None Include="Service References\BuyOrderService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -659,6 +705,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BuyOrderService\" />
     <WCFMetadataStorage Include="Service References\CartItemService\" />
     <WCFMetadataStorage Include="Service References\ClassDocumentTypeService\" />
     <WCFMetadataStorage Include="Service References\CustomerService\" />
@@ -668,6 +715,7 @@
     <WCFMetadataStorage Include="Service References\ProductPhotoService\" />
     <WCFMetadataStorage Include="Service References\ProductService\" />
     <WCFMetadataStorage Include="Service References\ProductTypeService\" />
+    <WCFMetadataStorage Include="Service References\SaleOrderService\" />
     <WCFMetadataStorage Include="Service References\StatusService\" />
     <WCFMetadataStorage Include="Service References\SupplierContactService\" />
     <WCFMetadataStorage Include="Service References\SupplierService\" />

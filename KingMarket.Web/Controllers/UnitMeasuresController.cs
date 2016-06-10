@@ -14,7 +14,7 @@ namespace KingMarket.Web.Controllers
     public class UnitMeasuresController : Controller
     {
         // GET: UnitMeasures
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var proxy = new UnitMeasureServiceClient();
@@ -59,7 +59,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: UnitMeasures/Details/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -72,7 +72,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: UnitMeasures/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Create()
         {
             return View();
@@ -80,7 +80,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Create([Bind(Include = "UnitMeasureId,ShortName,Name")] UnitMeasure unitMeasure)
         {
             try
@@ -101,7 +101,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: UnitMeasures/Edit/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -115,7 +115,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Edit([Bind(Include = "UnitMeasureId,ShortName,Name")] UnitMeasure unitMeasure)
         {
             try
@@ -136,7 +136,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: UnitMeasures/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -151,7 +151,7 @@ namespace KingMarket.Web.Controllers
         // POST: UnitMeasures/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new UnitMeasureServiceClient();

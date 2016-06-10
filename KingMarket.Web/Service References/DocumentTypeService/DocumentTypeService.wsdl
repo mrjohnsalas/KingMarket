@@ -19,6 +19,12 @@
   <wsdl:message name="IDocumentTypeService_GetDocumentType_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDocumentTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IDocumentTypeService_GetDocumentTypeForPay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTypeForPay" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentTypeService_GetDocumentTypeForPay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTypeForPayResponse" />
+  </wsdl:message>
   <wsdl:message name="IDocumentTypeService_CreateDocumentType_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateDocumentType" />
   </wsdl:message>
@@ -55,6 +61,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/GetDocumentType" message="tns:IDocumentTypeService_GetDocumentType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDocumentTypeService/GetDocumentTypeResponse" message="tns:IDocumentTypeService_GetDocumentType_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetDocumentTypeForPay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/GetDocumentTypeForPay" message="tns:IDocumentTypeService_GetDocumentTypeForPay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentTypeService/GetDocumentTypeForPayResponse" message="tns:IDocumentTypeService_GetDocumentTypeForPay_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateDocumentType">
       <wsdl:input wsaw:Action="http://tempuri.org/IDocumentTypeService/CreateDocumentType" message="tns:IDocumentTypeService_CreateDocumentType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDocumentTypeService/CreateDocumentTypeResponse" message="tns:IDocumentTypeService_CreateDocumentType_OutputMessage" />
@@ -84,6 +94,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDocumentType">
       <soap:operation soapAction="http://tempuri.org/IDocumentTypeService/GetDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTypeForPay">
+      <soap:operation soapAction="http://tempuri.org/IDocumentTypeService/GetDocumentTypeForPay" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

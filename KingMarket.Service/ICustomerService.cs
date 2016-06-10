@@ -18,6 +18,9 @@ namespace KingMarket.Service
         [OperationContract]
         Customer GetCustomer(int id);
 
+        [OperationContract]
+        Customer GetCustomerByEmail(string email);
+
         [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateCustomer(Customer myObject);

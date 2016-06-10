@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5b70ba20-e8d6-4cf2-8471-0decdcaad011" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="KingMarket.Model" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55981/BuyOrderService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BuyOrderService.xsd" MetadataType="Schema" ID="abdbf3ae-d407-4452-9939-11422ada7327" SourceId="1" SourceUrl="http://localhost:55981/BuyOrderService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BuyOrderService1.xsd" MetadataType="Schema" ID="c0eb78cc-500e-44a2-809b-e2cc2eb919e7" SourceId="1" SourceUrl="http://localhost:55981/BuyOrderService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BuyOrderService.disco" MetadataType="Disco" ID="393ffbb5-6cf1-43df-82c7-3d514a0989d9" SourceId="1" SourceUrl="http://localhost:55981/BuyOrderService.svc?disco" />
+    <MetadataFile FileName="BuyOrderService.wsdl" MetadataType="Wsdl" ID="e39024cd-8e8e-43c7-9da3-0a560eb706b2" SourceId="1" SourceUrl="http://localhost:55981/BuyOrderService.svc?wsdl" />
+    <MetadataFile FileName="BuyOrderService2.xsd" MetadataType="Schema" ID="4dcf5433-c81d-4a33-a603-c96bfe2ac8dc" SourceId="1" SourceUrl="http://localhost:55981/BuyOrderService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

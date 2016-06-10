@@ -36,6 +36,12 @@ namespace KingMarket.Service
             return myObject;
         }
 
+        public Customer GetCustomerByEmail(string email)
+        {
+            var myObject = repository.Get(c => c.Email.Equals(email));
+            return myObject;
+        }
+
         public void CreateCustomer(Customer myObject)
         {
             try

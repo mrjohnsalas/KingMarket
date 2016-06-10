@@ -14,6 +14,7 @@ namespace KingMarket.Model.Models
         [Display(Name = "Supplier Contact")]
         public int SupplierContactId { get; set; }
 
+        [Display(Name = "Supplier")]
         [Required(ErrorMessage = "You must enter {0}")]
         public int SupplierId { get; set; }
 

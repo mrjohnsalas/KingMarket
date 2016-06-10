@@ -14,7 +14,7 @@ namespace KingMarket.Model.Models
         public int CartItemId { get; set; }
 
         [Required(ErrorMessage = "You must enter {0}")]
-        public string UserId { get; set; }
+        public int CustomerId { get; set; }
 
         [Display(Name = "Date Created")]
         [Required(ErrorMessage = "You must enter {0}")]
@@ -30,5 +30,7 @@ namespace KingMarket.Model.Models
         public decimal Quantity { get; set; }
 
         public virtual Product Product { get; set; }
+
+        public virtual Customer Customer { get; set; }
     }
 }

@@ -13,13 +13,13 @@ namespace KingMarket.Service
     public interface ICartItemService
     {
         [OperationContract]
-        IEnumerable<CartItem> GetCartItemsByUserId(string userId);
+        IEnumerable<CartItem> GetCartItemsByCustomerId(int customerId);
 
         [OperationContract]
         CartItem GetCartItem(int id);
 
         [OperationContract]
-        CartItem GetCartItemByProductIdAndUserId(int productId, string userId);
+        CartItem GetCartItemByProductIdAndCustomerId(int productId, int customerId);
 
         [FaultContract(typeof(GeneralException))]
         [OperationContract]

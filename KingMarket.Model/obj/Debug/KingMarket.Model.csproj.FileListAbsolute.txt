@@ -27,22 +27,6 @@ C:\visualstudio\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.
 C:\visualstudio\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.csprojResolveAssemblyReference.cache
 C:\visualstudio\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
 C:\visualstudio\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll.config
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.pdb
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.Owin.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Owin.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.xml
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.Owin.xml
-D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
-D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll.config
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.pdb
@@ -60,3 +44,19 @@ D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll.config
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\KingMarket.Model.pdb
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.Owin.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Owin.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.xml
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\John\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.Owin.xml
+D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
+D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb

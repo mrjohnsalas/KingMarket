@@ -67,6 +67,8 @@
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="KingMarketSeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BuyOrderDetailRepository.cs" />
+    <Compile Include="Repositories\BuyOrderRepository.cs" />
     <Compile Include="Repositories\CartItemRepository.cs" />
     <Compile Include="Repositories\ClassDocumentTypeRepository.cs" />
     <Compile Include="Repositories\CustomerContactRepository.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Repositories\ProductPhotoRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ProductTypeRepository.cs" />
+    <Compile Include="Repositories\SaleOrderDetailRepository.cs" />
+    <Compile Include="Repositories\SaleOrderRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\SupplierContactRepository.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />

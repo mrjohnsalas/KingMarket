@@ -15,11 +15,11 @@ namespace KingMarket.Web.CartItemService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CartItemService.ICartItemService")]
     public interface ICartItemService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemsByUserId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemsByUserIdResponse")]
-        System.Collections.Generic.List<KingMarket.Model.Models.CartItem> GetCartItemsByUserId(string userId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemsByCustomerId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemsByCustomerIdResponse")]
+        System.Collections.Generic.List<KingMarket.Model.Models.CartItem> GetCartItemsByCustomerId(int customerId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemsByUserId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemsByUserIdResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.CartItem>> GetCartItemsByUserIdAsync(string userId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemsByCustomerId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemsByCustomerIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.CartItem>> GetCartItemsByCustomerIdAsync(int customerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItem", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemResponse")]
         KingMarket.Model.Models.CartItem GetCartItem(int id);
@@ -27,11 +27,11 @@ namespace KingMarket.Web.CartItemService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItem", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemResponse")]
         System.Threading.Tasks.Task<KingMarket.Model.Models.CartItem> GetCartItemAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserIdResponse")]
-        KingMarket.Model.Models.CartItem GetCartItemByProductIdAndUserId(int productId, string userId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndCustomerId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndCustomerIdResponse")]
+        KingMarket.Model.Models.CartItem GetCartItemByProductIdAndCustomerId(int productId, int customerId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndUserIdResponse")]
-        System.Threading.Tasks.Task<KingMarket.Model.Models.CartItem> GetCartItemByProductIdAndUserIdAsync(int productId, string userId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndCustomerId", ReplyAction="http://tempuri.org/ICartItemService/GetCartItemByProductIdAndCustomerIdResponse")]
+        System.Threading.Tasks.Task<KingMarket.Model.Models.CartItem> GetCartItemByProductIdAndCustomerIdAsync(int productId, int customerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICartItemService/CreateCartItem", ReplyAction="http://tempuri.org/ICartItemService/CreateCartItemResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/ICartItemService/CreateCartItemGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
@@ -81,12 +81,12 @@ namespace KingMarket.Web.CartItemService {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<KingMarket.Model.Models.CartItem> GetCartItemsByUserId(string userId) {
-            return base.Channel.GetCartItemsByUserId(userId);
+        public System.Collections.Generic.List<KingMarket.Model.Models.CartItem> GetCartItemsByCustomerId(int customerId) {
+            return base.Channel.GetCartItemsByCustomerId(customerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.CartItem>> GetCartItemsByUserIdAsync(string userId) {
-            return base.Channel.GetCartItemsByUserIdAsync(userId);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.CartItem>> GetCartItemsByCustomerIdAsync(int customerId) {
+            return base.Channel.GetCartItemsByCustomerIdAsync(customerId);
         }
         
         public KingMarket.Model.Models.CartItem GetCartItem(int id) {
@@ -97,12 +97,12 @@ namespace KingMarket.Web.CartItemService {
             return base.Channel.GetCartItemAsync(id);
         }
         
-        public KingMarket.Model.Models.CartItem GetCartItemByProductIdAndUserId(int productId, string userId) {
-            return base.Channel.GetCartItemByProductIdAndUserId(productId, userId);
+        public KingMarket.Model.Models.CartItem GetCartItemByProductIdAndCustomerId(int productId, int customerId) {
+            return base.Channel.GetCartItemByProductIdAndCustomerId(productId, customerId);
         }
         
-        public System.Threading.Tasks.Task<KingMarket.Model.Models.CartItem> GetCartItemByProductIdAndUserIdAsync(int productId, string userId) {
-            return base.Channel.GetCartItemByProductIdAndUserIdAsync(productId, userId);
+        public System.Threading.Tasks.Task<KingMarket.Model.Models.CartItem> GetCartItemByProductIdAndCustomerIdAsync(int productId, int customerId) {
+            return base.Channel.GetCartItemByProductIdAndCustomerIdAsync(productId, customerId);
         }
         
         public void CreateCartItem(KingMarket.Model.Models.CartItem myObject) {

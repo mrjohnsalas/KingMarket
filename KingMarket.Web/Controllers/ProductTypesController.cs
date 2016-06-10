@@ -15,7 +15,7 @@ namespace KingMarket.Web.Controllers
     public class ProductTypesController : Controller
     {
         // GET: ProductTypes
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var proxy = new ProductTypeServiceClient();
@@ -44,7 +44,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: ProductTypes/Details/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -57,7 +57,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: ProductTypes/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Create()
         {
             return View();
@@ -65,7 +65,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Create([Bind(Include = "ProductTypeId,Name")] ProductType productType)
         {
             try
@@ -86,7 +86,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: ProductTypes/Edit/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,7 +100,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Edit([Bind(Include = "ProductTypeId,Name")] ProductType productType)
         {
             try
@@ -121,7 +121,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: ProductTypes/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -136,7 +136,7 @@ namespace KingMarket.Web.Controllers
         // POST: ProductTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new ProductTypeServiceClient();

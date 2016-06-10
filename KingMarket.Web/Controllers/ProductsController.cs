@@ -19,7 +19,7 @@ namespace KingMarket.Web.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var proxy = new ProductServiceClient();
@@ -121,7 +121,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Products/Details/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -136,7 +136,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Products/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Create()
         {
             var proxyP = new ProductTypeServiceClient();
@@ -148,7 +148,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Create([Bind(Include = "ProductId,Name,Description,UnitPrice,UnitCost,ProductTypeId,Stock,MinStock,MaxStock,UnitMeasureId")] Product product)
         {
             try
@@ -192,7 +192,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Products/Edit/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -212,7 +212,7 @@ namespace KingMarket.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Edit([Bind(Include = "ProductId,Name,Description,UnitPrice,UnitCost,ProductTypeId,Stock,MinStock,MaxStock,UnitMeasureId")] Product product)
         {
             try
@@ -259,7 +259,7 @@ namespace KingMarket.Web.Controllers
         }
 
         // GET: Products/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -274,7 +274,7 @@ namespace KingMarket.Web.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public ActionResult DeleteConfirmed(int id)
         {
             var proxy = new ProductServiceClient();
@@ -297,7 +297,7 @@ namespace KingMarket.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Grocer")]
         public JsonResult DeleteFile(int? id)
         {
             if (!id.HasValue)

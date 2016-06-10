@@ -11,6 +11,7 @@ using KingMarket.Web.ProductService;
 using KingMarket.Web.UnitMeasureService;
 using KingMarket.Web.ProductPhotoService;
 using KingMarket.Web.CartItemService;
+using KingMarket.Web.CustomerService;
 using Microsoft.AspNet.Identity;
 using PagedList;
 
@@ -108,7 +109,6 @@ namespace KingMarket.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public JsonResult AddCart(int? productId)
         {
             if (!productId.HasValue)
@@ -125,14 +125,15 @@ namespace KingMarket.Web.Controllers
                     Response.StatusCode = (int)HttpStatusCode.NotFound;
                     return Json(new { Result = "Error" });
                 }
-                var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+                var proxyCu = new CustomerServiceClient();
+                var customer = proxyCu.GetCustomerByEmail(User.Identity.GetUserName());
                 var proxyC = new CartItemServiceClient();
-                var cartItem = proxyC.GetCartItemByProductIdAndUserId(productId.Value, userId);
+                var cartItem = proxyC.GetCartItemByProductIdAndCustomerId(productId.Value, customer.CustomerId);
                 if (cartItem == null)
                 {
                     proxyC.CreateCartItem(new CartItem
                     {
-                        UserId = userId,
+                        CustomerId = customer.CustomerId,
                         DateCreated = DateTime.Now,
                         Quantity = 1,
                         ProductId = productId.Value

@@ -8,9 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
 using KingMarket.Web.CartItemService;
+using KingMarket.Web.CustomerService;
+using KingMarket.Web.DocumentTypeService;
 using KingMarket.Web.ProductPhotoService;
 using KingMarket.Web.ProductService;
 using KingMarket.Web.ProductTypeService;
+using KingMarket.Web.SaleOrderService;
 using KingMarket.Web.UnitMeasureService;
 using PagedList;
 using Microsoft.AspNet.Identity;
@@ -20,8 +23,8 @@ namespace KingMarket.Web.Controllers
     // GET: CartItems
     public class CartItemsController : Controller
     {
-        // GET: CartItems
-        [Authorize(Roles = "Admin")]
+        //MUESTRA LOS PRODUCTOS ACTUALES DEL CARRITO DE COMPRAS
+        [Authorize(Roles = "Admin, Customer")]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var proxy = new CartItemServiceClient();
@@ -40,7 +43,9 @@ namespace KingMarket.Web.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var cartItems = proxy.GetCartItemsByUserId(User.Identity.GetUserId());
+            var proxyC = new CustomerServiceClient();
+            var customer = proxyC.GetCustomerByEmail(User.Identity.GetUserName());
+            var cartItems = proxy.GetCartItemsByCustomerId(customer.CustomerId);
             var proxyP = new ProductServiceClient();
             var proxyT = new ProductTypeServiceClient();
             var proxyU = new UnitMeasureServiceClient();
@@ -96,8 +101,9 @@ namespace KingMarket.Web.Controllers
             return View(cartItems.ToPagedList(pageNumber, pageSize));
         }
 
+        //ELIMINA UN PRODUCTO DEL CARRITO DE COMPRAS
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Customer")]
         public JsonResult DeleteCartItem(int? id)
         {
             if (!id.HasValue)
@@ -123,8 +129,8 @@ namespace KingMarket.Web.Controllers
             }
         }
 
-        // GET: ClassDocumentTypes/Edit/5
-        [Authorize(Roles = "Admin")]
+        //MUESTRA LA VISTA QUE PERMITE EDITAR
+        [Authorize(Roles = "Admin, Customer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -142,9 +148,10 @@ namespace KingMarket.Web.Controllers
             return View(cartItem);
         }
 
+        //EDITA EL PRODUCTO DEL CARRITO DE COMPRAS
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Customer")]
         public ActionResult Edit([Bind(Include = "CartItemId,UserId,DateCreated,ProductId,Quantity")] CartItem cartItem)
         {
             try
@@ -162,6 +169,68 @@ namespace KingMarket.Web.Controllers
                 ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
             return View(cartItem);
+        }
+
+        //CREA LA ORDEN
+        [HttpPost]
+        [Authorize(Roles = "Admin, Customer")]
+        public ActionResult Index()
+        {
+            var proxyC = new CustomerServiceClient();
+            var customer = proxyC.GetCustomerByEmail(User.Identity.GetUserName());
+            var proxy = new CartItemServiceClient();
+            var cartItems = proxy.GetCartItemsByCustomerId(customer.CustomerId);
+
+            if (cartItems == null || cartItems.Count.Equals(0))
+                return CallError("UI", "You need to add products to the list.", cartItems);
+            var proxyP = new ProductServiceClient();
+            foreach (var item in cartItems)
+                item.Product = proxyP.GetProduct(item.ProductId);
+
+            try
+            {
+                var proxyD = new DocumentTypeServiceClient();
+                var documentType = proxyD.GetDocumentTypeForPay(customer.DocumentTypeId);
+                var saleOrder = new SaleOrder
+                {
+                    CustomerId = customer.CustomerId,
+                    DocumentTypeId = documentType.DocumentTypeId,
+                    StatusId = 6,
+                    SaleOrderDetails = new List<SaleOrderDetail>()
+                };
+                foreach (var item in cartItems)
+                {
+                    saleOrder.SaleOrderDetails.Add(new SaleOrderDetail
+                    {
+                        ProductId = item.Product.ProductId,
+                        Name = item.Product.Name,
+                        UnitPrice = item.Product.UnitPrice,
+                        Quantity = item.Quantity
+                    });
+                }
+                var proxyS = new SaleOrderServiceClient();
+                proxyS.CreateSaleOrder(saleOrder);
+                ViewBag.OkMessage = String.Format("Sucess Message: Sale order: {0} has been successfully created.", saleOrder.SaleOrderId);
+                cartItems = proxy.GetCartItemsByCustomerId(customer.CustomerId);
+                var pageSize = 10;
+                var pageNumber = 1;
+                return View(cartItems.ToPagedList(pageNumber, pageSize));
+            }
+            catch (FaultException<GeneralException> ex)
+            {
+                ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
+                ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
+            return RedirectToAction("Index");
+        }
+
+        private ActionResult CallError(string errorCode, string errorMessage, List<CartItem> cartItems)
+        {
+            ViewBag.ErrorCode = String.Format("Error Code: {0}", errorCode);
+            ViewBag.ErrorMessage = String.Format("Error Message: {0}", errorMessage);
+            var pageSize = 10;
+            var pageNumber = 1;
+            return View(cartItems.ToPagedList(pageNumber, pageSize));
         }
     }
 }

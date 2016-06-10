@@ -56,7 +56,6 @@
       <xs:element minOccurs="0" name="BuyOrderDetails" nillable="true" type="tns:ArrayOfBuyOrderDetail" />
       <xs:element minOccurs="0" name="BuyOrderId" type="xs:int" />
       <xs:element minOccurs="0" name="DateOrder" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DocumentNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DocumentType" nillable="true" type="tns:DocumentType" />
       <xs:element minOccurs="0" name="DocumentTypeId" type="xs:int" />
       <xs:element minOccurs="0" name="IncomingGoods" nillable="true" type="tns:ArrayOfIncomingGood" />
@@ -65,6 +64,7 @@
       <xs:element minOccurs="0" name="Supplier" nillable="true" type="tns:Supplier" />
       <xs:element minOccurs="0" name="SupplierId" type="xs:int" />
       <xs:element minOccurs="0" name="Tax" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BuyOrder" nillable="true" type="tns:BuyOrder" />
@@ -132,6 +132,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CartItems" nillable="true" type="tns:ArrayOfCartItem" />
       <xs:element minOccurs="0" name="CustomerContacts" nillable="true" type="tns:ArrayOfCustomerContact" />
       <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
       <xs:element minOccurs="0" name="DocumentNumber" nillable="true" type="xs:string" />
@@ -147,6 +148,24 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ArrayOfCartItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CartItem" nillable="true" type="tns:CartItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCartItem" nillable="true" type="tns:ArrayOfCartItem" />
+  <xs:complexType name="CartItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CartItemId" type="xs:int" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CartItem" nillable="true" type="tns:CartItem" />
   <xs:complexType name="ArrayOfSaleOrder">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="SaleOrder" nillable="true" type="tns:SaleOrder" />
@@ -330,23 +349,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfSupplier" nillable="true" type="tns:ArrayOfSupplier" />
-  <xs:complexType name="ArrayOfCartItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CartItem" nillable="true" type="tns:CartItem" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCartItem" nillable="true" type="tns:ArrayOfCartItem" />
-  <xs:complexType name="CartItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CartItemId" type="xs:int" />
-      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
-      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
-      <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
-      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CartItem" nillable="true" type="tns:CartItem" />
   <xs:complexType name="ArrayOfProductPhoto">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductPhoto" nillable="true" type="tns:ProductPhoto" />

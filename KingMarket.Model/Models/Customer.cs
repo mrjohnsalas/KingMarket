@@ -68,5 +68,7 @@ namespace KingMarket.Model.Models
         public virtual ICollection<CustomerContact> CustomerContacts { get; set; }
 
         public virtual ICollection<SaleOrder> SaleOrders { get; set; }
+
+        public virtual ICollection<CartItem> CartItems { get; set; }
     }
 }
