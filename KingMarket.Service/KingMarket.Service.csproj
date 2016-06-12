@@ -79,6 +79,7 @@
     <Content Include="ProductPhotoService.svc" />
     <Content Include="ProductService.svc" />
     <Content Include="ProductTypeService.svc" />
+    <Content Include="SaleOrderDetailService.svc" />
     <Content Include="SaleOrderService.svc" />
     <Content Include="StatusService.svc" />
     <Content Include="SupplierContactService.svc" />
@@ -124,6 +125,7 @@
     <Compile Include="IProductPhotoService.cs" />
     <Compile Include="IProductService.cs" />
     <Compile Include="IProductTypeService.cs" />
+    <Compile Include="ISaleOrderDetailService.cs" />
     <Compile Include="ISaleOrderService.cs" />
     <Compile Include="IStatusService.cs" />
     <Compile Include="ISupplierContactService.cs" />
@@ -139,6 +141,9 @@
       <DependentUpon>ProductTypeService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaleOrderDetailService.svc.cs">
+      <DependentUpon>SaleOrderDetailService.svc</DependentUpon>
+    </Compile>
     <Compile Include="SaleOrderService.svc.cs">
       <DependentUpon>SaleOrderService.svc</DependentUpon>
     </Compile>

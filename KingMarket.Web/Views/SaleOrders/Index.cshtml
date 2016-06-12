@@ -1,0 +1,100 @@
+﻿@model PagedList.IPagedList<KingMarket.Model.Models.SaleOrder>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-5 col-md-5">
+        <h3>Sale Orders</h3>
+    </div>
+    <div class="col-xs-12 col-sm-7 col-md-7 form-inline-padding-right">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Index", "SaleOrders", FormMethod.Get, htmlAttributes: new { @class = "form-inline pull-right" }))
+            {
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Search", @type = "search" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<hr class="empty">
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("Date Order", "Index", new { sortOrder = ViewBag.DateOrderSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    @Html.ActionLink("Document Type", "Index", new { sortOrder = ViewBag.DocumentTypeSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    @Html.ActionLink("Document Number", "Index", new { sortOrder = ViewBag.DocumentNumberSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    @Html.Label("Status")
+                </th>
+                <th>
+                    @Html.Label("Sub Total")
+                </th>
+                <th>
+                    @Html.Label("Tax")
+                </th>
+                <th>
+                    @Html.Label("Total")
+                </th>
+                <th>
+                    @Html.Label("Actions")
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = item.SaleOrderId })" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-folder-close"></span>  View</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+<nav class="text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</nav>

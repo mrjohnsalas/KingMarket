@@ -17,7 +17,6 @@ namespace KingMarket.Service
     {
         private readonly ISaleOrderRepository repository;
         private readonly IProductRepository productRepository;
-        private readonly ISaleOrderDetailRepository saleOrderDetailrepository;
         private readonly ICartItemRepository cartItemrepository;
         private readonly IUnitOfWork unitOfWork;
 
@@ -27,7 +26,6 @@ namespace KingMarket.Service
             repository = new SaleOrderRepository(db);
             unitOfWork = new UnitOfWork(db);
             productRepository = new ProductRepository(db);
-            saleOrderDetailrepository = new SaleOrderDetailRepository(db);
             cartItemrepository = new CartItemRepository(db);
         }
 
@@ -71,8 +69,8 @@ namespace KingMarket.Service
                     products.Add(product);
                 }
                 //CREO LA ORDEN
-                var docNumber = repository.GetAll().Max();
-                myObject.DocumentNumber = docNumber == null ? ("1").PadLeft(10, '0') : docNumber.ToString().PadLeft(10, '0');
+                var saleOrder = repository.GetAll().Max();
+                myObject.DocumentNumber = saleOrder == null ? ("1").PadLeft(10, '0') : (saleOrder.SaleOrderId + 1).ToString().PadLeft(10, '0');
                 repository.Add(myObject);
                 //ACTUALIZO PRODUCTOS
                 foreach (var item in products)

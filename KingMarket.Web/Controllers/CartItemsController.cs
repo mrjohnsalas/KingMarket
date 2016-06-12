@@ -176,6 +176,8 @@ namespace KingMarket.Web.Controllers
         [Authorize(Roles = "Admin, Customer")]
         public ActionResult Index()
         {
+            var pageSize = 10;
+            var pageNumber = 1;
             var proxyC = new CustomerServiceClient();
             var customer = proxyC.GetCustomerByEmail(User.Identity.GetUserName());
             var proxy = new CartItemServiceClient();
@@ -212,8 +214,6 @@ namespace KingMarket.Web.Controllers
                 proxyS.CreateSaleOrder(saleOrder);
                 ViewBag.OkMessage = String.Format("Sucess Message: Sale order: {0} has been successfully created.", saleOrder.SaleOrderId);
                 cartItems = proxy.GetCartItemsByCustomerId(customer.CustomerId);
-                var pageSize = 10;
-                var pageNumber = 1;
                 return View(cartItems.ToPagedList(pageNumber, pageSize));
             }
             catch (FaultException<GeneralException> ex)
@@ -221,7 +221,7 @@ namespace KingMarket.Web.Controllers
                 ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
                 ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
             }
-            return RedirectToAction("Index");
+            return View(cartItems.ToPagedList(pageNumber, pageSize));
         }
 
         private ActionResult CallError(string errorCode, string errorMessage, List<CartItem> cartItems)

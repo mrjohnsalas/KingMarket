@@ -31,11 +31,32 @@ namespace KingMarket.Model.Models
         [StringLength(30, ErrorMessage = "The field {0} must be between {2} and {1} characters", MinimumLength = 8)]
         public string DocumentNumber { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:P2}", ApplyFormatInEditMode = false)]
-        public decimal Tax { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [DataType(DataType.Currency)]
+        [NotMapped]
+        public decimal Tax { get { return SubTotal * 0.18M; } }
 
         [Required(ErrorMessage = "You must enter {0}")]
         public int StatusId { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [DataType(DataType.Currency)]
+        [NotMapped]
+        public decimal SubTotal
+        {
+            get
+            {
+                var total = 0M;
+                if(SaleOrderDetails != null && SaleOrderDetails.Count > 0)
+                    SaleOrderDetails.ToList().ForEach(d => total += d.Total);
+                return total;
+            }
+        }
+
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [DataType(DataType.Currency)]
+        [NotMapped]
+        public decimal Total { get {return SubTotal + Tax;} }
 
         public virtual Customer Customer { get; set; }
 

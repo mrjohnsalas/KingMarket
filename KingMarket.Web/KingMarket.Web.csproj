@@ -183,6 +183,7 @@
     <Compile Include="Controllers\ProductPhotosController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
+    <Compile Include="Controllers\SaleOrdersController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\SupplierContactsController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
@@ -237,6 +238,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\ProductTypeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SaleOrderDetailService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -311,6 +317,7 @@
     <Content Include="Properties\DataSources\KingMarket.Model.Models.CartItem.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.SaleOrder.datasource" />
     <Content Include="Properties\DataSources\KingMarket.Model.Models.BuyOrder.datasource" />
+    <Content Include="Properties\DataSources\KingMarket.Model.Models.SaleOrderDetail.datasource" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -416,6 +423,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SaleOrderDetailService\SaleOrderDetailService.wsdl" />
+    <None Include="Service References\SaleOrderDetailService\SaleOrderDetailService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SaleOrderDetailService\SaleOrderDetailService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SaleOrderDetailService\SaleOrderDetailService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SaleOrderService\SaleOrderService.wsdl" />
     <None Include="Service References\SaleOrderService\SaleOrderService.xsd">
       <SubType>Designer</SubType>
@@ -520,6 +537,13 @@
     <None Include="Service References\BuyOrderService\configuration91.svcinfo" />
     <None Include="Service References\BuyOrderService\configuration.svcinfo" />
     <None Include="Service References\BuyOrderService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SaleOrderDetailService\SaleOrderDetailService.disco" />
+    <None Include="Service References\SaleOrderDetailService\configuration91.svcinfo" />
+    <None Include="Service References\SaleOrderDetailService\configuration.svcinfo" />
+    <None Include="Service References\SaleOrderDetailService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -681,6 +705,8 @@
     <Content Include="Views\CartItems\Edit.cshtml" />
     <Content Include="Views\BuyOrders\Create.cshtml" />
     <Content Include="Views\BuyOrders\AddProductOrder.cshtml" />
+    <Content Include="Views\SaleOrders\Index.cshtml" />
+    <Content Include="Views\SaleOrders\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -715,6 +741,7 @@
     <WCFMetadataStorage Include="Service References\ProductPhotoService\" />
     <WCFMetadataStorage Include="Service References\ProductService\" />
     <WCFMetadataStorage Include="Service References\ProductTypeService\" />
+    <WCFMetadataStorage Include="Service References\SaleOrderDetailService\" />
     <WCFMetadataStorage Include="Service References\SaleOrderService\" />
     <WCFMetadataStorage Include="Service References\StatusService\" />
     <WCFMetadataStorage Include="Service References\SupplierContactService\" />

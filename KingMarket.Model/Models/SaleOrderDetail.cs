@@ -34,6 +34,10 @@ namespace KingMarket.Model.Models
         [DataType(DataType.Currency)]
         public decimal Quantity { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [NotMapped]
+        public decimal Total { get { return Quantity*UnitPrice; } }
+
         public virtual SaleOrder SaleOrder { get; set; }
 
         public virtual Product Product { get; set; }
