@@ -31,6 +31,6 @@ Lista de articulos - U201425240 - John Salas
 
 [Ventajas de WCF ¿Cuales son las ventajas de WCF sobre Web service?](http://salasjohn.blogspot.pe/2016/06/ventajas-de-wcf-cuales-son-las-ventajas.html)
 
-Bogggers:
+Boggers:
 
 Saul Ramos: s-distribuidos.blogspot.com
