@@ -22,6 +22,7 @@ UserId: manager@kingmarket.com
 Password: M@n123456
 
 Lista de articulos - U201425240 - John Salas
+
 [El famoso error: "System.ServiceModel.FaultException'1 was not handle by user code" cuando trabajamos con WCF.](http://salasjohn.blogspot.pe/2016/06/el-famoso-error-system.html)
 
 [Como crear un servicio WCF en Visual Studio 2013 con Entity Framework](http://salasjohn.blogspot.pe/2016/06/como-crear-un-servicio-wcf-en-visual.html)
