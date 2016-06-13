@@ -57,5 +57,6 @@ D:\John\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\bin\Debug\Microsoft.Owin.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Model\obj\Debug\KingMarket.Model.pdb

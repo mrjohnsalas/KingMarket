@@ -47,7 +47,7 @@ namespace KingMarket.Web.Controllers
             else
             {
                 var supplier = proxyS.GetSupplierByEmail(User.Identity.GetUserName());
-                proxy.GetBuyOrdersBySupplierId(supplier.SupplierId);
+                buyOrders = proxy.GetBuyOrdersBySupplierId(supplier.SupplierId);
             }
             if (buyOrders != null)
             {
