@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ProductQueue.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\BuyOrder.cs" />
     <Compile Include="Models\BuyOrderDetail.cs" />

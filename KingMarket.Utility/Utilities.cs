@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using KingMarket.Model.Models;
+using System.Messaging;
 
 namespace KingMarket.Utility
 {
@@ -98,6 +99,43 @@ namespace KingMarket.Utility
         public static void EditEntity<T>(T obj, string uri)
         {
             CreateOrEditEntity(obj, uri, "PUT");
+        }
+
+        public static void WriteQueue<T>(string pathQueue, T obj, string label)
+        {
+            if (!MessageQueue.Exists(pathQueue))
+                MessageQueue.Create(pathQueue);
+            var queue = new MessageQueue(pathQueue);
+            var message = new Message()
+            {
+                Label = label,
+                Body = obj
+            };
+            queue.Send(message);
+            queue.Dispose();
+        }
+
+        public static List<T> ReadQueue<T>(string pathQueue, bool deleteMessages = false)
+        {
+            try
+            {
+                if (!MessageQueue.Exists(pathQueue))
+                    return null;
+                var entities = new List<T>();
+                using (var queue = new MessageQueue(pathQueue))
+                {
+                    queue.Formatter = new XmlMessageFormatter(new[] { typeof(T) });
+                    var messages = queue.GetAllMessages();
+                    entities.AddRange(messages.Select(message => (T)message.Body));
+                    if (deleteMessages)
+                        queue.Purge();
+                }
+                return entities;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static FaultException<GeneralException> GetException(Exception ex, string action)

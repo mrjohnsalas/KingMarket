@@ -6,6 +6,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using KingMarket.Model.Models;
+using KingMarket.Utility;
+using KingMarket.Web.BuyOrderService;
 using KingMarket.Web.ProductTypeService;
 using KingMarket.Web.ProductService;
 using KingMarket.Web.UnitMeasureService;
@@ -38,12 +40,12 @@ namespace KingMarket.Web.Controllers
             ViewBag.CurrentFilter = searchString;
 
             var products = proxy.GetProducts();
-            var proxyP = new ProductTypeServiceClient();
+            var proxyT = new ProductTypeServiceClient();
             var proxyU = new UnitMeasureServiceClient();
             var proxyF = new ProductPhotoServiceClient();
             foreach (var item in products)
             {
-                item.ProductType = proxyP.GetProductType(item.ProductTypeId);
+                item.ProductType = proxyT.GetProductType(item.ProductTypeId);
                 item.UnitMeasure = proxyU.GetUnitMeasure(item.UnitMeasureId);
                 var photo = proxyF.GetProductPhotoDefaultByProductId(item.ProductId);
                 item.ProductPhotos = new List<ProductPhoto> { photo };
@@ -87,6 +89,46 @@ namespace KingMarket.Web.Controllers
                 default:
                     products = products.OrderBy(p => p.Name).ToList();
                     break;
+            }
+
+            //SI HAY PRODUCTOS ERN LA COLA
+            //CREO LA ORDEN DE COMPTA CON LOS 
+            //PRODUCTOS DE LA COLA
+            if (User.IsInRole("Buyer"))
+            {
+                var pathQueue = @".\private$\products";
+                var productsQueue = Utilities.ReadQueue<ProductQueue>(pathQueue, true);
+                if (productsQueue != null && productsQueue.Count > 0)
+                {
+                    var buyOrder = new BuyOrder
+                    {
+                        UserId = User.Identity.GetUserId(),
+                        SupplierId = 1,
+                        DocumentTypeId = 6,
+                        StatusId = 6,
+                        BuyOrderDetails = new List<BuyOrderDetail>()
+                    };
+                    var proxyP = new ProductServiceClient();
+                    foreach (var item in productsQueue)
+                    {
+                        var product = proxyP.GetProduct(item.ProductId);
+                        if (product != null)
+                        {
+                            buyOrder.BuyOrderDetails.Add(new BuyOrderDetail
+                            {
+                                ProductId = product.ProductId,
+                                Name = product.Name,
+                                UnitPrice = product.UnitPrice,
+                                Quantity = 10
+                            });   
+                        }
+                    }
+                    if (buyOrder.BuyOrderDetails.Count > 0)
+                    {
+                        var proxyB = new BuyOrderServiceClient();
+                        proxyB.CreateBuyOrder(buyOrder);   
+                    }
+                }
             }
 
             int pageSize = 6;

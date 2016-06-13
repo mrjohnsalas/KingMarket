@@ -70,7 +70,8 @@ namespace KingMarket.Service
                     products.Add(product);
                 }
                 //CREO LA ORDEN
-                var saleOrder = repository.GetAll().Max();
+                var saleOrder = repository.GetAll().OrderByDescending(o => o.SaleOrderId).FirstOrDefault();
+                //var saleOrder = repository.GetAll().Max();
                 myObject.DocumentNumber = saleOrder == null
                     ? ("1").PadLeft(10, '0')
                     : (saleOrder.SaleOrderId + 1).ToString().PadLeft(10, '0');
@@ -81,6 +82,24 @@ namespace KingMarket.Service
                 //VACIO CARRITO DE COMPRAS
                 cartItemrepository.Delete(c => c.CustomerId.Equals(myObject.CustomerId));
                 unitOfWork.Commit();
+                //CREO LA COLA DE MENSAJES CON LOS ARTICULOS 
+                //QUE TIENEN STOCK POR DEBAJO DE STOCK MINIMO
+                //Y QUE NO ESTEN EN LA COLA
+                var pathQueue = @".\private$\products";
+                var productsQueue = Utilities.ReadQueue<ProductQueue>(pathQueue);
+                foreach (var item in products)
+                {
+                    item.CartItems = null;
+                    if (item.Stock > item.MinStock) continue;
+                    if(productsQueue == null)
+                        Utilities.WriteQueue(pathQueue, new ProductQueue {ProductId = item.ProductId, Name = item.Name}, String.Format("Product: {0}", item.ProductId));
+                    else
+                    {
+                        var product = productsQueue.Find(p => p.ProductId.Equals(item.ProductId));
+                        if(product == null)
+                            Utilities.WriteQueue(pathQueue, new ProductQueue { ProductId = item.ProductId, Name = item.Name }, String.Format("Product: {0}", item.ProductId));
+                    }
+                }
             }
             catch (FaultException<GeneralException> gException)
             {
