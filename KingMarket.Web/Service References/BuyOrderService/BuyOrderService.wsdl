@@ -13,6 +13,12 @@
   <wsdl:message name="IBuyOrderService_GetBuyOrdersByUserId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBuyOrdersByUserIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IBuyOrderService_GetBuyOrdersBySupplierId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyOrdersBySupplierId" />
+  </wsdl:message>
+  <wsdl:message name="IBuyOrderService_GetBuyOrdersBySupplierId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyOrdersBySupplierIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IBuyOrderService_GetBuyOrder_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBuyOrder" />
   </wsdl:message>
@@ -33,6 +39,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBuyOrderService/GetBuyOrdersByUserId" message="tns:IBuyOrderService_GetBuyOrdersByUserId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBuyOrderService/GetBuyOrdersByUserIdResponse" message="tns:IBuyOrderService_GetBuyOrdersByUserId_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetBuyOrdersBySupplierId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBuyOrderService/GetBuyOrdersBySupplierId" message="tns:IBuyOrderService_GetBuyOrdersBySupplierId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBuyOrderService/GetBuyOrdersBySupplierIdResponse" message="tns:IBuyOrderService_GetBuyOrdersBySupplierId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetBuyOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IBuyOrderService/GetBuyOrder" message="tns:IBuyOrderService_GetBuyOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBuyOrderService/GetBuyOrderResponse" message="tns:IBuyOrderService_GetBuyOrder_OutputMessage" />
@@ -47,6 +57,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetBuyOrdersByUserId">
       <soap:operation soapAction="http://tempuri.org/IBuyOrderService/GetBuyOrdersByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyOrdersBySupplierId">
+      <soap:operation soapAction="http://tempuri.org/IBuyOrderService/GetBuyOrdersBySupplierId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

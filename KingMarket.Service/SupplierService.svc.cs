@@ -8,6 +8,7 @@ using System.Text;
 using KingMarket.Data.Infrastructure;
 using KingMarket.Data.Repositories;
 using KingMarket.Model.Models;
+using KingMarket.Utility;
 
 namespace KingMarket.Service
 {
@@ -36,6 +37,12 @@ namespace KingMarket.Service
             return myObject;
         }
 
+        public Supplier GetSupplierByEmail(string email)
+        {
+            var myObject = repository.Get(e => e.Email.Equals(email));
+            return myObject;
+        }
+
         public void CreateSupplier(Supplier myObject)
         {
             try
@@ -43,35 +50,13 @@ namespace KingMarket.Service
                 repository.Add(myObject);
                 unitOfWork.Commit();
             }
+            catch (FaultException<GeneralException> gException)
+            {
+                throw gException;
+            }
             catch (Exception ex)
             {
-                SqlException sqlException = null;
-                var tmp = ex;
-                while (sqlException == null && tmp != null)
-                {
-                    if (tmp == null) continue;
-                    sqlException = tmp.InnerException as SqlException;
-                    tmp = tmp.InnerException;
-                }
-                if (sqlException != null)
-                {
-                    if (sqlException.Number.Equals(2601))
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
-                        }, new FaultReason("Error when trying to create."));
-                    }
-                    else
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = sqlException.Message
-                        }, new FaultReason("Error when trying to create."));
-                    }
-                }
+                throw Utilities.GetException(ex, "create.");
             }
         }
 
@@ -82,35 +67,13 @@ namespace KingMarket.Service
                 repository.Update(myObject);
                 unitOfWork.Commit();
             }
+            catch (FaultException<GeneralException> gException)
+            {
+                throw gException;
+            }
             catch (Exception ex)
             {
-                SqlException sqlException = null;
-                var tmp = ex;
-                while (sqlException == null && tmp != null)
-                {
-                    if (tmp == null) continue;
-                    sqlException = tmp.InnerException as SqlException;
-                    tmp = tmp.InnerException;
-                }
-                if (sqlException != null)
-                {
-                    if (sqlException.Number.Equals(2601))
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
-                        }, new FaultReason("Error when trying to edit."));
-                    }
-                    else
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = sqlException.Message
-                        }, new FaultReason("Error when trying to edit."));
-                    }
-                }
+                throw Utilities.GetException(ex, "edit.");
             }
         }
 
@@ -122,35 +85,13 @@ namespace KingMarket.Service
                 repository.Delete(myObject);
                 unitOfWork.Commit();
             }
+            catch (FaultException<GeneralException> gException)
+            {
+                throw gException;
+            }
             catch (Exception ex)
             {
-                SqlException sqlException = null;
-                var tmp = ex;
-                while (sqlException == null && tmp != null)
-                {
-                    if (tmp == null) continue;
-                    sqlException = tmp.InnerException as SqlException;
-                    tmp = tmp.InnerException;
-                }
-                if (sqlException != null)
-                {
-                    if (sqlException.Number.Equals(547))
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = "Can not be deleted, there are records referenced."
-                        }, new FaultReason("Error when trying to delete."));
-                    }
-                    else
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = sqlException.Message
-                        }, new FaultReason("Error when trying to delete."));
-                    }
-                }
+                throw Utilities.GetException(ex, "delete.");
             }
         }
     }

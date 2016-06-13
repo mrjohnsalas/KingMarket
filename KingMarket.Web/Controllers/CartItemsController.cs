@@ -142,9 +142,11 @@ namespace KingMarket.Web.Controllers
             var proxyP = new ProductServiceClient();
             var proxyT = new ProductTypeServiceClient();
             var proxyU = new UnitMeasureServiceClient();
+            var proxyC = new CustomerServiceClient();
             cartItem.Product = proxyP.GetProduct(cartItem.ProductId);
             cartItem.Product.ProductType = proxyT.GetProductType(cartItem.Product.ProductTypeId);
             cartItem.Product.UnitMeasure = proxyU.GetUnitMeasure(cartItem.Product.UnitMeasureId);
+            cartItem.Customer = proxyC.GetCustomerByEmail(User.Identity.GetUserName());
             return View(cartItem);
         }
 
@@ -152,7 +154,7 @@ namespace KingMarket.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Customer")]
-        public ActionResult Edit([Bind(Include = "CartItemId,UserId,DateCreated,ProductId,Quantity")] CartItem cartItem)
+        public ActionResult Edit([Bind(Include = "CartItemId,CustomerId,DateCreated,ProductId,Quantity")] CartItem cartItem)
         {
             try
             {
@@ -220,6 +222,13 @@ namespace KingMarket.Web.Controllers
             {
                 ViewBag.ErrorCode = String.Format("Error Code: {0}", ex.Detail.Id);
                 ViewBag.ErrorMessage = String.Format("Error Message: {0}", ex.Detail.Description);
+            }
+            var proxyT = new ProductTypeServiceClient();
+            var proxyU = new UnitMeasureServiceClient();
+            foreach (var item in cartItems)
+            {
+                item.Product.ProductType = proxyT.GetProductType(item.Product.ProductTypeId);
+                item.Product.UnitMeasure = proxyU.GetUnitMeasure(item.Product.UnitMeasureId);
             }
             return View(cartItems.ToPagedList(pageNumber, pageSize));
         }

@@ -68,6 +68,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BuyOrderDetailService.svc" />
     <Content Include="BuyOrderService.svc" />
     <Content Include="CartItemService.svc" />
     <Content Include="ClassDocumentTypeService.svc" />
@@ -90,6 +91,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyOrderDetailService.svc.cs">
+      <DependentUpon>BuyOrderDetailService.svc</DependentUpon>
+    </Compile>
     <Compile Include="BuyOrderService.svc.cs">
       <DependentUpon>BuyOrderService.svc</DependentUpon>
     </Compile>
@@ -114,6 +118,7 @@
     <Compile Include="EmployeeTypeService.svc.cs">
       <DependentUpon>EmployeeTypeService.svc</DependentUpon>
     </Compile>
+    <Compile Include="IBuyOrderDetailService.cs" />
     <Compile Include="IBuyOrderService.cs" />
     <Compile Include="ICartItemService.cs" />
     <Compile Include="IClassDocumentTypeService.cs" />
@@ -180,6 +185,10 @@
     <ProjectReference Include="..\KingMarket.Model\KingMarket.Model.csproj">
       <Project>{58db515e-b01f-4769-b240-e39f47283912}</Project>
       <Name>KingMarket.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KingMarket.Utility\KingMarket.Utility.csproj">
+      <Project>{2FC50CA2-5769-443D-8AE3-C8ADB4B19557}</Project>
+      <Name>KingMarket.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

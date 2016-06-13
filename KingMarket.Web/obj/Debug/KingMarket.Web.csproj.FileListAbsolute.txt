@@ -244,11 +244,11 @@ D:\John\Desktop\KingMarket\KingMarket.Web\bin\Microsoft.Owin.Security.MicrosoftA
 D:\John\Desktop\KingMarket\KingMarket.Web\obj\Debug\KingMarket.Web.csprojResolveAssemblyReference.cache
 D:\John\Desktop\KingMarket\KingMarket.Web\obj\Debug\KingMarket.Web.dll
 D:\John\Desktop\KingMarket\KingMarket.Web\obj\Debug\KingMarket.Web.pdb
-\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\EntityFramework.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\KingMarket.Web.dll.config
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\KingMarket.Web.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\KingMarket.Web.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\Antlr3.Runtime.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\EntityFramework.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\EntityFramework.SqlServer.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\KingMarket.Model.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Web\bin\KingMarket.Utility.dll

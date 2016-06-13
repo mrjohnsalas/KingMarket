@@ -16,6 +16,9 @@ namespace KingMarket.Service
         IEnumerable<BuyOrder> GetBuyOrdersByUserId(string userId);
 
         [OperationContract]
+        IEnumerable<BuyOrder> GetBuyOrdersBySupplierId(int supplierId);
+
+        [OperationContract]
         BuyOrder GetBuyOrder(int id);
 
         [FaultContract(typeof(GeneralException))]

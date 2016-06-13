@@ -27,6 +27,12 @@ namespace KingMarket.Web.EmployeeService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployee", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeResponse")]
         System.Threading.Tasks.Task<KingMarket.Model.Models.Employee> GetEmployeeAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeByEmail", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByEmailResponse")]
+        KingMarket.Model.Models.Employee GetEmployeeByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeByEmail", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByEmailResponse")]
+        System.Threading.Tasks.Task<KingMarket.Model.Models.Employee> GetEmployeeByEmailAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/IEmployeeService/CreateEmployeeGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void CreateEmployee(KingMarket.Model.Models.Employee myObject);
@@ -90,6 +96,14 @@ namespace KingMarket.Web.EmployeeService {
         
         public System.Threading.Tasks.Task<KingMarket.Model.Models.Employee> GetEmployeeAsync(int id) {
             return base.Channel.GetEmployeeAsync(id);
+        }
+        
+        public KingMarket.Model.Models.Employee GetEmployeeByEmail(string email) {
+            return base.Channel.GetEmployeeByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<KingMarket.Model.Models.Employee> GetEmployeeByEmailAsync(string email) {
+            return base.Channel.GetEmployeeByEmailAsync(email);
         }
         
         public void CreateEmployee(KingMarket.Model.Models.Employee myObject) {

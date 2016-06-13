@@ -4,5 +4,17 @@ D:\John\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.dll
 D:\John\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\KingMarket.Utility.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\KingMarket.Utility.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\KingMarket.Model.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\Microsoft.Owin.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\EntityFramework.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\Owin.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\KingMarket.Model.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\Microsoft.Owin.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\bin\Debug\EntityFramework.xml
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Utility\obj\Debug\KingMarket.Utility.pdb

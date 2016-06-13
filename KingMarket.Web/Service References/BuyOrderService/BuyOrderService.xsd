@@ -15,6 +15,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetBuyOrdersBySupplierId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplierId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBuyOrdersBySupplierIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="GetBuyOrdersBySupplierIdResult" nillable="true" type="q2:ArrayOfBuyOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetBuyOrder">
     <xs:complexType>
       <xs:sequence>
@@ -25,14 +39,14 @@
   <xs:element name="GetBuyOrderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="GetBuyOrderResult" nillable="true" type="q2:BuyOrder" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="GetBuyOrderResult" nillable="true" type="q3:BuyOrder" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateBuyOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="myObject" nillable="true" type="q3:BuyOrder" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models" minOccurs="0" name="myObject" nillable="true" type="q4:BuyOrder" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

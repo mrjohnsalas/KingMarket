@@ -18,6 +18,9 @@ namespace KingMarket.Service
         [OperationContract]
         Supplier GetSupplier(int id);
 
+        [OperationContract]
+        Supplier GetSupplierByEmail(string email);
+
         [FaultContract(typeof(GeneralException))]
         [OperationContract]
         void CreateSupplier(Supplier myObject);

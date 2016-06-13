@@ -19,7 +19,6 @@
       <xs:element minOccurs="0" name="StatusId" type="xs:int" />
       <xs:element minOccurs="0" name="Supplier" nillable="true" type="tns:Supplier" />
       <xs:element minOccurs="0" name="SupplierId" type="xs:int" />
-      <xs:element minOccurs="0" name="Tax" type="xs:decimal" />
       <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -250,7 +249,6 @@
       <xs:element minOccurs="0" name="SaleOrderId" type="xs:int" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="tns:Status" />
       <xs:element minOccurs="0" name="StatusId" type="xs:int" />
-      <xs:element minOccurs="0" name="Tax" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SaleOrder" nillable="true" type="tns:SaleOrder" />

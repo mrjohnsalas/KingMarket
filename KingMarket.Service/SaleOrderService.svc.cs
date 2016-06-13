@@ -8,6 +8,7 @@ using System.Text;
 using KingMarket.Data.Infrastructure;
 using KingMarket.Data.Repositories;
 using KingMarket.Model.Models;
+using KingMarket.Utility;
 
 namespace KingMarket.Service
 {
@@ -56,21 +57,23 @@ namespace KingMarket.Service
                         throw new FaultException<GeneralException>(new GeneralException()
                         {
                             Id = "SO-C-01",
-                            Description = string.Format("Article {0} no longer exists.", item.ProductId)
+                            Description = string.Format("Article: {0} no longer exists.", item.ProductId)
                         }, new FaultReason("Error when trying to create."));
                     //ARTICULO TIENE STOCK
                     if (product.Stock < item.Quantity)
                         throw new FaultException<GeneralException>(new GeneralException()
                         {
                             Id = "BO-C-02",
-                            Description = string.Format("The article {0} has sufficient stock.", item.ProductId)
+                            Description = string.Format("The article: {0} has sufficient stock.", product.Name)
                         }, new FaultReason("Error when trying to create."));
                     product.Stock -= item.Quantity;
                     products.Add(product);
                 }
                 //CREO LA ORDEN
                 var saleOrder = repository.GetAll().Max();
-                myObject.DocumentNumber = saleOrder == null ? ("1").PadLeft(10, '0') : (saleOrder.SaleOrderId + 1).ToString().PadLeft(10, '0');
+                myObject.DocumentNumber = saleOrder == null
+                    ? ("1").PadLeft(10, '0')
+                    : (saleOrder.SaleOrderId + 1).ToString().PadLeft(10, '0');
                 repository.Add(myObject);
                 //ACTUALIZO PRODUCTOS
                 foreach (var item in products)
@@ -79,35 +82,13 @@ namespace KingMarket.Service
                 cartItemrepository.Delete(c => c.CustomerId.Equals(myObject.CustomerId));
                 unitOfWork.Commit();
             }
+            catch (FaultException<GeneralException> gException)
+            {
+                throw gException;
+            }
             catch (Exception ex)
             {
-                SqlException sqlException = null;
-                var tmp = ex;
-                while (sqlException == null && tmp != null)
-                {
-                    if (tmp == null) continue;
-                    sqlException = tmp.InnerException as SqlException;
-                    tmp = tmp.InnerException;
-                }
-                if (sqlException != null)
-                {
-                    if (sqlException.Number.Equals(2601))
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
-                        }, new FaultReason("Error when trying to create."));
-                    }
-                    else
-                    {
-                        throw new FaultException<GeneralException>(new GeneralException()
-                        {
-                            Id = sqlException.Number.ToString(),
-                            Description = sqlException.Message
-                        }, new FaultReason("Error when trying to create."));
-                    }
-                }
+                throw Utilities.GetException(ex, "create.");
             }
         }
     }

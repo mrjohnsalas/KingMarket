@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using KingMarket.Model.Models;
 
 namespace KingMarket.Utility
 {
@@ -95,6 +98,39 @@ namespace KingMarket.Utility
         public static void EditEntity<T>(T obj, string uri)
         {
             CreateOrEditEntity(obj, uri, "PUT");
+        }
+
+        public static FaultException<GeneralException> GetException(Exception ex, string action)
+        {
+            SqlException sqlException = null;
+            var tmp = ex;
+            while (sqlException == null && tmp != null)
+            {
+                sqlException = tmp.InnerException as SqlException;
+                tmp = tmp.InnerException;
+            }
+            if (sqlException == null) return null;
+            if (sqlException.Number.Equals(2601))
+            {
+                return new FaultException<GeneralException>(new GeneralException()
+                {
+                    Id = sqlException.Number.ToString(),
+                    Description = string.Format("Cannot insert duplicate value. The duplicate key value is: {0}", sqlException.Message.Split('(', ')')[1])
+                }, new FaultReason(string.Format("Error when trying to {0}", action)));
+            }
+            if (sqlException.Number.Equals(547))
+            {
+                return new FaultException<GeneralException>(new GeneralException()
+                {
+                    Id = sqlException.Number.ToString(),
+                    Description = "Can not be deleted, there are records referenced."
+                }, new FaultReason(string.Format("Error when trying to {0}", action)));
+            }
+            return new FaultException<GeneralException>(new GeneralException()
+            {
+                Id = sqlException.Number.ToString(),
+                Description = sqlException.Message
+            }, new FaultReason(string.Format("Error when trying to {0}", action)));
         }
     }
 }

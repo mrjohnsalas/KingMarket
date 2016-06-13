@@ -21,6 +21,12 @@ namespace KingMarket.Web.BuyOrderService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBuyOrderService/GetBuyOrdersByUserId", ReplyAction="http://tempuri.org/IBuyOrderService/GetBuyOrdersByUserIdResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.BuyOrder>> GetBuyOrdersByUserIdAsync(string userId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBuyOrderService/GetBuyOrdersBySupplierId", ReplyAction="http://tempuri.org/IBuyOrderService/GetBuyOrdersBySupplierIdResponse")]
+        System.Collections.Generic.List<KingMarket.Model.Models.BuyOrder> GetBuyOrdersBySupplierId(int supplierId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBuyOrderService/GetBuyOrdersBySupplierId", ReplyAction="http://tempuri.org/IBuyOrderService/GetBuyOrdersBySupplierIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.BuyOrder>> GetBuyOrdersBySupplierIdAsync(int supplierId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBuyOrderService/GetBuyOrder", ReplyAction="http://tempuri.org/IBuyOrderService/GetBuyOrderResponse")]
         KingMarket.Model.Models.BuyOrder GetBuyOrder(int id);
         
@@ -68,6 +74,14 @@ namespace KingMarket.Web.BuyOrderService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.BuyOrder>> GetBuyOrdersByUserIdAsync(string userId) {
             return base.Channel.GetBuyOrdersByUserIdAsync(userId);
+        }
+        
+        public System.Collections.Generic.List<KingMarket.Model.Models.BuyOrder> GetBuyOrdersBySupplierId(int supplierId) {
+            return base.Channel.GetBuyOrdersBySupplierId(supplierId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<KingMarket.Model.Models.BuyOrder>> GetBuyOrdersBySupplierIdAsync(int supplierId) {
+            return base.Channel.GetBuyOrdersBySupplierIdAsync(supplierId);
         }
         
         public KingMarket.Model.Models.BuyOrder GetBuyOrder(int id) {

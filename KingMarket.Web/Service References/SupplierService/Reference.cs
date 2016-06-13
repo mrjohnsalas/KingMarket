@@ -27,6 +27,12 @@ namespace KingMarket.Web.SupplierService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/GetSupplier", ReplyAction="http://tempuri.org/ISupplierService/GetSupplierResponse")]
         System.Threading.Tasks.Task<KingMarket.Model.Models.Supplier> GetSupplierAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/GetSupplierByEmail", ReplyAction="http://tempuri.org/ISupplierService/GetSupplierByEmailResponse")]
+        KingMarket.Model.Models.Supplier GetSupplierByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/GetSupplierByEmail", ReplyAction="http://tempuri.org/ISupplierService/GetSupplierByEmailResponse")]
+        System.Threading.Tasks.Task<KingMarket.Model.Models.Supplier> GetSupplierByEmailAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupplierService/CreateSupplier", ReplyAction="http://tempuri.org/ISupplierService/CreateSupplierResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KingMarket.Model.Models.GeneralException), Action="http://tempuri.org/ISupplierService/CreateSupplierGeneralExceptionFault", Name="GeneralException", Namespace="http://schemas.datacontract.org/2004/07/KingMarket.Model.Models")]
         void CreateSupplier(KingMarket.Model.Models.Supplier myObject);
@@ -90,6 +96,14 @@ namespace KingMarket.Web.SupplierService {
         
         public System.Threading.Tasks.Task<KingMarket.Model.Models.Supplier> GetSupplierAsync(int id) {
             return base.Channel.GetSupplierAsync(id);
+        }
+        
+        public KingMarket.Model.Models.Supplier GetSupplierByEmail(string email) {
+            return base.Channel.GetSupplierByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<KingMarket.Model.Models.Supplier> GetSupplierByEmailAsync(string email) {
+            return base.Channel.GetSupplierByEmailAsync(email);
         }
         
         public void CreateSupplier(KingMarket.Model.Models.Supplier myObject) {

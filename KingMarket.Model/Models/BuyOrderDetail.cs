@@ -45,6 +45,10 @@ namespace KingMarket.Model.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DeliveryDate { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [NotMapped]
+        public decimal Total { get { return Quantity * UnitPrice; } }
+
         public virtual BuyOrder BuyOrder { get; set; }
 
         public virtual Product Product { get; set; }

@@ -68,12 +68,14 @@ D:\John\Desktop\KingMarket\KingMarket.Service\obj\Debug\KingMarket.Service.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.dll
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Utility.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\Microsoft.AspNet.Identity.Core.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\Microsoft.Owin.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\Owin.dll
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Data.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Model.pdb
+\\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\KingMarket.Utility.pdb
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.xml
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\EntityFramework.SqlServer.xml
 \\vmware-host\Shared Folders\Desktop\KingMarket\KingMarket.Service\bin\Microsoft.AspNet.Identity.EntityFramework.xml
